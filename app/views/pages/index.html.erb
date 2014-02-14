@@ -1,0 +1,8 @@
+pages/index.html.erb
+
+<%= @adventure %>
+<% @pages.each do |pg| %>
+  <%= pg.name %>
+  <%= pg.text %>
+  <%= pg.id %>
+<% end %>

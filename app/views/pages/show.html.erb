@@ -1,0 +1,23 @@
+pages/show.html.erb
+
+<%= @page.name %> <br>
+
+<%= simple_format(linkify_page(@page)) %>
+
+
+<div>
+
+<%= @adventure.title %>
+
+[[some text here| name_of_page]]
+<%= form_for [@adventure, @adventure.pages.new] do |f| %>
+  <%= f.text_field :name, placeholder: "name" %>
+  <%= f.text_area :text, placeholder: "[[some text here| name_of_page]]" %>
+  <%= f.submit %>
+
+  <%#= link_to "add new pages", new_adventure_page_path(@adventure) %>
+<% end %>
+
+<%= link_to "back to adventures", adventures_path %>
+
+</div>

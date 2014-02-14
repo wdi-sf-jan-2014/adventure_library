@@ -47,6 +47,9 @@ gem 'unicorn'
 
 gem 'sidekiq'
 
+
+gem 'bootstrap-sass', '~> 3.1.1'
+
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
 
