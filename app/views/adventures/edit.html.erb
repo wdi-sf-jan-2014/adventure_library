@@ -1,2 +1,22 @@
 <h1>Adventures#edit</h1>
 <p>Find me in app/views/adventures/edit.html.erb</p>
+
+<%= form_for @adventure do |a| %>
+  <%= a.label :title %>
+  <%= a.text_field :title %></br>
+  <%= a.label :author %>
+  <%= a.text_field :author %></br></br>
+  <%= a.submit %>
+
+  <h3>Comments</h3>
+  <% @adventure.pages.each do |page| %>
+    <label>Page Name:</label>
+    <%= page.name %></br>
+    <label>Page Text:</label><br>
+    <%= page.text %><br>
+    <%= link_to "Edit Page", edit_adventure_page_path(@adventure.id, page.id) %>
+    <br></br>
+
+  <%end%>
+
+<%end%>
