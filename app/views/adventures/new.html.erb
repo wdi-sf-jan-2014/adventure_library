@@ -11,7 +11,7 @@
     <h3>Your first page</h3>
     
     <%= f.fields_for :pages, @adventure.pages.build do |b| %>
-      <%= b.text_field :name, value: "Start", disabled: true, class: "form-control", required: true %>
+      <%= b.text_field :name, value: "start", readonly: true, class: "form-control", required: true %>
       <%= b.text_area :text, placeholder: "Write your story here", class: "form-control" %>
     <% end %>
     

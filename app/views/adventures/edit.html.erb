@@ -1,5 +1,5 @@
 <div class="header">
-  <h1>Edit @adventure.name</h1>
+  <h1>Edit title</h1>
 </div>
 
 <div>
@@ -9,18 +9,4 @@
   <%= f.submit class: "btn btn-success btn-lg" %>
 
 <% end %>
-</div>
-
-<div>
-  <h3>Pages</h3>
-  <%= link_to "Add", new_adventure_page_path(@adventure, page), class: "btn btn-success btn-xs" %>
-  <ul>
-    <% @adventure.pages.each do |page| %>
-
-      <li><%= page.name %> 
-          <%= link_to "Edit", edit_adventure_page_path(@adventure, page), class: "btn btn-success btn-xs" %>
-          <%= link_to "Delete", { action: "destroy", id: [@adventure, page] }, method: :delete, data: { confirm: "Are you sure?"}, class: "btn btn-danger btn-xs" %>
-      </li>
-    <% end %>
-  </ul>
 </div>

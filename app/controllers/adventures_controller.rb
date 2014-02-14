@@ -1,7 +1,7 @@
 class AdventuresController < ApplicationController
   
   def index
-    @adventures = Adventure.find_by(library_id: nil)
+    @adventures = Adventure.where(library_id: nil)
   end
 
   def new
@@ -11,7 +11,7 @@ class AdventuresController < ApplicationController
   def create
     adv = Adventure.new(get_adv_params)
     if adv.save
-      redirect_to adventure_page_path(adv, adv.start)
+      redirect_to adventure_page_path(adv.id, adv.start.id)
     else
       flash[:warning] = "Sorry, your adventure wasn't formatted properly. Try again."
       render :new
@@ -25,19 +25,20 @@ class AdventuresController < ApplicationController
   def update
     adventure = Adventure.find(params[:id])
     adventure.update_attributes(get_adv_params)
+    redirect_to adventures_path
   end
 
-  def destroy
-    adventure = Adventure.find(params[:id])
-    adventure.delete
-    redirect_to: adventures_path
-  end
+  # def destroy
+  #   adventure = Adventure.find(params[:id])
+  #   adventure.delete
+  #   redirect_to adventures_path
+  # end
 
   private
 
   def get_adv_params
     params.require(:adventure)
-          .permit(:title, :author, pages_attributes: [:name, :text])  
+          .permit(:title, :author, pages_attributes: [ :name, :text ])  
   end
 
 end
