@@ -11,6 +11,6 @@
  *= require_self
  *= require_tree .
  */
-.header { margin-bottom: 60px; }
+.header { margin-bottom: 30px; }
 h1 { margin-bottom: 30px; }
 .btn-success { margin-top: 10px;}

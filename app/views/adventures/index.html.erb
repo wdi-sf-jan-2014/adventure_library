@@ -1,0 +1,16 @@
+<div class="header">
+  <h1>My Adventures</h1>
+</div>
+
+<div>
+  <ul> 
+  <% @adventures.each do |adv| %>
+  
+    <li>
+      <%= link_to adv.title, adventure_page(adv, adv.start) %><br />
+      by <%= adv.author %>
+    </li>
+
+  <% end %>
+  </ul>
+</div>
