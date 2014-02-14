@@ -36,15 +36,11 @@ ActiveRecord::Schema.define(version: 20140214021638) do
   create_table "pages", force: true do |t|
     t.string   "name"
     t.text     "body"
-    t.string   "guid"
     t.integer  "adventure_id"
-    t.integer  "pageable_id"
-    t.string   "pageable_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "pages", ["adventure_id"], name: "index_pages_on_adventure_id", using: :btree
-  add_index "pages", ["pageable_id", "pageable_type"], name: "index_pages_on_pageable_id_and_pageable_type", using: :btree
 
 end
