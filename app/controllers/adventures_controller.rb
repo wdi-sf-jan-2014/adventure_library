@@ -6,10 +6,15 @@ class AdventuresController < ApplicationController
   def new
     # form to create a new adventure
     @adventure = Adventure.new
-    
   end
 
   def create
+    adventure = Adventure.new(params.require(:adventure).permit(:title, :author, pages_attributes: [:name, :text]))
+    if adventure.save
+      redirect_to adventure_path(adventure.id)
+    else
+      render :new
+    end
   end
 
   def show
