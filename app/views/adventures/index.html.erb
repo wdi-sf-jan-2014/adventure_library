@@ -1,7 +1,9 @@
+<h1>all stories</h1>
+<a href="adventures/new">add a new adventure</a><br><br>
+
 <% @adventure.each do |a| %>
 <% num = a.title.length %>
 <%= "*" * (num+2) %><br>
-<%= a.title.capitalize %><br>
+<a href="adventures/<%= a.id %>"><%= a.title.capitalize %></a><br>
 by <%= a.author.capitalize %><br>
-<%= button_to 'delete', "adventures/#{a.id}", :method => :delete%><br>
 <% end %>

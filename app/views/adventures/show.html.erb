@@ -1,1 +1,6 @@
-<h3><%= @adventure.title.capitalize %><br>by <%= @adventure.author.capitalize %></h3>
+<h3><%= @adventure.title %><br>by <%= @adventure.author %></h3>
+guid: <%= @adventure.guid %><br><br>
+<a href="<%=@adventure.id%>/edit">edit this story</a><br>
+<%= button_to 'delete', "#{@adventure.id}", :method => :delete%><br>
+<a href="/adventures">see all adventures</a><br>
+<a href="/adventures/new">create a new adventure</a><br>
