@@ -3,6 +3,7 @@ class AdventuresController < ApplicationController
   end
   
   def new
+    @adventure = Adventure.new
   end
 
   def create
