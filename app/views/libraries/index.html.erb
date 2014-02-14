@@ -1,0 +1,15 @@
+<div class="header">
+  <h1>Libraries</h1>
+  <%= link_to "Add library", new_library_path, class: "btn btn-success btn-xs" %>
+</div>
+<div>
+  <ul> 
+  <li><%= link_to "Your library", adventures_path %></li>
+
+  <% @libraries.each do |lib| %>
+
+    <li><%= link_to lib.url, lib.url %></li>
+
+  <% end %>
+  </ul>
+</div>
