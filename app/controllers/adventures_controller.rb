@@ -9,9 +9,10 @@ class AdventuresController < ApplicationController
   end
 
   def create
-    adventure = Adventure.new(params.require(:adventure).permit(:title, :author, pages_attributes: [:name, :text]))
+    # raise params.inspect
+    adventure = Adventure.new(params.require(:adventure).permit(:title, :author, pages_attributes: [ :name, :text ]))
     if adventure.save
-      redirect_to adventure_path(adventure.id)
+      redirect_to new_adventure_page_path(adventure.id)
     else
       render :new
     end
@@ -19,6 +20,9 @@ class AdventuresController < ApplicationController
 
   def show
     # show/start your adventure, with link to page 1 "/adventures/:adventure_id/"
+    @adventure = Adventure.find(params[:id])
+    binding.pry
+    @first_page = @adventure.pages.find_by_id(1)
   end
 
   def delete

@@ -8,7 +8,7 @@
   <%= a.text_field :author %></br></br>
 
   <h3>Add Page</h3>
-  <%= a.fields_for :page, @adventure.pages.build do |p|%>
+  <%= a.fields_for :pages, @adventure.pages.build do |p|%>
     <%= p.label :name %>
     <%= p.text_field :name %></br>
     <%= p.label :text %></br>
