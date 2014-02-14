@@ -9,7 +9,7 @@
   <%= a.submit %>
 
 
-  <h3>Comments</h3>
+  <h3>Pages</h3>
   <% @adventure.pages.each do |page| %>
     <label>Page Name:</label>
     <%= page.name %></br>
@@ -17,7 +17,7 @@
     <%= page.text %><br>
     <%= link_to "Edit Page", edit_adventure_page_path(@adventure.id, page.id) %>
     <br></br>
-
   <%end%>
+  <%= link_to "Add Page", new_adventure_page_path(@adventure.id) %>
 
 <%end%>

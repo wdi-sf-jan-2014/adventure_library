@@ -8,11 +8,14 @@ class PagesController < ApplicationController
   end
 
   def create 
-    adventure = Adventure.find(params[:adventure_id])
-    page = adventure.pages.create(params.require(:page).permit(:name, :text))
+    # raise params.inspect
+    @adventure = Adventure.find(params[:adventure_id])
+    page = @adventure.pages.create(params.require(:page).permit(:name, :text))
     if page.save
-      redirect_to new_adventure_page_path(adventure.id)
+      redirect_to new_adventure_page_path(@adventure.id)
+
     else 
+
       render :new
     end
   end

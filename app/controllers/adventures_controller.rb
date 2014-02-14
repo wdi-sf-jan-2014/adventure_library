@@ -11,7 +11,7 @@ class AdventuresController < ApplicationController
 
   def create
     # raise params.inspect
-    adventure = Adventure.new(params.require(:adventure).permit(:title, :author, pages_attributes: [ :name, :text ]))
+    adventure = Adventure.new(adv_params)
     if adventure.save
       redirect_to new_adventure_page_path(adventure.id)
     else
@@ -32,4 +32,16 @@ class AdventuresController < ApplicationController
   def edit
     @adventure = Adventure.find(params[:id])
   end
+
+  def update
+    @adventure = Adventure.find(params[:id])
+    @adventure.update_attributes(adv_params)
+    redirect_to adventure_path
+  end
+
+private 
+  def adv_params
+    params.require(:adventure).permit(:title, :author, pages_attributes: [ :name, :text ])
+  end
+
 end
