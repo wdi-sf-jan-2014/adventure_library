@@ -47,6 +47,8 @@ gem 'unicorn'
 
 gem 'sidekiq'
 
+gem 'ancestry'
+
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
 
