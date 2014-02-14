@@ -166,6 +166,7 @@ DEPENDENCIES
   pry
   pry-byebug
   rails (= 4.0.2)
+  redis
   rspec-rails
   sass-rails (~> 4.0.0)
   sdoc
