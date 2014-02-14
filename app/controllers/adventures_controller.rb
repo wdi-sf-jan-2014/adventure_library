@@ -1,6 +1,7 @@
 class AdventuresController < ApplicationController
   def index
     # root page with all the adventures
+    @adventures = Adventure.all
   end
 
   def new
@@ -23,7 +24,9 @@ class AdventuresController < ApplicationController
     @adventure = Adventure.find(params[:id])
   end
 
-  def delete
+  def destroy
+    @adventure = Adventure.find(params[:id]).destroy
+    redirect_to adventures_path
   end
 
   def edit
