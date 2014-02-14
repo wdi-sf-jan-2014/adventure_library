@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 name = "Stu"
 adv = Adventure.create(:title => "#{name}'s Test Adventure",
-	:author => name)
+	:author => name, :guid => SecureRandom.urlsafe_base64(10))
 adv.pages.create!(:name => "start",
 	:text => "This is a great text adventure which is beginning right now!  I can't wait to [[see the end|end]]")
 adv.pages.create!(:name => "end",

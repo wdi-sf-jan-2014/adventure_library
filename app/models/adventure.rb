@@ -1,21 +1,19 @@
 class Adventure < ActiveRecord::Base
-  has_many :pages
-  belongs_to :library
+has_many :pages
+belongs_to :library
 
-  accepts_nested_attributes_for :pages
+accepts_nested_attributes_for :pages
 
-before_save :add_guid
+# before_save :add_guid
 
 def start
   Page.find_by(adventure_id: id, name: "start")
 end
 
+# private
 
-
-private
-
-def add_guid
-  guid = SecureRandom.urlsafe_base64(10)
-end
+# def add_guid
+#   guid = 
+# end
 
 end
