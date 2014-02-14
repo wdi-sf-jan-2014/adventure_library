@@ -5,6 +5,8 @@ class AdventuresController < ApplicationController
 
   def new
     # form to create a new adventure
+    @adventure = Adventure.new
+    
   end
 
   def create
