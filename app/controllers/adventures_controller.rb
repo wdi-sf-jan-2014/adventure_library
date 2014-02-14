@@ -26,6 +26,9 @@ class AdventuresController < ApplicationController
   end
 
   def destroy
+  @adventure = Adventure.find(params[:id])
+  @adventure.destroy
+  redirect_to adventures_path
   end
 
 end

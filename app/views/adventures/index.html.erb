@@ -2,6 +2,6 @@
 <% num = a.title.length %>
 <%= "*" * (num+2) %><br>
 <%= a.title.capitalize %><br>
-by <%= a.author.capitalize %><br><br>
+by <%= a.author.capitalize %><br>
+<%= button_to 'delete', "adventures/#{a.id}", :method => :delete%><br>
 <% end %>
-
