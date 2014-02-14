@@ -1,0 +1,7 @@
+<% @adventure.each do |a| %>
+<% num = a.title.length %>
+<%= "*" * (num+2) %><br>
+<%= a.title.capitalize %><br>
+by <%= a.author.capitalize %><br><br>
+<% end %>
+

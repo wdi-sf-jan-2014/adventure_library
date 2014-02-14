@@ -35,7 +35,12 @@ end
 group :test, :development do
   gem 'rspec-rails'
   gem 'pry'
+  gem 'better_errors'
   gem 'pry-byebug'
+  gem 'binding_of_caller'
+  gem 'dotenv-rails'
+  gem 'guard-rspec'
+  gem 'database_cleaner'
   gem 'dotenv-rails'
 end
 
@@ -46,6 +51,8 @@ end
 gem 'unicorn'
 
 gem 'sidekiq'
+
+gem 'annotate'
 
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
