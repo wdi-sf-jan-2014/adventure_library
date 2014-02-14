@@ -48,7 +48,7 @@ describe '/adventures' do
       response.should be_success
     end
     it 'returns adventures made on another server' do
-      response.body.should include(@adventures)
+      response.body.should include(@foreign_adventure["author"])
     end 
   end
 
