@@ -20,6 +20,7 @@ describe '/adventures' do
     it 'returns a list of all the adventures made locally' do
       
       @result["adventures"].should_not == nil
+      binding.pry
       @result["adventures"].length.should == 1
       @result["adventures"].first["title"].should == @local_adventure["title"]
     end
@@ -61,6 +62,7 @@ describe '/libraries' do
       it 'returns a list of known libraries' do
            get '/libraries.json'
            result = JSON.parse(response.body)
+           binding.pry
            result["libraries"].first["url"].should == @library.url
       end
     end
