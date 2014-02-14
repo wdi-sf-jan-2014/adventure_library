@@ -7,6 +7,10 @@ gem 'sidekiq'
 
 gem 'unicorn'
 
+gem 'nokogiri'
+
+gem 'typhoeus'
+
 gem 'redis'
 
 # Use postgresql as the database for Active Record
