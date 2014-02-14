@@ -15,7 +15,7 @@ describe LibrariesController do
       response.body.should include @library.url.to_s
     end
      it "returns http success for json" do
-      get "show", {id: @library.id }, {format: :json}
+      get "show", {id: @library.id, format: :json}
       response.status.should == 200
     end
     it "includes library for json" do  
