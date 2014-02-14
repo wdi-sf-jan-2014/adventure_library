@@ -1,0 +1,7 @@
+<%= form_for [@adventure, @page] do |p| %>
+  <%= p.label :name %>
+  <%= p.text_field :name %></br>
+  <%= p.label :text %></br>
+  <%= p.text_area :text %></br>
+  <%= p.submit %>
+<%end%>

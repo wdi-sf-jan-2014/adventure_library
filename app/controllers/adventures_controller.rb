@@ -1,7 +1,11 @@
 class AdventuresController < ApplicationController
   def index
     # root page with all the adventures
-    @adventures = Adventure.all
+    @local_adventures = Adventure.where(:library_id => nil)
+    respond_to do |f|
+      f.html
+      f.json { render :json => {"adventures" => @local_adventures.to_json(except: :id, include: :pages),} }
+    end
   end
 
   def new
@@ -22,6 +26,7 @@ class AdventuresController < ApplicationController
   def show
     # show/start your adventure, with link to page 1 "/adventures/:adventure_id/"
     @adventure = Adventure.find(params[:id])
+    @page = @adventure.pages.where(name: "start")
   end
 
   def destroy

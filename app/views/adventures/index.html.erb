@@ -1,7 +1,7 @@
 <h1>Adventures#index</h1>
 <p>Find me in app/views/adventures/index.html.erb</p>
 
-<% @adventures.each do |adv| %>
+<% @local_adventures.each do |adv| %>
   <%= link_to adv.title, adventure_path(adv.id)%><br>
 
 <%end%>
