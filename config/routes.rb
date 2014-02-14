@@ -1,4 +1,11 @@
 AdventureLibrary::Application.routes.draw do
+  get "pages/index"
+  get "pages/show"
+  get "pages/edit"
+  get "pages/new"
+  get "adventures/index"
+  get "adventures/show"
+  get "adventures/edit"
   resources :adventures do
     resources :pages
   end
