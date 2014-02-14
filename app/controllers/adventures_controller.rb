@@ -2,19 +2,14 @@ class AdventuresController < ApplicationController
 
   def index
     @adventures = Adventure.all
-      local_adventures = []
-    @adventures.each do |adventure|
-      if adventure.library_id == nil
-        local_adventures.push(adventure)
-      end
-    end
+    local_adventures = Adventure.where(:library_id => nil)
     respond_to do |f|
-      f.json { render :json => {"adventures" => local_adventures.as_json(include: :pages)} }
+      f.html
+      f.json { render :json => {"adventures" => local_adventures.as_json(except: :id, include: :pages)} }
     end
-    #   @adventure = Adventure.all
-    # respond_to do |f|
-    #     f.json {render :json => {"adventures" => @adventures.as_json(include: :pages)} }
-    #   end
+
+    # local_adventures = Adventure.find_local_adventures(@adventures)
+    # render :json => {"adventures" => local_adventures}
   end
 
   def new
