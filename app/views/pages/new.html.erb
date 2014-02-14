@@ -1,2 +1,10 @@
-<h1>Pages#new</h1>
-<p>Find me in app/views/pages/new.html.erb</p>
+<h1><%= @adventure.title %></h1>
+
+<h3>Add Page</h3>
+<%= form_for [@adventure, @page] do |p| %>
+  <%= p.label :name %>
+  <%= p.text_field :name %></br>
+  <%= p.label :text %></br>
+  <%= p.text_area :text %></br>
+  <%= p.submit "Add Page" %>
+<%end%>

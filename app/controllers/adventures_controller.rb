@@ -21,8 +21,6 @@ class AdventuresController < ApplicationController
   def show
     # show/start your adventure, with link to page 1 "/adventures/:adventure_id/"
     @adventure = Adventure.find(params[:id])
-    binding.pry
-    @first_page = @adventure.pages.find_by_id(1)
   end
 
   def delete
