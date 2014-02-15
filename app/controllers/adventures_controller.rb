@@ -10,6 +10,10 @@ class AdventuresController < ApplicationController
      end
      def index
   	    @adventures = Adventure.all
+  	    respond_to do |f|
+		    f.html 
+		    f.json { render :json => @adventures}
+         end
      end
      def show
   	     @adventure = Adventure.find(params[:id])
