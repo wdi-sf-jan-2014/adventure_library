@@ -1,0 +1,12 @@
+<h1>Welcome to Adventure, Forever!</h1>
+<h2>Add a new library</h2>
+
+<div>
+
+<%= form_for @library do |f| %>
+  <%= f.label "Add Library" %><br>
+  <%= f.text_field :url, placeholder: "Add website here" %>
+  <%= f.submit "Add Now" %>
+<% end %>
+
+</div>
