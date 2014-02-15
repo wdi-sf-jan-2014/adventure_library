@@ -3,6 +3,8 @@ class PagesController < ApplicationController
   end
 
   def show
+    @adventure = Adventure.find(params[:id])
+    @page = Pages.find(params[:id])
   end
 
   def update

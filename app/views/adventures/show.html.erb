@@ -1,2 +1,3 @@
-<h1>Adventures#show</h1>
-<p>Find me in app/views/adventures/show.html.erb</p>
+<h1><%= @adventure.title %></h1>
+<h2><%= @page.name %></h2><br>
+<p><%= simple_format(linkify_page(@page)) %></p>
