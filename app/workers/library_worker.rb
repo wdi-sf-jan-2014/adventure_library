@@ -5,7 +5,7 @@ class LibraryWorker
     require 'open-uri'
      library_to_search = Library.find(library_id)
 
-     if(library_to_search)
+     if(library_to_search.id != nil && library_to_search)
        uri = url.parse(library_to_search.url)
 
 
@@ -20,11 +20,24 @@ class LibraryWorker
         end
 
         if (link_href.starts_with? 'http://', 'https://')
-          response = Typhoeus.get(link_href)
 
-          library_to_search.links.create(url: link_href, http_response: response.response_code)
+          response = Typhoeus.get(link_href/adventures)
+          result = response.body
+          result['adventures'].each do |adventure|
+              library_to_search.adventures << Adventure.create(adventure)
+          end
+
+          response = Typhoeus.get(link-href/libraries)
+          result = response.body
+          @libraries = Library.all
+          result['libraries'].each do |library|
+            if !@libraries.include?(library.url)
+              Library.create(url:  library.url)
+            end
+          end
         end  
       end
     end
   end
 end
+

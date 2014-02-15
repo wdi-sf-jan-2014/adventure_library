@@ -49,6 +49,9 @@ gem 'sidekiq'
 
 gem 'active_model_serializers'
 
+gem 'unicorn-rails', :groups => [:development, :test]
+
+
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
 
