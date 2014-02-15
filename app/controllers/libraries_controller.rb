@@ -22,6 +22,7 @@ class LibrariesController < ApplicationController
       respond_to do |f|
         f.html { render :new }
         f.json { render :json => :new}
+      end
     end
   end
 

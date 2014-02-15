@@ -51,8 +51,8 @@ gem 'nokogiri'
 
 gem 'typhoeus'
 
-# Use Capistrano for deployment
-# gem 'capistrano', group: :development
+group :production do 
+  gem 'rails_12factor'
+end
 
-# Use debugger
-# gem 'debugger', group: [:development, :test]
+ruby '2.0.0'
