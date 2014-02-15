@@ -1,6 +1,7 @@
 class AdventuresController < ApplicationController
   def index
     # root page with all the adventures
+    @server_adventures = Adventure.where(:library_id => !nil)
     @local_adventures = Adventure.where(:library_id => nil)
     respond_to do |f|
       f.html
@@ -15,9 +16,13 @@ class AdventuresController < ApplicationController
 
   def create
     # raise params.inspect
-    adventure = Adventure.new(adv_params)
-    if adventure.save
-      redirect_to new_adventure_page_path(adventure.id)
+    @adventure = Adventure.new(adv_params)
+    @adventure["guid"] = SecureRandom.urlsafe_base64(10)
+    if @adventure.save
+      respond_to do |f|
+        f.html {redirect_to new_adventure_page_path(@adventure)}
+        f.json #{render :json => @adventure }
+      end
     else
       render :new
     end
@@ -26,7 +31,7 @@ class AdventuresController < ApplicationController
   def show
     # show/start your adventure, with link to page 1 "/adventures/:adventure_id/"
     @adventure = Adventure.find(params[:id])
-    @page = @adventure.pages.where(name: "start")
+    @first_page = @adventure.pages.find_by_name("start")
   end
 
   def destroy
