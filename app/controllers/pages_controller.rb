@@ -5,7 +5,7 @@ class PagesController < ApplicationController
   end
 
   def show
-    @adventure = Adventure.find(params[:id])
+    @adventure = Adventure.find(params[:adventure_id])
     @page = @adventure.pages.find(params[:id])
     respond_to do |format|
       format.html
@@ -17,13 +17,13 @@ class PagesController < ApplicationController
   end
 
   def create
-    @adventure = Adventure.find(params[:id])
+    @adventure = Adventure.find(params[:adventure_id])
     new_page = params.require(:adventure).permit(:title, :author, :pages_attributes =>[:name, :text])
     @page = @adventure.pages.create(new_page)
   end
 
   def new
-    @adventure = Adventure.find(params[:id])
+    @adventure = Adventure.find(params[:adventure_id])
     @page = @adventure.pages.new
   end
 
