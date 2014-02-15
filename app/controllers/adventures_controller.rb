@@ -11,6 +11,7 @@ class AdventuresController < ApplicationController
 
   def new
     @adventure = Adventure.new
+    @page = @adventure.pages
   end
 
   def create 
