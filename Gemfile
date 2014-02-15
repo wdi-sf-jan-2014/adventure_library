@@ -49,6 +49,14 @@ gem 'unicorn'
 
 gem 'sidekiq'
 
+#json for API usage
+gem 'json'
+
+#typhoeus for running HTTP requests in parallel while encapsulating handling logic
+gem 'typhoeus'
+
+gem 'capybara'
+
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
 
