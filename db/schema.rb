@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 20140214055904) do
     t.datetime "updated_at"
   end
 
+  add_index "adventures", ["library_id"], name: "index_adventures_on_library_id", using: :btree
+
   create_table "libraries", force: true do |t|
     t.string   "url"
     t.datetime "created_at"
@@ -38,5 +40,7 @@ ActiveRecord::Schema.define(version: 20140214055904) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "pages", ["adventure_id"], name: "index_pages_on_adventure_id", using: :btree
 
 end

@@ -1,6 +1,11 @@
 <div class="header">
-  <h1>My Adventures</h1>
-  <%= link_to "Add story", new_adventure_path, class: "btn btn-primary btn-xs" %> 
+  <%= link_to "<< Libraries", libraries_path %>
+  <h1>Stu's Adventures</h1>
+  <ul>
+    <li> 
+    <%= link_to "Add story", new_adventure_path, class: "btn btn-primary btn-xs" %>
+    </li>
+  </ul> 
 </div>
 
 <div>
@@ -10,7 +15,7 @@
     <li>
       <%= link_to adv.title, adventure_page_path(adv.id, adv.start.id) %><br />
       by <%= adv.author %><br />
-      <%= link_to "Edit", edit_adventure_path(adv.id), class: "btn btn-success btn-xs" %>
+      <%= link_to "Edit title", edit_adventure_path(adv.id), class: "btn btn-success btn-xs" %>
     </li>
 
   <% end %>

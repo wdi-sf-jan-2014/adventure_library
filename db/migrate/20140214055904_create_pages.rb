@@ -1,7 +1,7 @@
 class CreatePages < ActiveRecord::Migration
   def change
     create_table :pages do |t|
-      t.belongs_to :adventure
+      t.references :adventure, index: true
       t.string :name
       t.text :text
 

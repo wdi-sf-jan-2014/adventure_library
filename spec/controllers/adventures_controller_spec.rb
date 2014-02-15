@@ -32,7 +32,7 @@ describe AdventuresController do
 
   describe "GET 'edit'" do
     it "returns http success" do
-      get 'edit'
+      get '/adventures/3/edit'
       response.should be_success
     end
   end

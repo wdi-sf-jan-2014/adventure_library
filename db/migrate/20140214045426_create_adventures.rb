@@ -1,7 +1,7 @@
 class CreateAdventures < ActiveRecord::Migration
   def change
     create_table :adventures do |t|
-      t.belongs_to :library
+      t.references :library, index: true
       t.string :title
       t.string :author
       t.string :guid
