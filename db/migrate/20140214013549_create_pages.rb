@@ -4,10 +4,8 @@ class CreatePages < ActiveRecord::Migration
       t.string :name
       t.text :text
       t.belongs_to :adventure
-      t.belongs_to :pageable, polymorphic: true
 
       t.timestamps
-      add_index :pages, [:pageable_id, :pageable_type]
 
     end
   end

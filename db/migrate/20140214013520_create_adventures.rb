@@ -3,7 +3,7 @@ class CreateAdventures < ActiveRecord::Migration
     create_table :adventures do |t|
       t.string :title
       t.string :author
-      t.string :GUID
+      t.string :guid
       t.belongs_to :library
 
       t.timestamps
