@@ -7,7 +7,7 @@
   <p><%= f.label :author %><br>
     <%= f.text_field :author %>
   </p>
-  <%= f.fields_for :pages do |ff|%>
+  <%= f.fields_for :page do |ff|%>
     <p>
       <%= ff.label :name, "Page Name" %><br>
       <%= ff.text_field :name %>
