@@ -8,7 +8,7 @@
 	<%= f.text_field :title, placeholder: "Title" %> <br>
 	<%= f.text_field :author, placeholder: "Author" %> <br>
 	</div>
-	<% f.field_for :pages do |p| %> 
+	<% f.fields_for [@local_adventure, @local_adventure.pages.build] do |p| %> 
 	<p>
 		<%= p.text_field :name %> 
 		<%= p.text_area :text %> 
