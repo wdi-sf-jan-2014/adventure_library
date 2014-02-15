@@ -13,17 +13,9 @@ class LibrariesController < ApplicationController
 
   def create
     @library = Library.create(library_params)
-    if @library.save
-      respond_to do |f|
-        f.html { redirect_to libraries_path}
-        f.json { render :json => @library}
-      end
-    else
-      respond_to do |f|
-        f.html { render :new }
-        f.json { render :json => :new}
-      end
-    end
+    AdventuresWorker.perform_async(@library.id)
+    binding.pry
+    redirect_to libraries_path
   end
 
 private 

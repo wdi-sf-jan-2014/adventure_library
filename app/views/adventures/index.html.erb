@@ -9,7 +9,7 @@
 <%= link_to "New Adventure", new_adventure_path %><br> 
 
 <h3>My Friends' Adventures</h3>
-<% @server_adventures.each do |adv| %>
+<% @foreign_adventures.each do |adv| %>
   <%= link_to adv.title, adventure_path(adv.id)%><br>
 <%end%>
 
