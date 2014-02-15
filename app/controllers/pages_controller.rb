@@ -4,7 +4,7 @@ class PagesController < ApplicationController
 
   def show
     @adventure = Adventure.find(params[:id])
-    @page = Pages.find(params[:id])
+    @page = Page.find(params[:id])
   end
 
   def update
