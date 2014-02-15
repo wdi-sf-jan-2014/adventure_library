@@ -1,4 +1,6 @@
+<a href="adventures/new">New Adventure</a>
+<h2>List of adventures:</h2>
 <% @adventures.each do |adventure| %>
-  <%= adventure.title %>
-  <%= adventure.author %>
+  <%= link_to adventure.title, adventure_path(adventure.id) %>
+  By: <%= adventure.author %>
 <% end %>

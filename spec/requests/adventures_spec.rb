@@ -52,9 +52,10 @@ describe '/adventures' do
     end 
   end
 
-  # describe 'POST' do
-  #   it 'adds a locally made adventure'
-  # end
+  describe 'POST' do
+    it 'adds a locally made adventure' do
+      
+  end
 end
 
 describe '/libraries' do
