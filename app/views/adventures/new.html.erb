@@ -8,10 +8,11 @@
 	<%= f.text_field :title, placeholder: "Title" %> <br>
 	<%= f.text_field :author, placeholder: "Author" %> <br>
 	</div>
-	<% f.fields_for [@local_adventure, @local_adventure.pages.build] do |p| %> 
+	<%= f.fields_for :pages, @local_adventure.pages.build do |p| %> 
 	<p>
-		<%= p.text_field :name %> 
-		<%= p.text_area :text %> 
+		<%= p.hidden_field :name, :value => 'Start' %> <br> 
+		<%= p.label "First Page Name: 'Start'" %> <br> 
+		<%= p.text_area :text, :placeholder => 'Body' %> 
 	</p>
 	<% end %> 
 		

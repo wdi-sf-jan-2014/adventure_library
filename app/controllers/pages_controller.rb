@@ -12,6 +12,13 @@ class PagesController < ApplicationController
       redirect_to new_adventure_page_path(@local_adventure.id)
     else 
       render :new
+    end 
+  end 
+
+  def show 
+
+  end 
+
   end 
 
   

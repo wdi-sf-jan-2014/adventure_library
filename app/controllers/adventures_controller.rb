@@ -12,16 +12,15 @@ class AdventuresController < ApplicationController
 
   def show 
     @local_adventure = Adventure.find(params[:id])
-    # @pages = @adventure.pages
-  #   @first_page = @local_adventure.pages.find_by_name("start")
+    @pages = @adventure.pages.find(params[:id])
   end 
 
   def create 
     new_adventure = params.require(:adventure).permit(:title, :author, :pages_attributes => [:name, :text])
     new_adventure["guid"] = SecureRandom.urlsafe_base64(10)
-    binding.pry
+    new_adventure.save
     @local_adventure = Adventure.create(new_adventure)
-    redirect_to adventures_path
+    redirect_to new_adventure_page_path(@local_adventure, @page)
   end 
 
 end
