@@ -7,9 +7,14 @@ class AdventuresWorker
     adv_result = JSON.parse(adv_response.body)
     
     adv_result["adventures"].each do |adventure|
-      # unless @library.adventures.where(guid: adventure["guid"])
-      library.adventures.create(title: adventure["title"], author: adventure["author"], guid: adventure["guid"])
-      # end
+      if @library.adventures.where("guid != ?", adventure["guid"]) != nil
+        adv = library.adventures.create(title: adventure["title"], author: adventure["author"], guid: adventure["guid"])
+      
+        adventure["pages"].each do |page|
+          adv.pages.create(name: page["name"], text: page["text"])
+        end
+      end
     end
+
   end
 end
