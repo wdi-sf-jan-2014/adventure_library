@@ -1,4 +1,4 @@
 class Page < ActiveRecord::Base
-  belong_to :adventure
+  belongs_to :adventure
 
 end
