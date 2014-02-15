@@ -1,11 +1,14 @@
 class AdventuresController < ApplicationController
   def index
+    @adventures = Adventure.all
   end
 
   def new
+  @adventure = Adventure.new()
   end
 
   def create
+    
   end
 
   def show
@@ -14,7 +17,7 @@ class AdventuresController < ApplicationController
   def edit
   end
 
-  def delte
+  def delete
   end
 
   def update
