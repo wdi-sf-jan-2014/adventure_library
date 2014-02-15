@@ -4,3 +4,9 @@
   <h4><%= @adventure.title %></h4>
   <h6><%= @adventure.author %></h6>
 </div>
+
+<div>
+  <% @adventure.pages.each do |page| %>
+    <h6><%= page.name %></h6>
+  <% end %>
+</div>
