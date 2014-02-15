@@ -1,8 +1,12 @@
 <h1>All of Sylvie's Adventure </h1>
 <%= @adventures.each do |adventure| %>
-  <p>Title:<%= adventure.title %></p>
+ <% first_page = adventure.pages.first %>
+ <%= link_to adventure.title, adventure_page_path(adventure.id, first_page.id)%>
+  
   <p>Author:<%= adventure.author %></p>
-  -------------
+  -------------<br/>
 
   <% end %>
+
+
 

@@ -19,5 +19,6 @@ class AdventuresController < ApplicationController
 
   
     
+    
 
 end
