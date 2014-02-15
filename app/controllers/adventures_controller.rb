@@ -1,6 +1,10 @@
 class AdventuresController < ApplicationController
   def index
     @adventure = Adventure.all
+    respond_to do |format|
+      format.html
+      format.json { render json: @adventure }
+    end
   end
 
   def edit
@@ -17,11 +21,18 @@ class AdventuresController < ApplicationController
 
   def new
     @adventure = Adventure.new
+    @adventure.pages.build
+    @page = Page.new
+    @adventure.guid = SecureRandom.urlsafe_base64
   end
 
   def create
     adventure_params = params.require(:adventure).permit(:title, :author, :guid, :library_id)
     @adventure = Adventure.new(adventure_params)
+    @adventure.save
+    @page = Page.new
+    @page.save
+    redirect_to adventure_path(@adventure.id)
   end
 
   def update

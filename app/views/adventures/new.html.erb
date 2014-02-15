@@ -1,2 +1,21 @@
-<h1>Adventures#new</h1>
-<p>Find me in app/views/adventures/new.html.erb</p>
+<h1>Make a New Adventure</h1>
+<%=form_for(@adventure) do |f| %>
+  <p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </p>
+  <p><%= f.label :author %><br>
+    <%= f.text_field :author %>
+  </p>
+  <%= f.fields_for :pages do |ff|%>
+    <p>
+      <%= ff.label :name, "Page Name" %><br>
+      <%= ff.text_field :name %>
+    </p>
+    <p>
+      <%= ff.label :text, "Page Text" %><br>
+      <%= ff.text_area :text %>
+    </p>
+  <% end %>
+  <%= f.submit "Create Adventure" %>
+<% end %>
