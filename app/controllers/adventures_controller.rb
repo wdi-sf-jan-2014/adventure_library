@@ -1,9 +1,10 @@
 class AdventuresController < ApplicationController
   def index
     @adventure = Adventure.all
+    @local_adventure = Adventure.where(:library_id => nil)
     respond_to do |f|
       f.html
-      f.json {render :json => @adventure}
+      f.json {render :json => {"adventures" => @local_adventure.as_json(except: :id, include: :pages)}}
     end
   end
   
