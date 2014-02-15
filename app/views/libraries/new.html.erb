@@ -1,7 +1,7 @@
 <div class="header">
   <h1>Add library URL</h1>
 </div>
-
+<%= render 'shared/alerts' %>
 <%= form_for @library do |f| %>
   <%= f.text_field :url, placeholder: "http://", class: "form-control", autofocus: true %>
   <%= f.submit class: "btn btn-success btn-lg" %>
