@@ -10,9 +10,12 @@ class AdventuresController < ApplicationController
   
   def new
     @adventure = Adventure.new
+    @guid = SecureRandom.urlsafe_base64(10)
   end
 
   def create
+    binding.pry
+    new_adventure = params[:adventure].require(:title, :guid, :author, page_attributes: [:title, :name])
   end
 
   def show
