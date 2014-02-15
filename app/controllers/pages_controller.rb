@@ -5,6 +5,10 @@ class PagesController < ApplicationController
   def show
     @adventure = Adventure.find(params[:id])
     @page = Page.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.json { render json: @page }
+    end
   end
 
   def update

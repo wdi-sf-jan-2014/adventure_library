@@ -9,6 +9,10 @@ class AdventuresController < ApplicationController
   def show
     @adventure = Adventure.find(params[:id])
     @page = @adventure.pages.find(1)
+    respond_to do |format|
+      format.html
+      format.json { render json: @adventure }
+    end
   end
 
   def new

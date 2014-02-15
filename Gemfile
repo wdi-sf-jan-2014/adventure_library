@@ -49,6 +49,8 @@ gem 'sidekiq'
 
 gem 'ancestry'
 
+gem 'active_model_serializers'
+
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
 
