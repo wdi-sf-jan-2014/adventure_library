@@ -5,6 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Adventure.delete_all
+Page.delete_all
 
 adv = Adventure.create!(:title => "Steve Marsh's Test Adventure", :author => "Steve Marsh")
 adv.pages.create!(:name => "start",
