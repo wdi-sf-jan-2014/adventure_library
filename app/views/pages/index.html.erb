@@ -1,0 +1,6 @@
+<h1><%= @adventure.title %></h1> 
+The adventure starts here
+                  <%= @adventure.pages.first.name %>
+   
+
+<%= link_to("Start", adventure_page_path(@adventure.id, @adventure.pages.first.id) , :class => "btn btn-sm btn-primary") %>
