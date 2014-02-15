@@ -17,8 +17,8 @@ class AdventuresController < ApplicationController
       redirect_to new_adventure_page_path(@adventure.id)
     end
 
-  
-    
-    
+   def new
+    @adventure = Adventure.new
+   end
 
 end

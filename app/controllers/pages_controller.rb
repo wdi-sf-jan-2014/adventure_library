@@ -4,6 +4,13 @@ class PagesController < ApplicationController
 
   end
 
+  def new
+    adventure_id= params[:adventure_id]
+    redirect_to adventure_path(adventure_id)
+    end
+
+  
+
   def create
     adventure_id =params[:adventure_id]
     @adventure = Adventure.find(adventure_id)
@@ -12,9 +19,9 @@ class PagesController < ApplicationController
     @page = linkify_page(page)
     redirect_to adventure_page
     respond_to do |format|
-    format.html
-    format.json {render json: @adventure}
-  end
+      format.html
+      format.json {render json: @adventure}
+    end
   end
 
   def edit
@@ -25,8 +32,7 @@ class PagesController < ApplicationController
     @adventure = Adventure.find(adventure_id)
     respond_to do |format|
       format.html
-      format.json {render json: @adventure}  
-      
+      format.json {render json: @adventure} 
     end
   end
 

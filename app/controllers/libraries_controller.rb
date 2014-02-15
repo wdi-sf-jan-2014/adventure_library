@@ -1,7 +1,7 @@
 class LibrariesController < ApplicationController
  
   def index
-    @libraries = library.all
+    @libraries = Library.all
     respond_to do |format|
     format.html
     format.json {render json: @libraries} 

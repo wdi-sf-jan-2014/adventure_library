@@ -1,4 +1,8 @@
 <h1><em><%= @adventure.title %></em></h1>
-<h3>Page <%= @page.name %></h3>
+
 
    <%= sanitize linkify_page(@page) %>
+   <% if @page.name == "end" %>
+     <br/>
+     <div class = "container"><strong><em>The end</em></strong></div.
+   <% end %>
