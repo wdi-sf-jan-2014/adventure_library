@@ -3,7 +3,7 @@
 <% if !@local_adventures.nil? %>
   <% @local_adventures.each do |adventure| %>
     <div>
-      <a href="/adventure/<%= adventure.id %>"><%= 
+      <a href="/adventures/<%= adventure.id %>"><%= 
       adventure.title %>, by <%= adventure.author %></a>
     </div>
   <% end %>
