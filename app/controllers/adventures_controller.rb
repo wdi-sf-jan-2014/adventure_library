@@ -10,7 +10,7 @@ class AdventuresController < ApplicationController
   
   def new
     @adventure = Adventure.new
-    @page = Page.new
+
   end
 
   def create
