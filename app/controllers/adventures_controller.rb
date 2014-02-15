@@ -10,6 +10,10 @@ class AdventuresController < ApplicationController
         @foreign_adventures << ad
       end
     end
+    respond_to do |f|
+      f.html { render :index }
+      f.json { render :json => @local_adventures, :except => [:id, :library_id] }
+    end
   end
 
   def new
