@@ -9,20 +9,11 @@ class LibrariesController < ApplicationController
   end
 
   def create
-    @library = params.require(:library).permit(:title)
+    new_library = params.require(:library).permit(:url)
+      @library = Library.create(new_library)
      LibraryWorker.perform_async(library.id)
      redirect_to '/libraries'
   end
 
-
-  def create
-    url = params.require(:library)[:url]
-    @library = Library.create(url: url)
-    LinksWorker.perform_async(@library.id)
-    respond_to do |f|
-      # go fetch the content of the library
-      # f.html { redirect_to site_path(@site) }
-      # f.json { render :json => @site }
-  end
 
 end

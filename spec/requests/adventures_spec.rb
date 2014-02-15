@@ -12,6 +12,7 @@ describe '/adventures' do
     @foreign_adventure.pages.create(:name => "start", :text => "Chouette histoire, mec.")
 
   end
+  
 	describe 'GET with JSON' do
     before(:each) do 
       get '/adventures.json'
