@@ -1,0 +1,21 @@
+<div class="row">
+	<div class="new_adventure">
+		<h1>Have Some Lorem Ipsum Chaos To Add To Our Library</h1> <br> 
+		<h2>Do So, Below</h2>
+	</div>
+	<div>
+	<%= form_for @local_adventure do |f| %> 
+	<%= f.text_field :title, placeholder: "Title" %> <br>
+	<%= f.text_field :author, placeholder: "Author" %> <br>
+	</div>
+	<% f.field_for :pages do |p| %> 
+	<p>
+		<%= p.text_field :name %> 
+		<%= p.text_area :text %> 
+	</p>
+	<% end %> 
+		
+
+	<%= f.submit %> 
+	<% end %> 
+</div>
