@@ -1,1 +1,12 @@
 adventure/show.html.erb
+
+<%= @adventure.title %>
+<%= @adventure.author %>
+
+<div>
+
+<%= link_to "start adventure", adventure_page_path(@adventure, @first_page) %>
+
+<%= link_to "adventures", adventures_path %>
+
+</div>

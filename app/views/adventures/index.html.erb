@@ -4,11 +4,13 @@ adventure/index.html.erb
 
 <% @adventures.each do |adv| %>
   <h1><%= adv.title %></h1>
-  <h4><%= adv.author %></h4>
+  <p><%= adv.author %></p>
   <%= adv.library_id %>
-  <%= link_to "add new pages", new_adventure_page_path(adv) %>
+  <%= link_to "see this adventure", adventure_path(adv) %><br>
+  <%= link_to "add new pages", new_adventure_page_path(adv) %><br>
 <% end %>
-
+---<br>
 <%= link_to "add new adventures", new_adventure_path %>
 
 </div>
+

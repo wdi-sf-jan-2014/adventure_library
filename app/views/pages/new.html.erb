@@ -4,7 +4,7 @@ pages/new.html.erb
 
 <%= @adventure.title %>
 
-<%= form_for [@adventure, @adventure.pages.new] do |f| %>
+<%= form_for [@adventure, @page] do |f| %>
   <%= f.text_field :name, placeholder: "name" %>
   <%= f.text_area :text, placeholder: "text" %>
   <%= f.submit %>

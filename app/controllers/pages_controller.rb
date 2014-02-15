@@ -11,15 +11,36 @@ class PagesController < ApplicationController
 
   end
 
-  def create
-    page = params.require(:page).permit(:name, :text)
+  # def create
+  #   page = params.require(:page).permit(:name, :text)
+  #   @adventure = Adventure.find(params[:adventure_id])
+  #   @page = @adventure.pages.create(page)
+  #   # redirect_to [@adventure, @page]
+  #   redirect_to new_adventure_page_path(@adventure.id)
+
+  # end
+
+  # def show
+  #   binding.pry
+  #   @adventure = Adventure.find(params[:adventure_id])
+  #   @page = @adventure.pages.find(params[:id])
+  # end
+
+  def create 
+    # raise params.inspect
     @adventure = Adventure.find(params[:adventure_id])
-    @page = @adventure.pages.create(page)
-    redirect_to [@adventure, @page]
+    page = @adventure.pages.create(params.require(:page).permit(:name, :text))
+    if page.save
+      redirect_to new_adventure_page_path(@adventure.id)
+    else 
+      render :new
+    end
   end
 
   def show
     @adventure = Adventure.find(params[:adventure_id])
+    # @first_page = @adventure.pages.find_by_name("start")
+    # binding.pry
     @page = @adventure.pages.find(params[:id])
   end
 
