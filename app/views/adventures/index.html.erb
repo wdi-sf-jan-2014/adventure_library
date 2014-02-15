@@ -1,0 +1,19 @@
+<h1>Adventure Index</h1>
+
+<% if !@local_adventures.nil? %>
+  <% @local_adventures.each do |adventure| %>
+    <div>
+      <a href="/adventure/<%= adventure.id %>"><%= 
+      adventure.title %>, by <%= adventure.author %></a>
+    </div>
+  <% end %>
+<% end %>
+
+<% if !@foreign_adventures.nil? %>
+  <% @foreign_adventures.each do |adventure| %>
+    <div>
+      <a href="/adventure/<%= adventure.id %>"><%= 
+      adventure.title %>, by <%= adventure.author %>, from <%= adventure.library_id %></a>
+    </div>
+  <% end %>
+<% end %>
