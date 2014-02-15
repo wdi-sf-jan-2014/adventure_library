@@ -1,30 +1,26 @@
 class AdventuresController < ApplicationController
 
   def new
-    guid = params.require(:adventure)[:guid]
-    @adventure = Adventure.new(guid: guid)
-    Worker.perform_async(@adventure.guid)
-
-    respond_to do |f|
-      f.html { redirect_to adventure_path(@adventure) }
-      f.json { render :json => @advneture }
+    @adventure = Adventure.new
     end
   end
 
   def edit
-    @adventure = Adventure.find(params[:guid])
+    @adventure = Adventure.find(params[:id])
     f.html
-    f.json {render :json => }
+   # f.json {render :json => }
   end
 
   def update
+    @adventure = Adventure.find(params[:id])
   end
 
   def index
+    @adventures = Adventure.all
   end
 
   def show
-    @adventure = Adventure.find(params[:guid])
+    @adventure = Adventure.find(params[:id])
     @pages = @adventure.pages
     respond_to do |f|
       f.html { redirect_to adventure_path(@adventure) }
@@ -33,9 +29,9 @@ class AdventuresController < ApplicationController
   end
 
   def create
-    guid = params.require(:adventure)[:guid]
-    @adventure = Adventure.create(guid: guid)
-    Worker.perform_async(@adventure.guid)
+    id = params.require(:adventure)[:id]
+    @adventure = Adventure.create(id: id)
+    LibrariesWorker.perform_async(@adventure.id)
 
     respond_to do |f|
       f.html { redirect_to adventure_path(@adventure) }
@@ -44,6 +40,8 @@ class AdventuresController < ApplicationController
   end
 
   def delete
+    @adventure = Adventure.find(params[:id])
+    @adventure.delete
   end
 
 end

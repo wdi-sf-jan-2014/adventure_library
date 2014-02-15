@@ -1,7 +1,14 @@
 <h1>Create your own adventure!</h1>
 
 <%= form_for @adventure do |f| %>
-  <%= f.text_field %>
+  
+  <%= f.field_label :author %>
+  <%= f.text_field :author %><br>
+  
+  <%= f.field_label :title %>
+  <%= f.text_field :title %><br>
+  
+  <%= fields_for :page %>
   <%= f.submit %>
-  <!-- create & assign guid when submit -->
+  <!-- create & assign guid when submit SecureRandom.urlsafe_base64(10) -->
   <% end %>

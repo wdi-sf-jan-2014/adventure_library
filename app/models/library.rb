@@ -1,5 +1,5 @@
 class Library < ActiveRecord::Base
 
-  has_many :adventures, as: :adventurable
+  has_many :adventures
 
 end
