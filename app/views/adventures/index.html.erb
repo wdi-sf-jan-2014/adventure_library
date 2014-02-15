@@ -1,1 +1,8 @@
 index.html.erb
+<%= @adventures.each do |x| %>
+  <%= x.title %> <br>
+  <%= x.author %> <br>
+    <% x.pages.each do |y| %>
+      <%= y.name %> 
+    <% end %>
+<% end %>

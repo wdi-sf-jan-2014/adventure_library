@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe '/adventures' do
+  
   before(:each) do 
     @local_adventure = Adventure.create!(:title => "test",
                                         :author => "Test author")
@@ -10,13 +11,15 @@ describe '/adventures' do
                                     :author => "Foreign author",
                                     :library_id => 4)
     @foreign_adventure.pages.create(:name => "start", :text => "Chouette histoire, mec.")
-
   end
-	describe 'GET with JSON' do
+	
+  describe 'GET with JSON' do
+    
     before(:each) do 
       get '/adventures.json'
       @result = JSON.parse(response.body)
     end
+    
     it 'returns a list of all the adventures made locally' do
       
       @result["adventures"].should_not == nil
@@ -56,7 +59,7 @@ end
 describe '/libraries' do
   before do
     @library = Library.create!(:url => "example.com")
-  end
+  end #include ids?  What needs to be in the libraries response exactly?
     describe 'GET with JSON' do
       it 'returns a list of known libraries' do
            get '/libraries.json'
