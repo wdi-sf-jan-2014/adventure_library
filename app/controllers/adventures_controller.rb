@@ -12,7 +12,7 @@ class AdventuresController < ApplicationController
     end
     respond_to do |f|
       f.html { render :index }
-      f.json { render :json => @local_adventures, :except => [:id, :library_id] }
+      f.json { render :json => {:adventures => @local_adventures.as_json(except: [:id, :library_id], include: {:pages => {except: :id} } )} }
     end
   end
 
@@ -24,7 +24,7 @@ class AdventuresController < ApplicationController
     new_adventure = params.require(:adventure).permit(:title, :author)
     adventure = Adventure.create(new_adventure)
     if adventure
-      redirect_to adventure
+      redirect_to adventure_path(adventure.id)
     else
       render :new
     end
