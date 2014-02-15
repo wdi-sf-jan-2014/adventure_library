@@ -1,0 +1,15 @@
+<div class="container form">
+  <h2> New Adventure </h2>
+  <%= form_for @adventure do |a| %>
+    <%= a.text_field :title, placeholder: "Call your Adventure something" %>
+    <%= a.text_field :author, placeholder: "Who wrote this?" %>
+    <div class="create-pagee">
+    <h2> Adventure's first page </h2>
+    <%= a.fields_for :pages, @adventure.pages.build do |p| %>
+        <%= p.text_field :name, placeholder: "Your Page's Name"  %>
+        <%= p.text_area :text, placeholder: "What story will you tell on this page? Link to another page by typing [[link text|linked_to_page_name]]" %>
+    <% end %>   
+    </div>
+    <%= a.submit %>
+  <% end %>
+</div>

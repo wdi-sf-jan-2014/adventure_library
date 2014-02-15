@@ -1,0 +1,5 @@
+<%= form_for @page do |p| %>
+  <%= p.text_field :name, placeholder: "Your Page's Name"  %>
+  <%= p.text_area :text, placeholder: "What story will you tell on this page? Link to another page by typing [[link text|linked_to_page_name]]" %>
+  <%= p.submit %>
+<% end %>   
