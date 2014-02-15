@@ -1,0 +1,6 @@
+<%=form_for @adventure do |a| %>
+  <%= a.text_field :title, placeholder: 'Title', size: 20  %>
+  <%= a.text_field :author, placeholder: 'Author', size: 20 %>
+    
+  <%= a.submit %>
+<% end %>

@@ -10,7 +10,7 @@ class PagesController < ApplicationController
 
   def create
     @adventure = Adventure.find(params[:adventure_id])
-    new_page = params.require(:page).permit(:body, :adventure_id)
+    new_page = params.require(:page).permit(:text, :adventure_id)
     @page = @adventure.pages.create(new_page)
     redirect_to adventure_path(@adventure.id, @page.id)
   end

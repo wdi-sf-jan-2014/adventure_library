@@ -1,0 +1,17 @@
+<div>
+<h1>Welcome to Story Land</h1>
+ 
+<h3>Choose an adventure!</h3>
+<% @adventures.each do |adventure| %>
+  <li><%= button_to adventure.title, adventure_path(adventure.id), class: "btn btn-primary", method: :get %></li> 
+  <h4>By: <%=adventure.author.capitalize %></h4><br>
+<% end %>
+<br>
+
+<%= form_for @library do |f| %>
+  <%= f.text_field :url %>
+  <%= f.submit %>
+<% end %> 
+
+<%= button_to "Or create a new adventure!", new_adventure_path, class: "btn btn-primary", method: :get %>
+</div>
