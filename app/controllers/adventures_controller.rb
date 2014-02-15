@@ -1,4 +1,4 @@
-class MyAdventuresController < ApplicationController
+class AdventuresController < ApplicationController
   def index
     @adventure = Adventure.all
   end
@@ -24,7 +24,7 @@ class MyAdventuresController < ApplicationController
   end
 
   def destroy
-    @adventure = Adventure.find)params[:id]
+    @adventure = Adventure.find(params[:id])
     @adventure.destroy
     redirect_to root_path
   end

@@ -1,0 +1,7 @@
+<h1>All the adventures</h1>
+<% @adventure.each do |adventure| %>
+  <div class="adventure-title">
+    <%= link_to "#{adventure.title}", adventure %>
+  </div>
+  <br>
+<% end %>
