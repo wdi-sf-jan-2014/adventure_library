@@ -12,7 +12,7 @@ class PagesController < ApplicationController
   def create 
     # raise params.inspect
     @adventure = Adventure.find(params[:adventure_id])
-    page = @adventure.pages.create()
+    page = @adventure.pages.create(page_params)
     if page.save
       redirect_to new_adventure_page_path(@adventure.id)
     else 

@@ -1,7 +1,6 @@
 AdventureLibrary::Application.routes.draw do
     root to: "adventures#index"
-    get "libraries/index", to: "libraries#index", as: "libraries"
-    get "libraries/new", to: "libraries#new", as: "new_library"
+  resources :libraries
     resources :adventures do
       resources :pages
     end
@@ -10,7 +9,7 @@ AdventureLibrary::Application.routes.draw do
 #              Prefix Verb   URI Pattern                                        Controller#Action
 #                root GET    /                                                  adventures#index
 #           libraries GET    /libraries/index(.:format)                         libraries#index
-#         new_library GET    /libraries/new(.:format)                           libraries#new
+#         new_libr`ary GET    /libraries/new(.:format)                           libraries#new
 #     adventure_pages GET    /adventures/:adventure_id/pages(.:format)          pages#index
 #                     POST   /adventures/:adventure_id/pages(.:format)          pages#create
 #  new_adventure_page GET    /adventures/:adventure_id/pages/new(.:format)      pages#new

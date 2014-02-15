@@ -21,7 +21,7 @@ class AdventuresController < ApplicationController
     if @adventure.save
       respond_to do |f|
         f.html {redirect_to new_adventure_page_path(@adventure)}
-        f.json #{render :json => @adventure }
+        f.json {render :json => @adventure }
       end
     else
       render :new
