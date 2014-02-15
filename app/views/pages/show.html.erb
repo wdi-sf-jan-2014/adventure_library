@@ -12,7 +12,7 @@
     <h2><%= @page.name %></h2>
     <ul>
       <li><%= link_to "Edit page", edit_adventure_page_path(@adv.id, @page.id), class: "btn btn-success btn-xs" %></li>
-      <li><%= button_to "Delete page", adventure_page_path(@adv.id, @page.id), :data => { :confirm => "Are you sure?" }, :method => :destroy, class: "btn btn-danger btn-xs" %></li>
+      <li><%= link_to "Delete page", adventure_page_path(@adv.id, @page.id), :data => { :confirm => "Are you sure?" }, :method => :delete, class: "btn btn-danger btn-xs" %></li>
     </ul>
   </div>
 

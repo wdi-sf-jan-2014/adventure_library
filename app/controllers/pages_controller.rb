@@ -19,7 +19,6 @@ class PagesController < ApplicationController
 
     if page.save
       redirect_to adventure_page_path(adv.id, page.id)
-    
     else
         flash[:warning] = "Sorry, your page had errors in it. Try again."
         render :new
@@ -57,6 +56,7 @@ class PagesController < ApplicationController
     page = adv.pages.find(params[:id])
     
     page.name == "start" ? flash[:warning] = "Sorry, you can't delete the first page" : page.delete
+    binding.pry
     redirect_to adventure_page_path(adv.id, adv.start.id)
 
   end
@@ -65,7 +65,7 @@ class PagesController < ApplicationController
 
   def get_page_params
     params.require(:page).permit(:name, :text)
-    
+
   end
 
 end
