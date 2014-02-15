@@ -4,7 +4,7 @@
 <%= f.text_area(:title, placeholder: "Title")%><br>
 <%= f.hidden_field(:guid, value: @guid) %>
 <%= f.text_field(:author, placeholder: "Author") %><br>
-<%= f.fields_for(:page, @adventure.pages.build) do |p| %><br> 
+<%= f.fields_for(:pages, @adventure.pages.build) do |p| %><br> 
 <%= p.hidden_field(:name, value: "start") %><br>
 <%= p.text_area(:text, placeholder: "Page Text") %><br>
 
