@@ -1,5 +1,5 @@
 AdventureLibrary::Application.routes.draw do
-  root "library#index"
+  root "libraries#index"
   resources :libraries, only: [:index, :new, :create]
   resources :adventures do
     resources :pages
