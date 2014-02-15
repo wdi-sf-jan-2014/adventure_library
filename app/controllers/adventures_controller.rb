@@ -1,5 +1,9 @@
 class AdventuresController < ApplicationController
     
+    def index
+        @adventure = Adventure.all
+    end
+
     def create
         @adventure = Adventure.new(params[:adventure].permit(:title, :author, :pages_attributes =>[:name, :text]))
         if @adventure.save

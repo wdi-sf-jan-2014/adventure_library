@@ -3,5 +3,7 @@
 <div>
     <% @adventure.pages.each do |page| %>
         <%= page.text %><br>
+        <%#= simple_format(linkify_page(@page)) %>
     <% end %>
+<a href="#">Write the Next Page</a>
 </div>
