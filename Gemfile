@@ -6,6 +6,12 @@ gem 'rails', '4.0.2'
 # Use postgresql as the database for Active Record
 gem 'pg'
 
+gem "json", "~> 1.8.1"
+
+gem "typhoeus", "~> 0.6.7"
+
+gem "redis", "~> 3.0.7"
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
