@@ -8,7 +8,7 @@ class AdventuresController < ApplicationController
   end
 
   def create
-  @adventure = Adventure.create(params[:adventure].permit(:title, :author, :guid))
+  @adventure = Adventure.create(params[:adventure].permit(:title, :author, :guid, :pages_attributes =>[:name, :text]))
   redirect_to "/adventures/#{@adventure.id}"
   end
 
@@ -17,7 +17,8 @@ class AdventuresController < ApplicationController
   end
 
   def edit
-  @adventure = Adventure.find(params[:id])  
+  @adventure = Adventure.find(params[:id])
+  @page = @adventure.pages.first.id  
   end
 
   def update

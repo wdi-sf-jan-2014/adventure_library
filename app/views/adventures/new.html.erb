@@ -1,9 +1,13 @@
 <h2> Add a new adventure: </h2>
 
 <%= form_for @adventure do |f| %>
-  <%= f.text_field :title, placeholder: "title" %>
-  <%= f.text_field :author, placeholder: "author" %>
+  <%= f.text_field :title, placeholder: "title" %><br>
+  <%= f.text_field :author, placeholder: "author" %><br><br>
   <%= f.hidden_field :guid, :value => SecureRandom.urlsafe_base64(10) %>
+    <%= f.fields_for :pages, @adventure.pages.build do |b| %>
+      <%= b.text_field :name, placeholder: "write the name of your page here" %><br>
+      <%= b.text_area :text, placeholder: "write you adventure here" %><br>
+    <%end%>
   <%= f.submit %>
 <%end%>
 

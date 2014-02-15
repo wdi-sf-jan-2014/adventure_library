@@ -1,11 +1,13 @@
 <h2> Edit your adventure: </h2>
 
-<%= form_for @adventure do |f| %>
-  <%= f.text_field :title, placeholder: "title" %>
-  <%= f.text_field :author, placeholder: "author" %>
-  <%= f.submit %>
-<%end%>
-
+  <%= form_for @adventure do |f| %>
+    <%= @adventure.title %>
+    <%= f.fields_for :pages, @adventure.pages.build do |b| %>
+      <%= b.text_field :text, placeholder: "write the name of your page here" %>
+      <%= b.text_area :text, placeholder: "write you adventure here" %>
+      <%end%>
+    <%= f.submit %>
+  <%end%>
 <br>
 <a href="/adventures">see all adventures</a><br>
 <a href="/adventures/<%=@adventure.id%>">back to adventure</a><br>

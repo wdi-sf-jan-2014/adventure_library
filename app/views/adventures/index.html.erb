@@ -4,6 +4,6 @@
 <% @adventure.each do |a| %>
 <% num = a.title.length %>
 <%= "*" * (num+2) %><br>
-<a href="adventures/<%= a.id %>"><%= a.title.capitalize %></a><br>
-by <%= a.author.capitalize %><br>
+<a href="adventures/<%= a.id %>"><%= a.title %></a><br>
+by <%= a.author %><br>
 <% end %>

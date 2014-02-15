@@ -1,9 +1,23 @@
 AdventureLibrary::Application.routes.draw do
+  get "pages/index"
+  get "pages/create"
+  get "pages/new"
+  get "pages/edit"
+  get "pages/show"
+  get "pages/update"
+  get "pages/destroy"
   resources :adventures do
     resources :pages
   end  
 end
 
+#         pages_index GET    /pages/index(.:format)                             pages#index
+#        pages_create GET    /pages/create(.:format)                            pages#create
+#           pages_new GET    /pages/new(.:format)                               pages#new
+#          pages_edit GET    /pages/edit(.:format)                              pages#edit
+#          pages_show GET    /pages/show(.:format)                              pages#show
+#        pages_update GET    /pages/update(.:format)                            pages#update
+#       pages_destroy GET    /pages/destroy(.:format)                           pages#destroy
 #     adventure_pages GET    /adventures/:adventure_id/pages(.:format)          pages#index
 #                     POST   /adventures/:adventure_id/pages(.:format)          pages#create
 #  new_adventure_page GET    /adventures/:adventure_id/pages/new(.:format)      pages#new
