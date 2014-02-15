@@ -1,7 +1,13 @@
 AdventureLibrary::Application.routes.draw do
+  get "pages/show"
+  get "adventures/new"
+  get "adventures/create"
+  get "adventures/show"
+  get "adventures/delete"
   resources :adventures do
     resources :pages
   end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

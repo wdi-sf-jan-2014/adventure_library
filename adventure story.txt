@@ -1,0 +1,11 @@
+adventure story
+
+1. Johnny hears his alarm ring at 6:00 on a Sunday... he groans and realizes it is way to early for the weekend. Does he sleep in? or Get up?
+  1.a <sleep in> Johnny wakes up head still pounding does he [take [advil]? or [drink [gatorate]] or [go out for a [bloody mary]]?
+
+  [take advil] Johnny takes an advil and sleeps for another few hours. Being a boring indivdiual no one cares to learn more about his Sunday Funday.
+
+  [gatorade] Johnny goes to the fridge and sees that the last gatorade has a note on it, "don't drink" signed by his ex girlfriend. He realizes that she didn't come home with him and his roommmate's door is closed. Does he 
+  [drink the gatorade?] [wake up his roommate and see?]
+
+  [wake up]
