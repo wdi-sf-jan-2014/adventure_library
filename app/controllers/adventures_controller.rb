@@ -1,5 +1,5 @@
 class AdventuresController < ApplicationController
-
+  include PagesHelper
   def index
     @adventures = Adventure.all
     local_adventures = Adventure.where(:library_id => nil)
@@ -7,23 +7,26 @@ class AdventuresController < ApplicationController
       f.html
       f.json { render :json => {"adventures" => local_adventures.as_json(except: :id, include: :pages)} }
     end
-
-    # local_adventures = Adventure.find_local_adventures(@adventures)
-    # render :json => {"adventures" => local_adventures}
   end
 
   def new
+    @adventure = Adventure.new
+    @guid = SecureRandom.urlsafe_base64(10)
   end
 
   def create
+    new_adventure = Adventure.create(adventure_params)
+    redirect_to adventure_path(new_adventure)
   end
 
   def update
   end
 
   def show
-    @adventure = Adventure.all.find(params:id).pages
+    @adventure = Adventure.find(params[:id])
+    @page = @adventure.pages.first
     respond_to do |f|
+        f.html 
         f.json {render :json => {"adventures" => @adventures} }
       end
   end
@@ -32,5 +35,11 @@ class AdventuresController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+
+  def adventure_params
+    params.require(:adventure).permit(:title, :author, :guid, :pages_attributes=>[:name, :text])
   end
 end

@@ -1,2 +1,11 @@
-<h1>Pages#new</h1>
-<p>Find me in app/views/pages/new.html.erb</p>
+<h1> Page for: <%= @parent.title %> </h1>
+
+<%= form_for @page, :url => {:action => "create"} do |f| %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %><br>
+  <%= f.label :text %>
+  <%= f.text_area :text %><br>
+  <%= f.submit %>
+
+<% end %>
