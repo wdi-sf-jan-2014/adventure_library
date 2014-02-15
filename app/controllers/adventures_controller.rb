@@ -10,7 +10,6 @@ class AdventuresController < ApplicationController
   
   def new
     @adventure = Adventure.new
-
   end
 
   def create
