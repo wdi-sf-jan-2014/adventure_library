@@ -17,7 +17,7 @@ class AdventuresController < ApplicationController
   end
 
   def create
-    new_adventure = params.require(:adventure).permit(:library_id, :title, :author)
+    new_adventure = params.require(:adventure).permit(:title, :author)
     adventure = Adventure.create(new_adventure)
     if adventure
       redirect_to adventure
