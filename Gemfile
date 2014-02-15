@@ -6,6 +6,9 @@ gem 'rails', '4.0.2'
 # Use postgresql as the database for Active Record
 gem 'pg'
 
+# Use typhoeus for http request 
+gem 'typhoeus'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
@@ -36,7 +39,15 @@ group :test, :development do
   gem 'rspec-rails'
   gem 'pry'
   gem 'pry-byebug'
+
+  # adds show model, and some object navigation (and some other stuff)
+  gem 'pry-rails'
+
   gem 'dotenv-rails'
+
+  # adds better formatting / printing of objects/variables
+  gem 'awesome_print'
+
 end
 
 # Use ActiveModel has_secure_password
