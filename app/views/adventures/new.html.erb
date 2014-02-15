@@ -1,0 +1,11 @@
+<h1>Adventure Time!</h1>
+
+<%= form_for @adventure do |f| %>
+    <%= f.text_field :title, placeholder: "Adventure Title" %><br>
+    <%= f.text_field :author, placeholder: "Author Name" %><br>
+    <%= f.fields_for :page, @adventure.pages.build do |p| %>
+        <%= p.text_field :name, placeholder: "Page Title" %><br>
+        <%= p.text_area :text, placeholder: "Story Text" %><br>
+    <% end %>
+    <%= f.submit %>
+<% end %>

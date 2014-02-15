@@ -1,0 +1,7 @@
+<h1><%= @adventure.title %></h1>
+<h3>by <%= @adventure.author %></h3>
+<div>
+    <% @adventure.pages.each do |page| %>
+        <%= page.text %><br>
+    <% end %>
+</div>

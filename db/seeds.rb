@@ -6,8 +6,12 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+name = "Matt"
+
+library = Library.create(url: "http://intense_squaredance_1234.heroku.com")
+
 adv = Adventure.create!(:title => "#{name}'s Test Adventure",
-	:author => name)
+	:author => "Matthew Lopez")
 adv.pages.create!(:name => "start",
 	:text => "This is a great text adventure which is beginning right now!  I can't wait to [[see the end|end]]")
 adv.pages.create!(:name => "end",

@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'active_model_serializers'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
 
@@ -33,6 +34,11 @@ group :doc do
 end
 
 group :test, :development do
+  gem 'better_errors'
+  gem 'quiet_assets'
+  gem 'binding_of_caller'
+  gem 'awesome_print'
+  gem 'meta_request'
   gem 'rspec-rails'
   gem 'pry'
   gem 'pry-byebug'
