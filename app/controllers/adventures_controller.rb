@@ -7,9 +7,7 @@ def index
   respond_to do |f|
     f.html
     f.json { render :json => {"adventures" => local_adventures.as_json(except: :id, include: :pages)} }
-    binding.pry
-#    f.json {render json: local_adventures.to_json(only: [:title, :author, :timestamps, :guid], include: [{pages: }])}
-#    f.json { render :json => local_adventures, include => :pages }
+
   end
 end
 
