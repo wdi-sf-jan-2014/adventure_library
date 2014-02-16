@@ -1,6 +1,6 @@
 <h3>ADVENTURE INDEX</h3>
 
-<% if @local_adventures.size > 0 %>
+<% unless @local_adventures.empty? %>
   <% @local_adventures.each do |adventure| %>
     <div>
       <a href="/adventures/<%= adventure.id %>"><%= 
@@ -9,12 +9,10 @@
   <% end %>
 <% end %>
 
-<% if @foreign_adventures.size > 0 %>
+<% unless @foreign_adventures.empty? %>
   <% @foreign_adventures.each do |adventure| %>
     <div>
-      <a href="/adventures/<%= adventure.id %>"><%= 
-      adventure.title %>, by <%= adventure.author 
-      %>, from <%unless adventure.library.url %><%= adventure.library.url  %></a>
+      <a href="/adventures/<%= adventure.id %>"><%= adventure.title %>, by <%= adventure.author %>, from <%= adventure.library.url  %></a>
     <% end %>
     </div>
   <% end %>

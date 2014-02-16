@@ -7,7 +7,7 @@ AdventureLibrary::Application.routes.draw do
     resources :pages, except: [:index, :edit, :update]
   end
 
-  root to: "adventures#index"
+  root to: "adventures#new"
   
 
 end
