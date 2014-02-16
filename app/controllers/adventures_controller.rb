@@ -10,9 +10,10 @@ class AdventuresController < ApplicationController
      end
      def index
   	    @adventures = Adventure.all
+  	    @local_adventures = Adventure.where(library_id: nil)
   	    respond_to do |f|
 		    f.html 
-		    f.json { render :json => {:adventures => @adventures}.to_json(:include => :pages)}
+		    f.json { render :json => {:adventures => @local_adventures}.to_json(:include => :pages)}
          end
      end
      def show

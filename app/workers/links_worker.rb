@@ -3,7 +3,7 @@ class LinksWorker
   def perform(library_id)
 
 #get the other library links from json
-    library = library.find(library_id)
+    library = Library.find(library_id)
     link = library.url + "/libraries.json"
     response = Typhoeus.get(link)
     new_libraries_array = JSON.parse(response.body)["libraries"]
