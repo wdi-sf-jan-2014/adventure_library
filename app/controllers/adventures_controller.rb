@@ -4,8 +4,7 @@ class AdventuresController < ApplicationController
     @adventures = Adventure.all
     @local_adventure = Adventure.where(library_id: nil)
     @foreign_adventure = Adventure.where.not(library_id: nil)
-    # @libraries = Library.all
-    # format do html one thing json do other
+
     respond_to do |f|
       f.html 
       f.json { render :json => {:adventures => @local_adventure.as_json( only: [:title, :author, :library_id, :guid], 

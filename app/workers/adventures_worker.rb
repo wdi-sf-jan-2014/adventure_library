@@ -2,24 +2,27 @@ class AdventuresWorker
   include Sidekiq::Worker
 
   def perform(library_id)
-    library = Library.find(library_id)
+    @library = Library.find(library_id)
 
     if library.url.start_with?("http://")
-      url = library.url + "/adventures.json"
+      url = @library.url + "/adventures.json"
     else
-      url = "http://" + library.url + "/adventures.json"
+      url = "http://" + @library.url + "/adventures.json"
     end
 
     response = Typhoeus.get(url)
     result = JSON.parse(response.body)
-
+binding.pry
     result["adventures"].each do |adventure|
-      x = library.adventures.create(title: adventure["title"], 
+      if @library.adventures.where(title: adventure["title"]) == []
+
+      adv = @library.adventures.create(title: adventure["title"], 
                       author: adventure["author"], guid: adventure["guid"])
 
       adventure["pages"].each do |page|
-        x.pages.create(name: page["name"], text: page["text"])
+        adv.pages.create(name: page["name"], text: page["text"])
       end
+    end
     end
 
   end
