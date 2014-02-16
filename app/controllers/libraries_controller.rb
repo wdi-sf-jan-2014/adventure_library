@@ -1,6 +1,9 @@
 class LibrariesController < ApplicationController
   def index
     @libraries = Library.all
+    @libraries.each do |library|
+      AdventuresWorker.perform_async(library.id)
+    end
     respond_to do |f|
       f.html
       f.json { render :json => {"libraries" => @libraries } }
@@ -14,12 +17,11 @@ class LibrariesController < ApplicationController
   def create
 
     if Library.where(url: params[:library]["url"]) == []
-      @library = Library.create(library_params)  
-        AdventuresWorker.perform_async(@library.id)
+      @library = Library.create(library_params)          
         LibrariesWorker.perform_async(@library.id)
-        redirect_to adventures_path
-      else
         redirect_to libraries_path
+      else
+        redirect_to new_library_path
       end
 
   end
