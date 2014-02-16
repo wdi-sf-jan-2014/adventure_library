@@ -5,4 +5,6 @@ AdventureLibrary::Application.routes.draw do
     resources :pages
   end
 
+  get '/libraries(.:format)', to: "libraries#index"
+
 end
