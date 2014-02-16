@@ -1,20 +1,21 @@
 <h1>Make a New Adventure</h1>
-<%=form_for(@adventure) do |f| %>
+<%=form_for @adventure do |f| %>
   <p>
     <%= f.label :title %><br>
     <%= f.text_field :title %>
   </p>
   <p><%= f.label :author %><br>
     <%= f.text_field :author %>
+    <%= f.hidden_field :guid, :value => SecureRandom.urlsafe_base64(10) %>
   </p>
-  <%= f.fields_for :page, @adventure.pages.build do |ff|%>
+  <%= f.fields_for :pages, @adventure.pages.build do |b|%>
     <p>
-      <%= ff.label :name  %><br>
-      <%= ff.text_field :name, placeholder: "Page Name"%>
+      <%= b.label :name  %><br>
+      <%= b.text_field :name, placeholder: "Page Name"%>
     </p>
     <p>
-      <%= ff.label :text %><br>
-      <%= ff.text_area :text, placeholder: "Page Text" %>
+      <%= b.label :text %><br>
+      <%= b.text_area :text, placeholder: "Page Text" %>
     </p>
   <% end %>
   <%= f.submit "Create Adventure" %>

@@ -18,12 +18,12 @@ class PagesController < ApplicationController
 
   def create
     @adventure = Adventure.find(params[:adventure_id])
-    new_page = params.require(:adventure).permit(:title, :author, :pages_attributes =>[:name, :text])
+    new_page = params.require(:page).permit(:name, :text)
     @page = @adventure.pages.create(new_page)
   end
 
   def new
-    @adventure = Adventure.find(params[:adventure_id])
+    @adventure = Adventure.find(params[:id])
     @page = @adventure.pages.new
   end
 

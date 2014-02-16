@@ -12,7 +12,7 @@ class AdventuresController < ApplicationController
 
   def show
     @adventure = Adventure.find(params[:id])
-    @page = @adventure.pages.find(params[:id])
+    @page = @adventure.pages.find_by(name: "start")
     respond_to do |format|
       format.html
       format.json { render json: @adventure }
@@ -26,11 +26,12 @@ class AdventuresController < ApplicationController
   end
 
   def create
-    adventure_params = params.require(:adventure).permit(:title, :author, :pages_attributes =>[:name, :text])
+    adventure_params = params.require(:adventure).permit(:title, :author, :pages_attributes => [:name, :text])
+
     @adventure = Adventure.new(adventure_params)
     @adventure.save
-    @adventure.guid = SecureRandom.urlsafe_base64
-    redirect_to adventure_path(@adventure.id)
+
+    redirect_to adventures_path
   end
 
   def update

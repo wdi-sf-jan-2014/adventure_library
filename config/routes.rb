@@ -1,11 +1,4 @@
 AdventureLibrary::Application.routes.draw do
-  get "adventures/index"
-  get "adventures/show"
-  get "adventures/edit"
-  get "adventures/update"
-  get "adventures/destroy"
-  get "adventures/new"
-  get "adventures/create"
   resources :libraries
   resources :adventures do
     resources :pages
