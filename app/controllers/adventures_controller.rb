@@ -32,7 +32,7 @@ class AdventuresController < ApplicationController
 
   def show
     @adventure = Adventure.find(params[:id])
-    @start = @adventure.pages.where(:name => "start")
+    @start_page = @adventure.pages.find_by(name: "start")
   end
 
 end

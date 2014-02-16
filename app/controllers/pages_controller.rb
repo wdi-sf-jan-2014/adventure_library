@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
-  include PagesHelper
 
   def new
+    @adventure = Adventure.find(params[:adventure_id])
     @page = Page.new
   end
 
