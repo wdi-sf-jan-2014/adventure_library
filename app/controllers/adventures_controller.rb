@@ -42,7 +42,9 @@ class AdventuresController < ApplicationController
   def update
   end
 
-  def destroy
+  def delete
+    @adventure = Adventure.find(params[:id])
+    @adventure.destroy
   end
 
 
