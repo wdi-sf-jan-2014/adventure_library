@@ -12,16 +12,24 @@ class LibrariesController < ApplicationController
   end
 
   def create
-    if Library.where("url != ?", params[:library]["url"]) == nil
-      binding.pry
-      @library = Library.create(library_params)
-      AdventuresWorker.perform_async(@library.id)
-      # LibrariesWorker.perform_async(@library.id)
-      redirect_to adventures_path
-    else
-      binding.pry
-      redirect_to libraries_path
-    end
+    if Library.where(url: params[:library]["url"]) == []
+      @library = Library.create(library_params)  
+        AdventuresWorker.perform_async(@library.id)
+        LibrariesWorker.perform_async(@library.id)
+        redirect_to adventures_path
+      else
+        redirect_to libraries_path
+      end
+
+  end
+
+  def show
+    @library = Library.find(params[:id])
+  end
+
+  def destroy
+    Library.find(params[:id]).delete
+    redirect_to libraries_path
   end
 
 private 

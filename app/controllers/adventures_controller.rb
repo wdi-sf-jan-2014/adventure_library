@@ -17,7 +17,9 @@ class AdventuresController < ApplicationController
   def create
     # raise params.inspect
     @adventure = Adventure.new(adv_params)
-    @adventure["guid"] = SecureRandom.urlsafe_base64(10)
+    if @adventure["guid"] == nil
+      @adventure["guid"] = SecureRandom.urlsafe_base64(10)
+    end
     if @adventure.save
       respond_to do |f|
         f.html {redirect_to new_adventure_page_path(@adventure)}
