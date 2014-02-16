@@ -15,7 +15,6 @@ class AdventuresController < ApplicationController
   end
 
   def create
-    # raise params.inspect
     @adventure = Adventure.new(adv_params)
     if @adventure["guid"] == nil
       @adventure["guid"] = SecureRandom.urlsafe_base64(10)

@@ -12,6 +12,7 @@ class LibrariesController < ApplicationController
   end
 
   def create
+
     if Library.where(url: params[:library]["url"]) == []
       @library = Library.create(library_params)  
         AdventuresWorker.perform_async(@library.id)
