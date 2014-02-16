@@ -6,7 +6,15 @@
   
   <%= f.text_field :title, placeholder: "Title" %><br>
   
-  <%= form_for (@pages, :text {action: "create"}) %>
+  <%= fields_for @adventure.page do |x| %>
+
+  <%= x.text_field :name, placeholder: "Name" %><br>
+
+  <%= x.field_label :text %><br>
+  <%= x.text_area :text %>
+
+  <% end %>
+
   <%= f.submit %>
   
   <% end %>

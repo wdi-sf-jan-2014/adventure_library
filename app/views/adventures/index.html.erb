@@ -1,3 +1,20 @@
 <h2>Choose your adventure</h2>
 <!-- list all adventures -->
 <!-- click through specific adventure -->
+<table class="table">
+
+  <th>
+    Title
+  </th>
+  <th>
+    Author
+  </th>
+
+  <% @adventures.each do |x| %>
+  <tr>
+    <td><%= link_to "#{x.title}", adventure_page_path(x.id, x.pages.find_by(name: "start").id) %></td>
+    <td><%= x.author %></td>
+  </tr>
+  <% end %>
+
+</table>
