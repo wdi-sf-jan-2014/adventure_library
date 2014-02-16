@@ -1,6 +1,11 @@
 class AdventuresController < ApplicationController
+  def index
+    @library = Library.find_by_url("/adventures")
 
-  def new
+    respond_to do |f|
+      f.html
+      f.json {render json: @library.to_json( include: [ adventures: { include: [ :pages ] } ] )   }
+    end
   end
 
   def show
@@ -9,4 +14,6 @@ class AdventuresController < ApplicationController
   def edit
   end
 
+  def new
+  end
 end
