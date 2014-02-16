@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-
+library = Library.create!(url: "/adventures")
 adv = Adventure.create!(:title => "Kill Me",
 	:author => "Ashley", :guid => "#{SecureRandom.urlsafe_base64(10)}")
 adv.pages.create!(:name => "start",
