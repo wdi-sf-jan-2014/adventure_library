@@ -2,8 +2,11 @@
 <p>Find me in app/views/libraries/index.html.erb</p>
 
 <div class="container">
+  Libraries I've visited:
 <% @libraries.each do |library| %>
 <%= library.url %>
 <% end %>
+
+<%= button_to "See Adventures", adventures_path %>
 
 </div>
