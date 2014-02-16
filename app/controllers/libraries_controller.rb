@@ -16,18 +16,12 @@ class LibrariesController < ApplicationController
 
   def create
     new_url = params.require(:library).premit(:url)
-    scrape(new_url)
-    @foreign_libraries.each do |lib|
-      if Library.find_by(url: lib["url"]).nil?
-      new_lib = Library.create_or_find_by(url: lib["url"])
-
-    end
-    resp.each do |x|
-      adv = lib.adventures.create(title: x["title"], author: x["author"], guid: x["guid"])
-      x["pages"].each do |y|
-        adv.pages.create(name: y["name"], text: y["text"])
-      end
-    end
-    redirect_to libraries_path
+    
+    clean_url = url_cleanup(new_url[:url])
+    lib = Library.find_or_create_by(url: clean_url)
+    
+    LibrariesHelper.perform_async(lib.id)
+    
+    redirect_to adventures_path(lib.id)
   end
 end
