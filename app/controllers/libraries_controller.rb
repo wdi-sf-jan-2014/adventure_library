@@ -3,7 +3,7 @@ class LibrariesController < ApplicationController
     @libraries = Library.all
     respond_to do |f|
       f.html
-      f.json {render :json => @libraries.as_json(root: true)}
+      f.json {render :json => {:libraries => @libraries.as_json}}
     end
   end
 
@@ -17,6 +17,6 @@ class LibrariesController < ApplicationController
     redirect_to libraries_path
   end
 
-  
+
 
 end
