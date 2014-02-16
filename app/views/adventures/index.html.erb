@@ -13,7 +13,8 @@
   <% @foreign_adventures.each do |adventure| %>
     <div>
       <a href="/adventures/<%= adventure.id %>"><%= 
-      adventure.title %>, by <%= adventure.author %>, from <%= adventure.library.url %></a>
+      adventure.title %>, by <%= adventure.author 
+      %>, from <%= adventure.library.url  %><%unless adventure.library.url %></a>
     </div>
   <% end %>
 <% end %>
