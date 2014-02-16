@@ -4,7 +4,7 @@ class LibrariesController < ApplicationController
   end
   def create
     library = Library.create(params[:library].permit(:url))
-    #LinksWorker.perform_async(library.id)
+    LinksWorker.perform_async(library.id)
 
 	 redirect_to libraries_path
   end 
