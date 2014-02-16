@@ -1,5 +1,5 @@
 <h1>All of Sylvie's Adventure </h1>
-<%= @adventures.each do |adventure| %>
+<% @adventures.each do |adventure| %>
  <% first_page = adventure.pages.find_by(name: "start") %>
 
 
