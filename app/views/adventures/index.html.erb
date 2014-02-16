@@ -1,0 +1,10 @@
+<h1>Adventures<h1>
+
+<% @adventures.each do |a| %>
+
+<div>
+  <%= link_to a.title, adventure_path(a.id) %>
+
+</div>
+
+<% end %>
