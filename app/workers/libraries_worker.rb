@@ -8,3 +8,4 @@ class LibrariesWorker
     contents = Nodogiri::HTML(open(adventure.url))
     #contents.
 end
+end

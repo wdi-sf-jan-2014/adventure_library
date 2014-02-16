@@ -1,0 +1,7 @@
+<h3><%= @adventure.body %></h3>
+
+<% @adventure.pages.each do |page| %>
+  <div>
+    <%= page.text %>
+  </div>
+  <% end %>

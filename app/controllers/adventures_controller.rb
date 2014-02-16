@@ -2,7 +2,6 @@ class AdventuresController < ApplicationController
 
   def new
     @adventure = Adventure.new
-    end
   end
 
   def edit
@@ -39,9 +38,5 @@ class AdventuresController < ApplicationController
     end
   end
 
-  def delete
-    @adventure = Adventure.find(params[:id])
-    @adventure.delete
-  end
-
 end
+

@@ -30,10 +30,5 @@ class LibrariesController < ApplicationController
       f.json { render :json => @library}
   end
 
-  def delete
-    @library = Library.find(params[:id])
-    @library.delete
-    redirect_to 
-  end
-
+ end
 end
