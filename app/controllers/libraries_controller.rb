@@ -13,14 +13,16 @@ class LibrariesController < ApplicationController
   end
 
   def create
-    new_lib = params.require(:library).accept(:url)
+    new_lib = params.require(:library).permit(:url)
     library = Library.create(new_lib)
-    response = Typhoeus.get("#{library.url}"+"/libraries.json")
-    JSON.parse(library.url)
-    response["adventures"].each do |adv|
-      library.adventures.create(:title => adv["title"], :authors => adv["author"], :guid => adv["guid"])
-      adv.pages.each do |page|
-        adventure.pages.create(:name => page["name"], :text => page["text"])
+    new_advs = Typhoeus.get("#{library.url}"+"/adventures.json")
+    adventures = JSON.parse(new_advs.body)
+    adventures["adventures"].each do |a|
+      adventure = library.adventures.build(:title => a["title"], :author => a["author"], :guid => a["guid"])
+      if adventure.save
+        a["pages"].each do |p|
+          adventure.pages.create(:name => p["name"], :text => p["text"])
+        end
       end
     end
   end
