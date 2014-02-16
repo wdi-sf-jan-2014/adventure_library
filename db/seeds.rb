@@ -1,6 +1,6 @@
 name = "Mike B"
 
-library = Library.create!(url: "http://stormy-sands-1901.herokuapp.com", name: "#{name}'s Library")
+library = Library.create!(url: "/adventures", name: "#{name}'s Library")
 
 adv = library.adventures.create!(:title => "#{name}'s Terrible Adventure Story",
 	:author => "Mike B")

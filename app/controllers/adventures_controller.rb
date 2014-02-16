@@ -1,4 +1,5 @@
 class AdventuresController < ApplicationController
+
   def index
     @library = Library.find_by_url("/adventures")
 
