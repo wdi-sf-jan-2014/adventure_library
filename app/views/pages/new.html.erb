@@ -5,9 +5,9 @@
       <%= f.text_field :name, placeholder: "page name" %><br>
       <%= f.text_area :text, placeholder: "write the next page of your adventure here" %><br>
   <%end%>  
-  <a href="/adventures/<%=@adventure.id%>">click here when finished</a><br><br>  
+  <a href="/adventures/<%=@adventure.id%>">click here when finished</a><br><br> 
+  click on text to edit or delete: 
   <% @adventure.pages.each do |page| %>
     <%= page.name %><br>
-    <%= page.text %></div><br><br>
-
+    <a href="/adventures/<%=@adventure.id%>/pages/<%=page.id%>/edit"><%= page.text %></a><br><br>
 <% end %>

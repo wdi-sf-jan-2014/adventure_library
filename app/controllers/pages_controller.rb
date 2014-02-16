@@ -37,7 +37,7 @@ class PagesController < ApplicationController
   adventure = Adventure.find(params[:adventure_id])
   page = adventure.pages.find(params[:id])
   page.destroy
-  redirect_to "/adventures/#{adventure.id}/pages/"
+  redirect_to "/adventures/#{adventure.id}/pages/new"
   end
 
 end

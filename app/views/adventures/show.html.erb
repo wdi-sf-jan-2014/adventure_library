@@ -1,10 +1,11 @@
 <h3><%= @adventure.title %><br>by <%= @adventure.author %></h3>
-<% start_page = @adventure.pages.first %>
-<%= start_page.name %><br>
-<%= start_page.text %><br><br>
+<% start_page = @adventure.pages.first %><br><br>
+
+click the first page to start your adventure:<br>
+<a href="/adventures/<%=@adventure.id%>/pages/<%=start_page.id%>/"><%= start_page.text %></a><br><br><br><br>
 
 <a href="<%=@adventure.id%>/edit">edit the title and author name</a><br>
 <a href="/adventures/<%=@adventure.id%>/pages/new">add or edit adventure</a><br>
 <a href="/adventures">see all adventures</a><br>
 <a href="/adventures/new">create a new adventure</a><br>
-<%= button_to 'delete', "#{@adventure.id}", :method => :delete%><br>
+<%= button_to 'delete adventure', "#{@adventure.id}", :method => :delete%><br>
