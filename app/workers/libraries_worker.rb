@@ -11,7 +11,6 @@ class LibrariesWorker
     end
 
     response = Typhoeus.get(url)
-biding.pry
       # if result["libraries"].length > 1
       #   result["libraries"].each do |library|
       #     Library.create(url: library["url"])
