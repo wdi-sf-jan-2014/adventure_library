@@ -1,10 +1,11 @@
 <h1>Libraries#new</h1>
 <p>Find me in app/views/libraries/new.html.erb</p>
 
-
+<div class="container">
 A user can go to a form to enter in the URL of another library server. When a user submits that form, it will start the library scraping process.
 
 <%= form_for @library do |f| %>
   <%= f.text_field :url, placeholder: "library url" %>
   <%= f.submit "Enter Library URL" %>
   <% end %>
+</div>

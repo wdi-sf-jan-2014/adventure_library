@@ -1,12 +1,16 @@
 adventure/show.html.erb
 
+<div class="container">
+
 <%= @adventure.title %>
 <%= @adventure.author %>
 
 <div>
 
-<%= link_to "start adventure", adventure_page_path(@adventure, @first_page) %>
-<br>
-<%= link_to "adventures", adventures_path %>
+<%= button_to "start adventure", adventure_page_path(@adventure, @first_page) %>
+
+<%= button_to "adventures", adventures_path %>
+
+</div>
 
 </div>
