@@ -6,4 +6,18 @@ module LibrariesHelper
     libraries = Typhoeus.get("#{url}/libraries.json")
     @foreign_libraries = JSON.parse(adventures.body)["libraries"]
   end
+
+  def url_cleanup(cleanup_url)
+    # cleanup_url = self.url
+    uri = URI.parse(cleanup_url)
+
+    cleanup_url.downcase!
+
+    cleanup_url = ("http://" + cleanup_url) unless uri.scheme
+
+    # removes everything after the base url =>
+    # "http://blah.com/libraries.json" becomse "http://blah.com"
+    cleanup_url = cleanup_url.split("/").slice(0,3).join("/")
+
+  end
 end

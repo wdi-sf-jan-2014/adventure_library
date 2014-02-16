@@ -10,6 +10,11 @@
 
 class Library < ActiveRecord::Base
   has_many :adventures
-
   accepts_nested_attributes_for :adventures
+
+  # before_save {|library| library.url = library.url_cleanup}
+
+  def listed?(url)
+    find_by(url: url)
+  end
 end
