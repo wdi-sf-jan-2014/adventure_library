@@ -3,8 +3,8 @@ class PagesController < ApplicationController
   end
 
   def show
-    @adventure = Page.find(params[:adventure_id])
-    @page = @adventure.page.find(params[:id])
+    @adventure = Adventure.find(params[:adventure_id])
+    @page = @adventure.pages.find_by(params[name: "start"])
   end
 
   def new
