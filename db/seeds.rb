@@ -9,5 +9,5 @@ adv.pages.create!(:name => "pg2",
 adv.pages.create!(:name => "end",
 	:text => "Wow that adventure was amazing!")
 
-adv.create_library(url: "http://stormy-sands-1901.herokuapp.com/", name: "Mike's library")
+adv.create_library(url: "http://stormy-sands-1901.herokuapp.com", name: "Mike's library")
 
