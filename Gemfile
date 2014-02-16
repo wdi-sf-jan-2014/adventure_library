@@ -32,6 +32,10 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+group :production do
+  gem 'rails_12factor'
+end
+
 group :test, :development do
   gem 'rspec-rails'
   gem 'pry'
@@ -52,3 +56,4 @@ gem 'sidekiq'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+ruby '2.0.0'
