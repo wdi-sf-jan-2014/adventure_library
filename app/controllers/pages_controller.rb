@@ -1,6 +1,12 @@
 class PagesController < ApplicationController
+  
   def index
   @adventure = Adventure.find(params[:adventure_id]) 
+  end
+
+  def new
+  @adventure = Adventure.find(params[:adventure_id]) 
+  @page = @adventure.pages.new
   end
 
   def create
@@ -8,11 +14,6 @@ class PagesController < ApplicationController
   adventure = Adventure.find(params[:adventure_id])
   adventure.pages.create(new_page_params)
   redirect_to "/adventures/#{adventure.id}/pages/new"
-  end
-
-  def new
-  @adventure = Adventure.find(params[:adventure_id]) 
-  @page = @adventure.pages.new
   end
 
   def show

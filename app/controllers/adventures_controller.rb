@@ -3,7 +3,9 @@ class AdventuresController < ApplicationController
   @adventure = Adventure.all 
     respond_to do |f|
     f.html
-    f.json { render :json => @adventure.as_json(include: :pages)} 
+    f.json { render :json => @adventure.to_json(only: 
+      [:title, :author, :created_at, :updated_at, :guid], include: 
+      [ {pages: {only: [:name, :text]}}])}
     end
   end
 
@@ -12,16 +14,13 @@ class AdventuresController < ApplicationController
   end
 
   def create
-  adventure = Adventure.create(params[:adventure].permit(:title, :author, :guid, :pages_attributes =>[:name, :text])) 
+  adventure = Adventure.create(params[:adventure].permit(:title, 
+    :author, :guid, :pages_attributes =>[:name, :text])) 
   redirect_to "/adventures/#{adventure.id}/pages/new"
   end
 
   def show
   @adventure = Adventure.find(params[:id]) 
-    respond_to do |f|
-      f.html
-      f.json { render :json => @adventure.as_json(include: :pages)}
-    end
   end
 
   def edit
@@ -30,7 +29,8 @@ class AdventuresController < ApplicationController
 
   def update
   adventure = Adventure.find(params[:id])   
-  adventure.update_attributes(params[:adventure].permit(:title, :author, :guid, :pages_attributes =>[:name, :text]))
+  adventure.update_attributes(params[:adventure].permit(:title, 
+    :author, :guid, :pages_attributes =>[:name, :text]))
   redirect_to "/adventures/#{@adventure.id}"
   end
 
