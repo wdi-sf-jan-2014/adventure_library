@@ -1,2 +1,9 @@
-<h1>Libraries#index</h1>
-<p>Find me in app/views/libraries/index.html.erb</p>
+<h1>Collection of Libraries</h1>
+
+<% @libraries.each do |library|  %>
+  <% if library.url == "/adventures"  %>
+    <h3><%= link_to library.name, library.url %></h3>
+  <% else %>
+    <h3><%= link_to library.name, library.url+"/adventures" %></h3>
+  <% end %>
+<% end %>
