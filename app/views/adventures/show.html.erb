@@ -1,1 +1,5 @@
-show.html.erb
+<h1><%= @adventure.title %></h1>
+<br><br>
+<h4><%= @adventure.author %></h4>
+
+<%= link_to "START!", adventure_page_path(@adventure.id, @start) %>

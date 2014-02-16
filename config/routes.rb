@@ -1,8 +1,9 @@
 AdventureLibrary::Application.routes.draw do
+  
   resources :adventures do
     resources :pages
   end
 
-  get '/libraries', to: 'libraries#index'
+  resources :libraries, only: [:index]
 
 end

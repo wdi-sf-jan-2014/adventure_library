@@ -20,4 +20,9 @@ class AdventuresController < ApplicationController
     adv.update_attribute(guid: SecureRandom.urlsafe_base64(10).to_s)
   end
 
+  def show
+    @adventure = Adventure.find(params[:id])
+    @start = @adventure.pages.find_by(name: "start").id
+  end
+
 end
