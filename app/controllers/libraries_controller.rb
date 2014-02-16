@@ -9,9 +9,13 @@ class LibrariesController < ApplicationController
   end
 
   def create
+    @libraries = Library.all
+    @adventures = Adventure.all
     new_library = params.require(:library).permit(:url)
     library = Library.create(new_library)
     LibraryWorker.perform_async(library.id)
+     @libraries = @libraries.uniq!
+     @adventures = @adventures.uniq!
     redirect_to '/libraries'
   end
 
