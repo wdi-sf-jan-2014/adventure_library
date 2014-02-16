@@ -30,4 +30,4 @@ adv3 = Adventure.create!(:title => "A Haiku",
                           :author => "Steve Marsh",
                           :guid => SecureRandom.urlsafe_base64(10))
 adv3.pages.create!(:name => "start",
-    :text => "bagels on the porch; listening to some Janes; Summer in Jersey.")
+    :text => "bagels on the porch; listening to some Janes; Summer at The Shore.")

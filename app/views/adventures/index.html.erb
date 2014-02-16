@@ -1,0 +1,6 @@
+<h1>Choose an Adventure...</h1>
+<% unless @adventures.empty? %>
+  <% @adventures.each do |adventure| %>
+    <li><%=link_to(adventure.title, adventure) %> by <%= adventure.author %></li>
+  <% end %>
+<% end %>
