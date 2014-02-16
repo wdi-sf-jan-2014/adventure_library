@@ -22,9 +22,11 @@ class LibrariesWorker
     end
 
     @foreign_libraries.each do |lib|
-      clean_url = url_cleanup(lib)
-      library = Library.find_or_create_by(url: clean_url)
-      perform(library.id)
+      clean_url = url_cleanup(lib["url"])
+      unless Library.find_by(url: clean_url)
+        library = Library.create(url: clean_url)
+        perform(library.id)
+      end
     end
   end
 
