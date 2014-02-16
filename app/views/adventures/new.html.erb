@@ -3,6 +3,9 @@
 <%=form_for @adventure do |f| %>
   <%=f.text_field :title, placeholder: "adventure title" %><br>
   <%=f.text_field :author, placeholder: "author" %><br>
-
+  <%= f.fields_for :pages, @adventure.pages.build do |p| %>
+    <%= p.text_field :name, placeholder: "Name your first page 'start'" %> <br>
+    <%= p.text_area :text, placeholder: "So what happens first?" %>
+  <% end %>
   <%=f.submit%>
 <%end%>
