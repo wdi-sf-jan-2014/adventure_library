@@ -6,7 +6,7 @@ class LibraryWorker
     url = correct_url(library_hash["url"])
 
     if Library.find_by_url(url).nil?
-      json_url = url +"/adventures.json"
+      json_url = url +"adventures.json"
       response = Typhoeus.get(json_url)
       result = JSON.parse(response.body)
       library = Library.create(name: library_hash["name"], url: url )
@@ -19,7 +19,7 @@ class LibraryWorker
   end
 
   def check_other_libraries(library_url)
-    json_url = library_url + "/libraries.json"
+    json_url = library_url + "libraries.json"
     response = Typhoeus.get(json_url)
     result = JSON.parse(response.body)
 
@@ -41,10 +41,9 @@ class LibraryWorker
 
   def correct_url(url)
     if url.include? ".com"
-      return url.split(".com").first + ".com"
+      return url.split(".com").first + ".com/"
     else
       raise StandardError
     end
   end
-
 end

@@ -11,12 +11,12 @@
 class Library < ActiveRecord::Base
   has_many :adventures, dependent: :destroy
 
-  def self.adventure_to_json(library)
+   def self.adventure_to_json(library)
     library.to_json(except: [:id], include: [ adventures: { except: [ :id, :library_id ], include: [ pages: { except: [ :id, :adventure_id ] } ] } ] ) 
   end
 
   def self.libraries_to_json(libraries)
     { libraries: libraries[1..-1].as_json(except: [:id],  include: [ adventures: { except: [:id, :library_id], include: [pages: {except: [:id, :adventure_id]}] } ] ) } 
   end
-
+  
 end

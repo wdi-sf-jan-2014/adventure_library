@@ -8,6 +8,7 @@ class LibrariesController < ApplicationController
 
     respond_to do |f|
       f.html
+      # f.json { render json: Library.libraries_to_json(@libraries) }  }
       f.json { render json: { libraries: @libraries.as_json( include: [ adventures: { include: [:pages] } ] ) }  }
     end
   end
@@ -18,5 +19,4 @@ class LibrariesController < ApplicationController
 
     redirect_to "/libraries"
   end
-
 end
