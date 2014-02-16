@@ -55,8 +55,6 @@ gem 'typhoeus'
 
 gem 'unicorn-rails', :groups => [:development, :test]
 
-gem 'dotenv-rails', :groups => [:development, :test]
-
 gem 'rails_12factor', group: :production
 
 # Use Capistrano for deployment
