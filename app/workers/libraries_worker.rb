@@ -11,12 +11,19 @@ class LibrariesWorker
     end
 
     response = Typhoeus.get(url)
-    result = JSON.parse(response.body)
 biding.pry
-      if result["libraries"].length > 1
-        result["libraries"].each do |library|
+      # if result["libraries"].length > 1
+      #   result["libraries"].each do |library|
+      #     Library.create(url: library["url"])
+      #   end
+      if response != []
+      result = JSON.parse(response.body)
+      
+      result["libraries"].each do |library|
+        if Library.where(url: library["url"]) == []
           Library.create(url: library["url"])
         end
+      end  
       end
 
   end
