@@ -190,6 +190,7 @@ DEPENDENCIES
   dotenv-rails
   jbuilder (~> 1.2)
   jquery-rails
+  json
   meta_request
   pg
   pry

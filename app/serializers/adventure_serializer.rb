@@ -1,4 +1,4 @@
 class AdventureSerializer < ActiveModel::Serializer
-  attributes :id, :title, :author, :guid, :library_id
+  attributes :title, :author, :created_at, :updated_at, :guid
   has_many :pages
 end

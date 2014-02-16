@@ -1,12 +1,17 @@
 <h1>Welcome to Matthew's Trove of Wonderous Tales!</h1>
-<h2>Classic stories to delight young and old, large and small, dim and curious</h2>
+<h2>Classic Stories to Delight Young and Old, Large and Small, Dim and Curious</h2>
 
-<h3>Stories to Choose From:</h3>
+<h3>Local Stories to Choose From:</h3>
+<% @adventure.each do |t| %>
+    <ul>
+        <li><%= t.title %></li>
+    </ul>
+<% end %>
+
+<h3>Stories From Other Repositories</h3>
 <% @library.each do |links| %>
     <ul>
         <li><%= links.url %></li>
     </ul><br>
 <% end %>
 
-<%#= button_to "Make a New Adventure", new_adventure_page %>
-<a href="/adventures/new">Make a New Adventure</a>
