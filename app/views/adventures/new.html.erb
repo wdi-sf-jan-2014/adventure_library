@@ -6,7 +6,8 @@
 <%=f.text_field :title, placeholder: "Adventure Time" %><br>
 <%=f.label :author, "Author" %><br>
 <%=f.text_field :author, placeholder: "Author" %><br>
-<%=f.fields_for :page, @adventure.pages.build do |p| %>
+<%=f.hidden_field :guid, value:@guid %>
+<%=f.fields_for :pages, @adventure.pages.build do |p| %>
   <%=p.hidden_field :name, value: "start" %>
   <%=p.label :text, "The first page" %><br>
   <%=p.text_area :text, placeholder: "Describe your first page..." %>
