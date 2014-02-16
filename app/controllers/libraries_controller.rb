@@ -15,9 +15,13 @@ class LibrariesController < ApplicationController
   end
 
   def create
-    lib = Library.create(url: params[:library][:url])
-    new_adv = Typhoeus.get(params[:library][:url])
-    resp = JSON.parse(new_adv.body)["adventures"]
+    new_url = params.require(:library).premit(:url)
+    scrape(new_url)
+    @foreign_libraries.each do |lib|
+      if Library.find_by(url: lib["url"]).nil?
+      new_lib = Library.create_or_find_by(url: lib["url"])
+
+    end
     resp.each do |x|
       adv = lib.adventures.create(title: x["title"], author: x["author"], guid: x["guid"])
       x["pages"].each do |y|
