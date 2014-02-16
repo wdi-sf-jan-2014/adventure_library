@@ -4,7 +4,7 @@ module LibrariesHelper
     @foreign_adventures = JSON.parse(adventures.body)["adventures"]
 
     libraries = Typhoeus.get("#{url}/libraries.json")
-    @foreign_libraries = JSON.parse(adventures.body)["libraries"]
+    @foreign_libraries = JSON.parse(libraries.body)["libraries"]
   end
 
   def url_cleanup(cleanup_url)
