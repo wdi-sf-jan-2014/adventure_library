@@ -51,6 +51,7 @@ gem 'ancestry'
 
 gem 'active_model_serializers'
 
+gem 'typhoeus'
 
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
