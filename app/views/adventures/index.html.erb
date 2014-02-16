@@ -1,6 +1,6 @@
 <h3>ADVENTURE INDEX</h3>
 
-<% if !@local_adventures.nil? %>
+<% if @local_adventures.size > 0 %>
   <% @local_adventures.each do |adventure| %>
     <div>
       <a href="/adventures/<%= adventure.id %>"><%= 
@@ -9,7 +9,7 @@
   <% end %>
 <% end %>
 
-<% if !@foreign_adventures.nil? %>
+<% if @foreign_adventures.size > 0 %>
   <% @foreign_adventures.each do |adventure| %>
     <div>
       <a href="/adventures/<%= adventure.id %>"><%= 
