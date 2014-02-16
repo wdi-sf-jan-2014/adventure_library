@@ -12,6 +12,7 @@ class PagesController < ApplicationController
   end
 
   def new
+    @adventure = Adventure.find(params[:adventure_id])
     @page = Page.new
   end
 
@@ -20,7 +21,7 @@ class PagesController < ApplicationController
     #how do i get the adventure_id?
     adventure = Adventure.find(params[:adventure_id])
     @page = adventure.pages.create(page_params)
-    redirect_to adventure_page_path(adventure)
+    redirect_to new_adventure_page_path(adventure, @page)
   end
 
   def edit

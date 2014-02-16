@@ -5,6 +5,9 @@ AdventureLibrary::Application.routes.draw do
   resources :adventures do
     resources :pages
   end
+
+  # creates the :index, :new and :create
+  resources :libraries, shallow: true
   
 end
 

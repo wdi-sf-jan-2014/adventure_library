@@ -1,9 +1,11 @@
-Choose an Adventure:
+<div class="page-title"> Choose an Adventure: </div>
 
 <% @adventures.each do |adventure| %>
   
-  <div class="each-adventure">
-    <%= adventure.title %>
+  <div class="each-item">
+    <%= link_to adventure.title, adventure_path(adventure) %>
   </div>
 
 <% end %>
+
+<%= button_to "Add New Adventure", new_adventure_path, :method => :get %>

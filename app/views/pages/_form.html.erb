@@ -3,3 +3,8 @@
   <%= p.text_area :text, placeholder: "What story will you tell on this page? Link to another page by typing [[link text|linked_to_page_name]]" %>
   <%= p.submit %>
 <% end %>   
+
+<!-- when coming from new.html.erb -->
+<% if @page.new_record? %>
+  <%= button_to "Go to the page!", adventure_path(@adventure) %>
+<% end %>
