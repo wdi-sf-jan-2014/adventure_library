@@ -1,6 +1,16 @@
 <h1>Choose an Adventure...</h1>
 <% unless @adventures.empty? %>
-  <% @adventures.each do |adventure| %>
-    <li><%=link_to(adventure.title, adventure_page_path(adventure, adventure.pages.find_by(name: "start"))) %> by <%= adventure.author %></li>
-  <% end %>
+  <ul>
+    <% @adventures.each do |adventure| %>
+      <li><%=link_to(adventure.title, adventure_page_path(adventure, adventure.pages.find_by(name: "start"))) %> by <%= adventure.author %></li>
+    <% end %>
+  </ul>
+<% end %>
+<h2>Known Libraries</h2>
+<% unless @libraries.empty? %>
+  <ul>
+    <% @libraries.each do |library| %>
+      <li><%= link_to(library.url) %></li>
+    <% end %>
+  </ul>
 <% end %>

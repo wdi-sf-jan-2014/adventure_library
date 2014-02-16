@@ -8,6 +8,7 @@
 #  guid       :string(255)
 #  created_at :datetime
 #  updated_at :datetime
+#  library_id :integer
 #
 
 class Adventure < ActiveRecord::Base
