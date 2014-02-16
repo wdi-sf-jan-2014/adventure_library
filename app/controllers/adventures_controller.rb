@@ -2,12 +2,17 @@
 class AdventuresController < ApplicationController
 
     def index
+      @libraries = Library.all
       @adventures = Adventure.all
+      @my_adventures = Adventure.where(library_id: nil)
+      @friends_adventures = Adventure.where('library_id is not NULL')
       respond_to do |format|
         format.html
-        format.json {render json: @adventures}
+        format.json {render json: @my_adventures}
       end
     end
+
+
 
     def create
       new_adventure= params.require(:adventure).permit(:title, :author)
