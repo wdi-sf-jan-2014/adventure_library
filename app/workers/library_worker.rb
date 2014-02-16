@@ -5,7 +5,8 @@ class LibraryWorker
     url = Library.find(library_id).url
           response = Typhoeus.get( url + "/adventures")
           result = response.body
-          result['adventures'].each do |adventure|
+          adventure_array = result["adventures"]
+          adventure_array.each do |adventure|
               library_to_search.adventures << Adventure.create(adventure)
           end
 
