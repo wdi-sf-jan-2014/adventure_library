@@ -1,9 +1,13 @@
-<h1>all stories</h1>
+<h1>adventure library</h1>
 <a href="adventures/new">add a new adventure</a><br><br>
 
+
+<h1>local adventures</h1>
 <% @adventure.each do |a| %>
 <% num = a.title.length %>
 <%= "*" * (num+2) %><br>
 <a href="adventures/<%= a.id %>"><%= a.title %></a><br>
 by <%= a.author %><br>
 <% end %>
+
+

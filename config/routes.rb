@@ -1,11 +1,10 @@
 AdventureLibrary::Application.routes.draw do
-  get "pages/index"
-  get "pages/create"
-  get "pages/new"
-  get "pages/edit"
-  get "pages/show"
-  get "pages/update"
-  get "pages/destroy"
+  get "libraries/index"
+  get "libraries/create"
+  # root to: "libraries#homepage"
+  get "/libraries", to: "libraries#index"
+  post "/libraries", to: "libraries#create"
+  
   resources :adventures do
     resources :pages
   end  

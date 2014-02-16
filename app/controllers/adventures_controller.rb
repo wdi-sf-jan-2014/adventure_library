@@ -1,11 +1,13 @@
 class AdventuresController < ApplicationController
+  
   def index
-  @adventure = Adventure.all 
+  @adventure = Adventure.all
+  my_library = Library.first 
     respond_to do |f|
     f.html
-    f.json { render :json => @adventure.to_json(only: 
-      [:title, :author, :created_at, :updated_at, :guid], include: 
-      [ {pages: {only: [:name, :text]}}])}
+    f.json { render :json => my_library.to_json(only: [:url, :name], include: [ adventures:
+      {only: [:title, :author, :created_at, :updated_at, :guid], include: 
+      [ pages: {only: [:name, :text]}]}])}
     end
   end
 
@@ -14,7 +16,8 @@ class AdventuresController < ApplicationController
   end
 
   def create
-  adventure = Adventure.create(params[:adventure].permit(:title, 
+  library = Library.create!(url: "/adventures", name: "Yutaka's library")
+  adventure = library.adventures.create!(params[:adventure].permit(:title, 
     :author, :guid, :pages_attributes =>[:name, :text])) 
   redirect_to "/adventures/#{adventure.id}/pages/new"
   end
