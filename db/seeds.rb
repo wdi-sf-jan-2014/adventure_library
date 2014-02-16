@@ -13,6 +13,8 @@
 # adv.pages.create!(:name => "end",
 # 	:text => "Wow that adventure was amazing!")
 
+lib1 = Library.create(url:"http://www.google.com")
+lib2 = Library.create(url:"http://www.cnn.com")
 
 # adventure story
 

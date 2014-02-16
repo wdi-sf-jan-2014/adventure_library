@@ -22,6 +22,8 @@ describe '/adventures' do
       @result["adventures"].should_not == nil
       @result["adventures"].length.should == 1
       @result["adventures"].first["title"].should == @local_adventure["title"]
+      
+      
     end
 
     it 'gets back the pages of a returned adventure' do 
