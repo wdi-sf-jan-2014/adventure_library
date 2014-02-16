@@ -3,7 +3,8 @@
 <%= start_page.name %><br>
 <%= start_page.text %><br><br>
 
-<a href="<%=@adventure.id%>/edit">edit this story</a><br>
-<%= button_to 'delete', "#{@adventure.id}", :method => :delete%><br>
+<a href="<%=@adventure.id%>/edit">edit the title and author name</a><br>
+<a href="/adventures/<%=@adventure.id%>/pages/new">add or edit adventure</a><br>
 <a href="/adventures">see all adventures</a><br>
 <a href="/adventures/new">create a new adventure</a><br>
+<%= button_to 'delete', "#{@adventure.id}", :method => :delete%><br>

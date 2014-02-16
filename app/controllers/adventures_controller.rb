@@ -12,8 +12,8 @@ class AdventuresController < ApplicationController
   end
 
   def create
-  @adventure = Adventure.create(params[:adventure].permit(:title, :author, :guid, :pages_attributes =>[:name, :text])) 
-  redirect_to "/adventures/#{@adventure.id}/pages/new"
+  adventure = Adventure.create(params[:adventure].permit(:title, :author, :guid, :pages_attributes =>[:name, :text])) 
+  redirect_to "/adventures/#{adventure.id}/pages/new"
   end
 
   def show
@@ -29,14 +29,14 @@ class AdventuresController < ApplicationController
   end
 
   def update
-  @adventure = Adventure.find(params[:id])   
-  @adventure.update_attributes(params[:adventure].permit(:title, :author, :guid, :pages_attributes =>[:name, :text]))
+  adventure = Adventure.find(params[:id])   
+  adventure.update_attributes(params[:adventure].permit(:title, :author, :guid, :pages_attributes =>[:name, :text]))
   redirect_to "/adventures/#{@adventure.id}"
   end
 
   def destroy
-  @adventure = Adventure.find(params[:id])
-  @adventure.destroy
+  adventure = Adventure.find(params[:id])
+  adventure.destroy
   redirect_to adventures_path
   end
 

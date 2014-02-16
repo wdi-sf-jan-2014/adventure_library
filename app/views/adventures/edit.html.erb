@@ -1,4 +1,4 @@
-<h2> Edit your adventure: </h2>
+<h2> Edit the title and author: </h2>
 
 <%= form_for @adventure do |f| %>
   <%= f.text_field :title %><br>
@@ -6,6 +6,7 @@
   <%= f.submit %>
 <%end%>
 <br>
+
 <a href="/adventures">see all adventures</a><br>
 <a href="/adventures/<%=@adventure.id%>">back to adventure</a><br>
 <a href="/adventures/new">create a new adventure</a><br>
