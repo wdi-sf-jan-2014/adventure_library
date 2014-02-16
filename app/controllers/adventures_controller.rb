@@ -22,11 +22,12 @@ class AdventuresController < ApplicationController
   def show
     @adventure = Adventure.find(params[:id])
 
-    @links = @site.links
-    respond_to do |f|
-      f.html
-      f.json { render :json => @link.as_json(include: :pages)}
-    end
+
+    # @adventure = @adventure.all
+    # respond_to do |f|
+    #   f.html
+    #   f.json { render :json => @link.as_json(include: :pages)}
+    # end
 
   end
 

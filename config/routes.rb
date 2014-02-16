@@ -1,4 +1,7 @@
 AdventureLibrary::Application.routes.draw do
+  get "pages/new"
+  get "pages/show"
+  get "pages/create"
   # get "pages/show"
   # get "adventures/new"
   # get "adventures/create"

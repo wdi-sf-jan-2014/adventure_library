@@ -1,4 +1,6 @@
 <h1>Adventures#show</h1>
-<p>Find me in app/views/adventures/show.html.erb</p>
+<p>Find me in app/views/adventures/#{':id}.html.erb</p>
 
-<%= @adventure %> 
+<%= @adventure.title %>
+<%= linkify_page(@adventure.pages.where(:name => "start").first).html_safe %>
+
