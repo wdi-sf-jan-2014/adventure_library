@@ -1,0 +1,11 @@
+New Adventure:
+
+<%= form_for @adventure do |f| %>
+	<%= f.text_field :title, placeholder: "Enter Title"%>
+	<%= f.text_field :author, placeholder: "Enter Author"%>
+		<%= f.fields_for :pages, @adventure.pages.build do |p| %>
+			<%= p.text_field :name, placeholder: "Enter Page Name" %>
+			<%= p.text_area :text, placeholder: "Enter Page Text" %>
+		<%end%>
+	<%= f.submit %>
+<%end%>

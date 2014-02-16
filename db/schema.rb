@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140215210226) do
+ActiveRecord::Schema.define(version: 20140215231841) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,7 +22,10 @@ ActiveRecord::Schema.define(version: 20140215210226) do
     t.string   "guid"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "library_id"
   end
+
+  add_index "adventures", ["library_id"], name: "index_adventures_on_library_id", using: :btree
 
   create_table "libraries", force: true do |t|
     t.string   "url"
@@ -32,7 +35,7 @@ ActiveRecord::Schema.define(version: 20140215210226) do
 
   create_table "pages", force: true do |t|
     t.string   "name"
-    t.string   "text"
+    t.text     "text"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "adventure_id"

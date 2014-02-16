@@ -1,12 +1,9 @@
-class LibrariesController < ApplicationController
-  def new
-  	@library = Library.new
-  end
-  def create
-    library = Library.create(params[:library].permit(:url))
-    #LinksWorker.perform_async(library.id)
+class LinksWorker
+  include Sidekiq::Worker
+  def perform(library_id)
 
-    #get the other library links from json
+#get the other library links from json
+    library = library.find(library_id)
     link = library.url + "/libraries.json"
     response = Typhoeus.get(link)
     new_libraries_array = JSON.parse(response.body)["libraries"]
@@ -46,20 +43,6 @@ class LibrariesController < ApplicationController
 
        end
 
-
-	 redirect_to libraries_path
-  end 
-
-
-  def get_libraries link
-  	response = Typhoeus.get(link)
-  end
-
-  def index
-  	@libraries = Library.all
-  	    respond_to do |f|
-		    f.html 
-		    f.json { render :json => {:libraries => @libraries}}
-        end
-  end
-end
+  end #method
+  
+end #class

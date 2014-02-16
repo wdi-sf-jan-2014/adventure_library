@@ -6,6 +6,8 @@ gem 'rails', '4.0.2'
 # Use postgresql as the database for Active Record
 gem 'pg'
 
+gem 'pry'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
@@ -46,6 +48,7 @@ end
 gem 'unicorn'
 
 gem 'sidekiq'
+gem 'typhoeus'
 
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development

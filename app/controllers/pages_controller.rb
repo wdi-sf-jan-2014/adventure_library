@@ -5,10 +5,13 @@ class PagesController < ApplicationController
   		@page = @adventure.pages.find(params[:id])
   end
 
-  def new	
+  def new
+      @page = Page.new	
   end
 
-   def create
+  def create
+  	page = Page.create(params[:page].permit(:name,:text))
+	redirect_to pages_path(page)
   end
 
 end
