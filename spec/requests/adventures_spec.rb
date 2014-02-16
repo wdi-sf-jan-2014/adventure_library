@@ -1,5 +1,46 @@
 require 'spec_helper'
 
+describe 'New Adventure' do
+  context 'create' do
+    it 'should create a guid when none provided' do
+      guid_adventure1 = Adventure.create!(:title => "test_guid", :author => "Guido the author")
+      expect(guid_adventure1.guid).not_to be_nil
+    end
+
+    # probably a useless test, since really just testing rails create, but some practice anyway
+    # actually, this may be some useful testing of the condition in the callback (before_create)
+    it 'should store a provided guid when one provided' do
+      a_guid = SecureRandom.urlsafe_base64(10)
+      guid_adventure2 = Adventure.create!(:title => "test_guid 2",
+                                            :author => "Guido the author",
+                                            :guid => a_guid)
+      expect(guid_adventure2.guid).to equal(a_guid)
+    end
+  end
+
+  context 'save' do
+    it 'should create a guid when none provided' do
+      guid_adventure3 = Adventure.new
+      guid_adventure3.title = "Let's test a guid"
+      guid_adventure3.author = "An Author"
+      guid_adventure3.save
+      expect(guid_adventure3.guid).not_to be_nil
+    end
+
+    # probably a useless test, since really just testing rails save, but some practice anyway
+    # actually, this may be some useful testing of the condition in the callback (before_create)
+    it 'should store a provided guid when one provided' do
+      guid_adventure4 = Adventure.new
+      guid_adventure4.title = "Let's test a guid"
+      guid_adventure4.author = "An Author"
+      a_guid = SecureRandom.urlsafe_base64(10)
+      guid_adventure4.guid = a_guid
+      guid_adventure4.save
+      expect(guid_adventure4.guid).to equal(a_guid)
+    end
+  end
+end
+  
 describe '/adventures' do
   before(:each) do 
     @local_adventure = Adventure.create!(:title => "test",
@@ -12,6 +53,7 @@ describe '/adventures' do
     @foreign_adventure.pages.create(:name => "start", :text => "Chouette histoire, mec.")
 
   end
+
 	describe 'GET with JSON' do
     before(:each) do 
       get '/adventures.json'
