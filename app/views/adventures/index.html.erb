@@ -1,8 +1,18 @@
 <h1>Choose an Adventure...</h1>
-<% unless @adventures.empty? %>
+<h2>Local Adventures</h2>
+<% unless @local_adventures.empty? %>
   <ul>
-    <% @adventures.each do |adventure| %>
-      <li><%=link_to(adventure.title, adventure_page_path(adventure, adventure.pages.find_by(name: "start"))) %> by <%= adventure.author %></li>
+    <% @local_adventures.each do |l_adv| %>
+      <li><%=link_to(l_adv.title, adventure_page_path(l_adv, l_adv.pages.find_by(name: "start"))) %>
+            by <%= l_adv.author %></li>
+    <% end %>
+  </ul>
+<% end %>
+<h2>Collected Adventures</h2>
+<% unless @collected_adventures.empty? %>
+  <ul>
+    <% @collected_adventures.each do |c_adv| %>
+      <li><%=link_to(c_adv.title, adventure_page_path(c_adv, c_adv.pages.find_by(name: "start"))) %></li>
     <% end %>
   </ul>
 <% end %>
