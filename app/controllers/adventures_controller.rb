@@ -2,7 +2,16 @@ class AdventuresController < ApplicationController
 
   def index
     @adventures = Adventure.all
+    @local_adventure = Adventure.where(library_id: nil)
+    @foreign_adventure = Adventure.where.not(library_id: nil)
     # @libraries = Library.all
+    # format do html one thing json do other
+    respond_to do |f|
+      f.html 
+      f.json { render :json => {:adventures => @local_adventure.as_json( only: [:title, :author, :library_id, :guid], 
+        include: [ {pages: { only: [:name, :text, :adventure_id] } }])} }
+      
+    end
   end
 
   def new
@@ -13,8 +22,8 @@ class AdventuresController < ApplicationController
     
     adventure = params.require(:adventure).permit(:title, :author)
     @adventure = Adventure.new(adventure)
-    @adventure["guid"] = SecureRandom.urlsafe_base64(10) #why does this not save?
-    binding.pry
+    @adventure["guid"] = SecureRandom.urlsafe_base64(10) 
+    # binding.pry
     @adventure.save
 
     redirect_to adventures_path

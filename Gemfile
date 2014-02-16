@@ -3,6 +3,8 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
 
+ruby '2.0.0'
+
 # Use postgresql as the database for Active Record
 gem 'pg'
 
@@ -47,8 +49,15 @@ gem 'unicorn'
 
 gem 'sidekiq'
 
-
 gem 'bootstrap-sass', '~> 3.1.1'
+
+gem 'typhoeus'
+
+gem 'unicorn-rails', :groups => [:development, :test]
+
+gem 'dotenv-rails', :groups => [:development, :test]
+
+gem 'rails_12factor', group: :production
 
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development

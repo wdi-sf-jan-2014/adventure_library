@@ -1,15 +1,16 @@
 AdventureLibrary::Application.routes.draw do
 
-  get "libraries/index"
-  get "libraries/show"
-  get "libraries/new"
+  resources :libraries, only: [:index, :show, :new]
+  
   resources :adventures do
     resources :pages
   end
   
 end
 
-
+#           libraries GET    /libraries(.:format)                               libraries#index
+#         new_library GET    /libraries/new(.:format)                           libraries#new
+#             library GET    /libraries/:id(.:format)                           libraries#show
 #     adventure_pages GET    /adventures/:adventure_id/pages(.:format)          pages#index
 #                     POST   /adventures/:adventure_id/pages(.:format)          pages#create
 #  new_adventure_page GET    /adventures/:adventure_id/pages/new(.:format)      pages#new

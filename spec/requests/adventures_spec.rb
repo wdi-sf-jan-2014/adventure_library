@@ -11,14 +11,15 @@ describe '/adventures' do
                                     :library_id => 4)
     @foreign_adventure.pages.create(:name => "start", :text => "Chouette histoire, mec.")
 
-  end
+  end 
+
+  # working on this now
 	describe 'GET with JSON' do
     before(:each) do 
       get '/adventures.json'
       @result = JSON.parse(response.body)
     end
     it 'returns a list of all the adventures made locally' do
-      
       @result["adventures"].should_not == nil
       @result["adventures"].length.should == 1
       @result["adventures"].first["title"].should == @local_adventure["title"]
