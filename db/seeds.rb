@@ -7,6 +7,9 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 Adventure.delete_all
 Page.delete_all
+Library.delete_all
+
+#lib = Library.create!(:url => nil);
 
 adv = Adventure.create!(:title => "Steve Marsh's Test Adventure",
                         :author => "Steve Marsh",

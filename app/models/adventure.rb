@@ -12,6 +12,7 @@
 
 class Adventure < ActiveRecord::Base
   has_many :pages, dependent: :destroy
+  belongs_to :library
 
   # make sure an adventure has a guid, whether created or saved.
   before_create do |adventure| 
