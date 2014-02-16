@@ -6,7 +6,6 @@
   </p>
   <p><%= f.label :author %><br>
     <%= f.text_field :author %>
-    <%= f.hidden_field :guid, :value => SecureRandom.urlsafe_base64(10) %>
   </p>
   <%= f.fields_for :pages, @adventure.pages.build do |b|%>
     <p>

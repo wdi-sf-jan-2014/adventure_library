@@ -30,7 +30,7 @@ class AdventuresController < ApplicationController
 
     @adventure = Adventure.new(adventure_params)
     @adventure.save
-
+    @adventure.update_attributes(:guid => SecureRandom.urlsafe_base64(10))
     redirect_to adventures_path
   end
 

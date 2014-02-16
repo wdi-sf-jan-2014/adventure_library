@@ -51,7 +51,6 @@ gem 'ancestry'
 
 gem 'active_model_serializers'
 
-gem 'pry'
 
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development

@@ -23,7 +23,7 @@ class PagesController < ApplicationController
   end
 
   def new
-    @adventure = Adventure.find(params[:id])
+    @adventure = Adventure.find(params[:adventure_id])
     @page = @adventure.pages.new
   end
 
