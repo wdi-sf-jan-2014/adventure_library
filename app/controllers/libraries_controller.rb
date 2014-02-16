@@ -18,9 +18,9 @@ class LibrariesController < ApplicationController
     response = Typhoeus.get("#{home_lib.url}"+"/libraries.json")
     lib_hash = JSON.parse(response.body)
     libraries = lib_hash["libraries"]
-    (libraries << { "url" => home_lib.url }) if home_lib
+    (libraries << { "url" => home_lib.url })
     libraries.each do |l|
-      library = Library.new(url: l["url"]) unless Library.find_by(url: l["url"])
+      library = Library.new(url: l["url"])
       if library.save
         adv_response = Typhoeus.get("#{library.url}"+"/adventures.json")
         adventure_hash = JSON.parse(adv_response.body)
