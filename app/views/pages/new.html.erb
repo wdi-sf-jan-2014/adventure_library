@@ -4,13 +4,13 @@
 
 <% @adventure.pages.each do |pages| %>
 <%= pages.name %><br>
-<%= pages.text %><br><br>
+<%= simple_format(linkify_page(pages)) %><br><br>
 <% end %>
 <br>
 
 Add A New Page
 <%= form_for [@adventure, @adventure.pages.build] do |f| %>
-  <%= f.text_field :name, placeholder: "name" %><br>
+  <%= f.text_field :name, placeholder: "Name" %><br>
   <%= f.text_area :text, placeholder: "Text" %>
   <%= f.submit %>
   <% end %>
