@@ -1,13 +1,15 @@
 class LibraryWorker
   include Sidekiq::Worker
+
    def perform(library_id)
-          response = Typhoeus.get(link_href + "/adventures")
+    url = Library.find(library_id).url
+          response = Typhoeus.get( url + "/adventures")
           result = response.body
           result['adventures'].each do |adventure|
               library_to_search.adventures << Adventure.create(adventure)
           end
 
-          response = Typhoeus.get(link-href+"/libraries")
+          response = Typhoeus.get(url +"/libraries")
           result = response.body
           @libraries = Library.all
           result['libraries'].each do |library|
