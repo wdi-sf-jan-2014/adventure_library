@@ -5,7 +5,17 @@ class LibrariesController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.json { render json: { libraries: @libraries } }
+      format.json { render json: { libraries: @libraries.as_json } }
     end
   end
+
+  def new
+  end
+
+  def create
+
+
+  end
+
+
 end

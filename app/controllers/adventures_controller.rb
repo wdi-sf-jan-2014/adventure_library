@@ -6,7 +6,9 @@ class AdventuresController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.json { render json: { adventures: @local_adventures.as_json(include: :pages) } }
+      format.json { render json: {adventures: @local_adventures.as_json(
+                                  except: [:id, :library_id],
+                                  include: {:pages => {except: :id}})} }
     end
   end
 

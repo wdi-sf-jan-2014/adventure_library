@@ -31,6 +31,8 @@ gem 'json'
 
 gem 'typhoeus'
 
+gem 'rails_12factor', group: :production
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
@@ -57,3 +59,5 @@ gem 'sidekiq'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+ruby "2.0.0"
