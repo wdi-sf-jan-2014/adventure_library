@@ -12,8 +12,8 @@
 #
 
 class Adventure < ActiveRecord::Base
-  has_many :pages, dependent: :destroy
   belongs_to :library
+  has_many :pages, dependent: :destroy
 
   before_save {|adv| adv.guid = create_guid }
 
