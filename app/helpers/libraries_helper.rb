@@ -1,13 +1,9 @@
 module LibrariesHelper
-  def adventure_scrape(url)
-    response = Typhoeus.get(url)
-    result = JSON.parse(response.body)
+  def scrape(url)
+    adventures = Typhoeus.get("#{url}/adventures.json")
+    @foreign_adventures = JSON.parse(adventures.body)["adventures"]
 
-    result["adventures"].each do |adventure|
-      unless Adventure.find_by(library_id: a["library_id"])
-
-      end
-    end
-
+    libraries = Typhoeus.get("#{url}/libraries.json")
+    @foreign_libraries = JSON.parse(adventures.body)["libraries"]
   end
 end
