@@ -1,9 +1,8 @@
 AdventureLibrary::Application.routes.draw do
-  get "pages/show"
-  get "pages/new"
-  get "pages/create"
+
   get '/libraries', to: "libraries#index"
   root to: 'adventures#index'
+  resources :libraries
   resources :adventures do
     resources :pages
   end

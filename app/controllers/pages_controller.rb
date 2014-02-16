@@ -1,9 +1,4 @@
 class PagesController < ApplicationController
-  def show
-    id = params[:adventure_id]
-    find_page = Adventure.find(id)
-
-  end
 
   def new
     id = params[:adventure_id]
@@ -22,5 +17,12 @@ class PagesController < ApplicationController
     else
     redirect_to new_adventure_page_path(@adventure)
   end
+  end
+
+  def show
+    id = params[:adventure_id]
+    page_id = params[:id]
+    @adventure = Adventure.find(id)
+    @page = Page.find(page_id)
   end
 end

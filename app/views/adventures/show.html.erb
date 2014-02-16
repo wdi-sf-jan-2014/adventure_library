@@ -5,4 +5,4 @@
 <br>
 <br>
 
-<%= @adventure.pages.where(:name => "start").first.text %>
+<%= linkify_page(@adventure.pages.where(:name => "start").first).html_safe %>

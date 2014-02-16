@@ -1,17 +1,15 @@
 class LibrariesController < ApplicationController
   def index
     @libraries = Library.all
-    # @result = Library.where(:url => nil)
     respond_to do |f|
       f.html
-      f.json {render :json => {"libraries" => @library.as_json(except: :id)}}
+      f.json { render :json => {"libraries" => @libraries}}
     end
   end
 
-
   def new 
     @library = Library.new
-   end
+  end
 
    def create
    end
