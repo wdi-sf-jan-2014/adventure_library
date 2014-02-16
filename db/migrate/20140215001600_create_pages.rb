@@ -4,7 +4,6 @@ class CreatePages < ActiveRecord::Migration
       t.string :name
       t.text :text
       t.belongs_to :adventure, index: true
-      
       t.timestamps
     end
   end
