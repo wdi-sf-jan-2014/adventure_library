@@ -47,6 +47,10 @@ gem 'unicorn'
 
 gem 'sidekiq'
 
+gem 'typhoeus'
+
+gem "json"
+
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
 

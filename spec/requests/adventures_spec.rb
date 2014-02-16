@@ -6,7 +6,7 @@ describe '/adventures' do
                                         :author => "Test author")
     @local_adventure.pages.create!(:name => "start", :text => "cool story bro")
 
-    @foreign_adventure = Adventure.create!(:title => "Ceci n'est pas un test.",
+    @foreign_adventure = Adventure.create!(:title => "Ceci nest pas un test.",
                                     :author => "Foreign author",
                                     :library_id => 4)
     @foreign_adventure.pages.create(:name => "start", :text => "Chouette histoire, mec.")
@@ -50,7 +50,7 @@ describe '/adventures' do
     end
     it 'returns adventures made on another server' do 
       response.body.should include(@foreign_adventure["author"])
-      # response.body.should include(@foreign_adventure["title"])
+      response.body.should include(@foreign_adventure["title"])
     end
   end
 

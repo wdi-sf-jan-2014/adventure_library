@@ -1,4 +1,4 @@
 <%= link_to "Create New Adventure", new_adventure_path %><br>
 <% @adventures.each do |adventure| %>
-  <%= link_to adventure.title, adventure_path(adventure.id) %><br>
+  <%= link_to adventure.title, adventure_path(adventure.id) %> <%= adventure.author %>
 <% end %>

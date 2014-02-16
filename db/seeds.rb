@@ -14,7 +14,17 @@
 # 	:text => "Wow that adventure was amazing!")
 
 adv = Adventure.create!(:title => "PB&J Love Story",
-	:author => "PB&J junior")
+	:author => "PB&J junior", :guid => "samplesample")
+adv.pages.create!(:name => "start",
+	:text => "This is a great text adventure which is beginning right now!  I can't wait to [[see what happens!|chapter_1]]")
+adv.pages.create!(:name => "chapter_1",
+	:text => "PB met J in a park [[see what happens next!|end]]")
+adv.pages.create!(:name => "end",
+	:text => "They lived happily ever after - end")
+
+
+adv = Adventure.create!(:title => "Adventure Time!",
+	:author => "Finn the Human", :guid => "anothersample")
 adv.pages.create!(:name => "start",
 	:text => "This is a great text adventure which is beginning right now!  I can't wait to [[see what happens!|chapter_1]]")
 adv.pages.create!(:name => "chapter_1",
