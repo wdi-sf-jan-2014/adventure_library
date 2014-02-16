@@ -5,7 +5,7 @@ class AdventuresController < ApplicationController
       @libraries = Library.all
       @adventures = Adventure.all
       @my_adventures = Adventure.where(library_id: nil)
-      @friends_adventures = Adventure.where('library_id is not NULL')
+      @friends_adventures = Adventure.where('library_id is not 0')
       respond_to do |format|
         format.html
         format.json {render json: @my_adventures}
