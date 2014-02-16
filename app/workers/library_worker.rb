@@ -1,6 +1,5 @@
 class LibraryWorker
-  include Sidekiq::LibraryWorker
-   library
+  include Sidekiq::Worker
    def perform(library_id)
           response = Typhoeus.get(link_href + "/adventures")
           result = response.body
@@ -17,6 +16,6 @@ class LibraryWorker
             end
           end
           
-end
+   end
 end
 
