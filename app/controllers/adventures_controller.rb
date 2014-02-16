@@ -2,6 +2,10 @@ class AdventuresController < ApplicationController
     
     def index
         @adventure = Adventure.all
+        respond_to do |format|
+            format.html
+            format.json {render json: @adventure}
+        end
     end
 
     def create
@@ -24,4 +28,11 @@ class AdventuresController < ApplicationController
             format.json {render json: @adventure}
         end
     end
+
+    # def update
+    #     updated_adventure = params.require(:page).permit(:name, :text)
+    #     page = adventure.pages.find(params[:id])
+    #     page.update_attributes(updated_adventure)
+    #     redirect_to new_adventure_page_path
+    # end
 end

@@ -1,9 +1,7 @@
-<%= form_for @adventure do |f| %>
-    <%= f.fields_for :pages, @adventure.pages.build do |p| %>
-        <%= p.text_field :name, placeholder: "Page Title" %><br>
-        <%= p.text_area :text, placeholder: "Story Text" %><br>
-    <% end %>
-    <%= f.submit %>
-<% end %>
+<h1>Write a New Page</h1>
 
-<%= link_to "Write Next Page", new_adventure_page_path %>
+<%= form_for [@adventure, @page] do |f| %>
+    <%= f.text_field :name, placeholder: "Page Title" %><br>
+    <%= f.text_area :text, placeholder: "Story Text" %><br>
+    <%= f.submit "Create Page" %>
+<% end %>

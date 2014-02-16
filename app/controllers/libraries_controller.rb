@@ -1,6 +1,10 @@
 class LibrariesController < ApplicationController
     def index
         @library = Library.all
+        respond_to do |format|
+            format.html
+            format.json {render json: @library}
+        end
     end
 
     def show
