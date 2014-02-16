@@ -16,7 +16,6 @@ class AdventuresController < ApplicationController
   def create
     new_adventure = params.require(:adventure).permit(:title, :guid, :author, :pages_attributes => [:text, :name])
     @local_adventure = Adventure.create(new_adventure)
-    binding.pry
     redirect_to new_adventure_page_path(@local_adventure)
 
   end

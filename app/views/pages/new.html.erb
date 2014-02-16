@@ -2,6 +2,10 @@
 <br>
 <p><%= @adventure.author %> </p>
 
+<% @adventure.pages.each do |pages| %>
+<%= pages.name %><br>
+<%= pages.text %><br><br>
+<% end %>
 <br>
 
 Add A New Page
