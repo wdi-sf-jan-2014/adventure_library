@@ -3,12 +3,16 @@ class PagesController < ApplicationController
   end
 
   def show
+    @adventure = Adventure.find_by(:adventure_id)
+    @
   end
 
   def new
+    @page = Page.new
   end
 
   def create
+
   end
 
   def destroy

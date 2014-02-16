@@ -1,2 +1,24 @@
 <h1>Adventures#show</h1>
 <p>Find me in app/views/adventures/show.html.erb</p>
+
+<%= @adventure %><br />
+
+
+<h3><%= @adventure.title %></h3>
+
+<h5>By: <%= @adventure.author %> </h5>
+
+<div>
+  
+<% if @adventure.pages.length > 0 %>
+    <% @adventure.pages.find_by(name: "start") do |p| %>
+      <div>
+      	<%= link_to "Start your adventure", adventure_page_path(@adventure.id, @start_page.id) %>
+      </div>
+    <% end %>
+<% else %>
+	<h5> CREATE PAGES: &nbsp;
+   <%= link_to "Add to this adventure!", new_adventure_page_path(@adventure.id)%></h5>
+<% end %>
+
+</div>
