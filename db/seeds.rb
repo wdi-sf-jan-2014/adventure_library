@@ -6,17 +6,20 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-adv = Adventure.create!(:title => "Rafi's Test Adventure",
-	:author => "Rafi", :guid => "aCB-HtxDLT873Q")
-adv.pages.create!(:name => "start",
-	:text => "This is a great text adventure which is beginning right now!  I can't wait to [[see the end|end]]")
-adv.pages.create!(:name => "end",
-	:text => "Wow that adventure was amazing!")
 
-
-adv_2 = Adventure.create!(:title => "Isa's Excellent Test Adventure",
+adv = Adventure.create!(:title => "Isa's Excellent Test Adventure",
 	:author => "Isa", :guid => "N8JqJGhVxX3Udw")
-adv_2.pages.create!(:name => "start",
+adv.pages.create!(:name => "start",
 	:text => "The phone was ringing in the telephone booth as I walked by.  I am looking into a spiraling light, I think I [[see the end|end]]")
-adv_2.pages.create!(:name => "end",
+adv.pages.create!(:name => "end",
 	:text => "Yep, I'm somewhere else.  Nope, I'm not somwhere else, I am someWHEN else!")
+
+
+adv2 = Adventure.create!(:title => "An Ode To Summer",
+	:author => "Isa", :guid => "CVQ8KxmOmBsPeg")
+adv2.pages.create!(:name => "start",
+	:text => "The phone was ringing in the telephone booth as I walked by.  I am looking into a spiraling light, I think I [[see the end|end]]")
+adv2.pages.create!(:name => "end",
+	:text => "Yep, I'm somewhere else.  Nope, I'm not somwhere else, I am someWHEN else!")
+
+lib = Library.create!(:url => "http://adventures-with-raphael.herokuapp.com/")
