@@ -7,6 +7,13 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 name = "Kai"
 
+# libraries
+Library.create!([
+  { url: "http://adventures-with-raphael.herokuapp.com" },
+  { url: "http://guarded-ocean-2883.herokuapp.com" }
+])
+#/libraries
+
 # basic adventure
 adv = Adventure.create!(
   title: "#{name}'s Test Adventure",
