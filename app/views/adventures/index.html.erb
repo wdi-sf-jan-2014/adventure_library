@@ -1,5 +1,5 @@
-<h1><%= @library.name %> The Adventures</h1>
+<h1><%= @library.name %> </h1>
 
 <% @library.adventures.each do |a|  %>
   <%= link_to "Title: #{a.title}   Author: #{a.author}", adventure_page_path(a, a.pages.find_by_name("start")) %>
-<% end %> 
+<% end %>
