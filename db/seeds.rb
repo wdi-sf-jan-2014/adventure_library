@@ -12,7 +12,7 @@ Library.create!([
   # { url: "http://adventures-with-raphael.herokuapp.com" },
   # { url: "http://guarded-ocean-2883.herokuapp.com" }
   { url: "http://eric-adventure-library.herokuapp.com/"},
-  { url: "http://adventure-kaibrary.herokuapp.com"}
+  # { url: "http://adventure-kaibrary.herokuapp.com"}
 ])
 #/libraries
 
