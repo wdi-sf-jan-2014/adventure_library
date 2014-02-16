@@ -3,7 +3,11 @@ AdventureLibrary::Application.routes.draw do
     resources :pages
   end
 
+  # set the root route to hit the adventures index
   root to: 'adventures#index'
+
+  # add the route to provide list of libraries
+  get '/libraries', to: 'libraries#index'
   
 #              Prefix Verb   URI Pattern                                        Controller#Action
 #     adventure_pages GET    /adventures/:adventure_id/pages(.:format)          pages#index

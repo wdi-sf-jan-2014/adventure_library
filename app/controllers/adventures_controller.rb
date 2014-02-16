@@ -2,7 +2,6 @@ class AdventuresController < ApplicationController
 
   def index
     @adventures = Adventure.all
-    @libraries = Library.all
 
     # get adventures that were created from this site
     local_adventures = Adventure.where("library_id" => nil)
