@@ -8,7 +8,7 @@ class LibraryWorker
           
   
           result["adventures"].each do |adventure|
-            library_to_search.adventures << Adventure.create(adventure)
+            library.adventures << Adventure.create(adventure)
           end
 
 
