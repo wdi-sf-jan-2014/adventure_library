@@ -18,7 +18,7 @@ describe '/adventures' do
       @result = JSON.parse(response.body)
     end
     it 'returns a list of all the adventures made locally' do
-      
+      # binding.pry
       @result["adventures"].should_not == nil
       @result["adventures"].length.should == 1
       @result["adventures"].first["title"].should == @local_adventure["title"]
