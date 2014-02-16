@@ -1,6 +1,8 @@
-<h1>SHARE A LIBRARY</h1>
+<h3>SHARE A LIBRARY</h3>
   
-<%= form_for @library do |f| %>
-  <%= f.text_field :url, placeholder: "enter a url" %><br>
-  <%= f.submit %>
-<% end %>
+<div>
+  <%= form_for @library do |f| %>
+    <%= f.text_field :url, placeholder: "enter a url" %><br>
+    <%= f.submit %>
+  <% end %>
+</div>

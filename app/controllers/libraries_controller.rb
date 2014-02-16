@@ -20,7 +20,7 @@ class LibrariesController < ApplicationController
     libraries = lib_hash["libraries"]
     libraries << home_lib
     libraries.each do |l|
-      library = Library.new(url: l.url) #unless Library.find_by(url: l.url)
+      library = Library.new(url: l.url) unless Library.find_by(url: l.url)
       if library.save
         adv_response = Typhoeus.get("#{l.url}"+"/adventures.json")
         adventure_hash = JSON.parse(adv_response.body)

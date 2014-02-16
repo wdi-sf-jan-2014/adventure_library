@@ -1,11 +1,11 @@
-<h1>ADVENTURE TIME!</h1>
+<h3>ADVENTURE TIME!</h3>
 
 <div>
-  <h4>Title: <%= @adventure.title %></h4>
+  <h4>Adventure: "<%= @adventure.title %>"</h4>
   <h4>Contributor: <%= @adventure.author %></h4>
 </div>
 
 <div>
-  <h3>"<%= @start_page.name %>"</h3>
+  <h4>"<%= @start_page.name %>"</h4>
   <%= simple_format(linkify_page(@start_page)) %>
 </div>

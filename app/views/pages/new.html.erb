@@ -1,7 +1,9 @@
-<h1>NEW PAGE FOR: <%= @adventure.title %></h1>
+<h3>NEW PAGE FOR: <%= @adventure.title %></h3>
 
-<%= form_for [@adventure, @page] do |f| %>
-  <%= f.text_field :name, placeholder: :name %><br>
-  <%= f.text_field :text, placeholder: "add your page text here" %><br>
-  <%= f.submit %>
-<% end %>
+<div>
+  <%= form_for [@adventure, @page] do |f| %>
+    <%= f.text_field :name, placeholder: :name %><br>
+    <%= f.text_field :text, placeholder: "add your page text here" %><br>
+    <%= f.submit %>
+  <% end %>
+</div>
