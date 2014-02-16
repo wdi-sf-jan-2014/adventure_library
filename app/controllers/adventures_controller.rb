@@ -12,7 +12,7 @@ class AdventuresController < ApplicationController
     end
     respond_to do |f|
       f.html { render :index }
-      f.json { render :json => {:adventures => @local_adventures.as_json(except: [:id, :library_id], include: { :pages => {except: :id} })} }
+      f.json { render :json => {:adventures => @local_adventures.as_json(only: [:title, :author, :guid, :updated_at], include: { :pages => {only: [:name, :text]} })} }
     end
   end
 

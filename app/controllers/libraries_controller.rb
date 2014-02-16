@@ -14,19 +14,18 @@ class LibrariesController < ApplicationController
 
   def create
     lib_params = params.require(:library).permit(:url)
-    home_lib = Library.new(lib_params)
+    home_lib = Library.create(lib_params)
     response = Typhoeus.get("#{home_lib.url}"+"/libraries.json")
     lib_hash = JSON.parse(response.body)
     libraries = lib_hash["libraries"]
-    libraries << home_lib
+    (libraries << { "url" => home_lib.url }) if home_lib
     libraries.each do |l|
-      library = Library.new(url: l.url) unless Library.find_by(url: l.url)
+      library = Library.new(url: l["url"]) unless Library.find_by(url: l["url"])
       if library.save
-        adv_response = Typhoeus.get("#{l.url}"+"/adventures.json")
+        adv_response = Typhoeus.get("#{library.url}"+"/adventures.json")
         adventure_hash = JSON.parse(adv_response.body)
         adventure_hash["adventures"].each do |a|
           adventure = library.adventures.build(:title => a["title"], :author => a["author"], :guid => a["guid"])
-          # adventure.save unless Adventure.find_by(guid: adventure.guid)
           if adventure.save
             a["pages"].each do |p|
               page = adventure.pages.build(:name => p["name"], :text => p["text"])

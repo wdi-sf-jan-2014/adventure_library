@@ -12,8 +12,7 @@
 <% unless @foreign_adventures.empty? %>
   <% @foreign_adventures.each do |adventure| %>
     <div>
-      <a href="/adventures/<%= adventure.id %>"><%= adventure.title %>, by <%= adventure.author %>, from <%= adventure.library.url  %></a>
-    <% end %>
+      <a href="/adventures/<%= adventure.id %>"><%= adventure.title %>, by <%= adventure.author %></a>
     </div>
   <% end %>
 <% end %>
