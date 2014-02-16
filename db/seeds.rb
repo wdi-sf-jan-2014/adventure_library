@@ -5,5 +5,5 @@ adv.pages.create!(:name => "start",
 adv.pages.create!(:name => "end",
 	:text => "Wow that adventure was amazing!")
 
-adv.create_library(url: "changethistoheroku.com")
+adv.create_library(url: "changethistoheroku.com", name: "Mike's library")
 
