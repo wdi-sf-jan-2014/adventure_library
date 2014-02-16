@@ -1,7 +1,5 @@
-<h1>Enter a library URL to go on a new adventure!</h1>
+<h1>Libraries</h1>
 
-<%= form_for @library do |f| %>
-  <%= f.text_field :url %>
-  <%= f.submit %>
-  <!-- scrape library -->
+<% @libraries.each do |x| %>
+  <div class="row"><%= x.url %></div>
   <% end %>
