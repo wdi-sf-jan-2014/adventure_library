@@ -4,22 +4,8 @@ class LibrariesController < ApplicationController
     @library = Library.new
   end
 
-  def create
-    url = params.require(:library)[:url]
-    @library = Library.create(url: url)
-
-  end
-
-  def edit
-    @library = Library.find(params[:id])
-
-  end
-
   def index
     @library = Library.all
-  end
-
-  def update
   end
 
   def show
