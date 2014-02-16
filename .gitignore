@@ -15,3 +15,5 @@
 /log/*.log
 /tmp
 myseed.rb
+.env
+_faucet.html.erb
