@@ -8,7 +8,6 @@ class AdventuresWorker
     adv_result = JSON.parse(adv_response.body)
     
     adv_result["adventures"].each do |adventure|
-      binding.pry
       if @library.adventures.where(guid: adventure["guid"]) == []
         
         adv = @library.adventures.create(title: adventure["title"], author: adventure["author"], guid: adventure["guid"])
