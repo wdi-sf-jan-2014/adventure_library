@@ -4,11 +4,7 @@ class AdventuresController < ApplicationController
     @local_adventures = []
     @foreign_adventures = []
     Adventure.all.each do |ad|
-      if ad.is_local?
-        @local_adventures << ad
-      elsif !ad.is_local?
-        @foreign_adventures << ad
-      end
+      ad.is_local? ? @local_adventures << ad : @foreign_adventures << ad
     end
     respond_to do |f|
       f.html { render :index }
