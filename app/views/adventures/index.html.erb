@@ -1,0 +1,7 @@
+<h1>Adventures</h1>
+
+<% @adventures.each do |adventure| %>
+
+  <h2><a href="/adventures/<%= adventure.id %>"><li><%= adventure.author %>: <%= adventure.title %></li></a></h2>
+
+<% end %>

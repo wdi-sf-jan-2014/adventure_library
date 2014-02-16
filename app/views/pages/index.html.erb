@@ -1,0 +1,7 @@
+<h1>Edit Adventure Pages</h1>
+
+<% @pages.each do |page| %>
+
+  <h2><a href="/adventures/<%= page.adventure.id %>/pages/<%= page.id %>"><li><%= page.name %></li></a></h2>
+
+<% end %>
