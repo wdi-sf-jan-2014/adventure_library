@@ -3,7 +3,7 @@ class LibraryWorker
 
    def perform(library_id)
           library_to_search = Library.find(library_id)
-          url = Library.find(this_library_id).url
+          url = Library.findlibrary_id).url
           @friends_adventures = Adventure.where('library_id is not NULL')
           
           #get adventures from this site
@@ -19,7 +19,7 @@ class LibraryWorker
                 adventure_to_add.pages << Page.create(name: page['name'], text: page['text'])
               end
              @friends_adventures << adventure_to_add
-            adv.pages.create(name: page["name"], text: page["text"])
+      
           end
 
 
