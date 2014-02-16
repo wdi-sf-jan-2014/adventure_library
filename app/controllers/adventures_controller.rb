@@ -24,7 +24,7 @@ class AdventuresController < ApplicationController
 
   def show
     @adventure = Adventure.find(params[:id])
-    @page = @adventure.pages.first
+    @page = @adventure.pages.find_by_name("start")
     respond_to do |f|
         f.html 
         f.json {render :json => {"adventures" => @adventures} }

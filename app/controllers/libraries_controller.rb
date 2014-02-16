@@ -22,10 +22,9 @@ class LibrariesController < ApplicationController
       
         adventure["pages"].each do |page|
          obtained_pages = obtained_adventure.pages.create!(:name => page["name"], :text => page["text"])
-
-        binding.pry
         end
     end
+    binding.pry
     redirect_to root_url
 
   end
