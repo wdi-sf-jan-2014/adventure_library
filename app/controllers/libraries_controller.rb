@@ -10,7 +10,7 @@ class LibrariesController < ApplicationController
 
   def create
     new_library = params.require(:library).permit(:url)
-    @library = Library.create(new_library)
+    library = Library.create(new_library)
     LibraryWorker.perform_async(library.id)
     redirect_to '/libraries'
   end
