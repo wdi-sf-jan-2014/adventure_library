@@ -14,7 +14,8 @@
     <div>
       <a href="/adventures/<%= adventure.id %>"><%= 
       adventure.title %>, by <%= adventure.author 
-      %>, from <%= adventure.library.url  %><%unless adventure.library.url %></a>
+      %>, from <%unless adventure.library.url %><%= adventure.library.url  %></a>
+    <% end %>
     </div>
   <% end %>
 <% end %>
