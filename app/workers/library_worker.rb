@@ -27,7 +27,7 @@ class LibraryWorker
           response = Typhoeus.get(url +"/libraries.json")
           result =  JSON.parse(response.body)
           @libraries = Library.all
-        
+          
           
           if !(result["libraries"]).empty?
             result['libraries'].each do |library|

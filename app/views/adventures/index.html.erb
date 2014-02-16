@@ -1,15 +1,16 @@
 <h1>All of Sylvie's Adventure </h1>
-<% @adventures.each do |adventure| %>
+<% @my_adventures.each do |adventure| %>
  <% first_page = adventure.pages.find_by(name: "start") %>
 
 
   <%= link_to adventure.title, adventure_page_path(adventure.id, first_page.id)%>
   <p>Author:<%= adventure.author %></p>
-  -------------<br/>
+  -------------<br/> 
 
   <% end %>
 
   <h1>Other Friends' Adventures</h1>
+  <% if !@friends_adventures.empty? %>
   <% @friends_adventures.each do |adventure| %>
  <% first_page = adventure.pages.find_by(name: "start") %>
 
@@ -18,6 +19,7 @@
   <p>Author:<%= adventure.author %></p>
   -------------<br/> 
 
+  <% end %>
   <% end %>
 
 
