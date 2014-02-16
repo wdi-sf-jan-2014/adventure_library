@@ -1,10 +1,14 @@
+<h2> Welcome to Jay's Adventure Site </h2>
 
-All Adventures:<br>
+<h4>All Adventures:</h4>
 
-<%for i in @adventures %>
+<%for i in @local_adventures %>
 	<% if i.pages.find_by(name: "start") %>
 	 <%=link_to i.title, adventure_page_path(i,i.pages.find_by(name: "start"))%><br>
 	<%else%>
 	 <%= i.title %>
 	<%end%>
 <%end%>
+
+
+
