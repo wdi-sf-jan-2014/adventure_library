@@ -13,7 +13,7 @@ class AdventuresController < ApplicationController
 
   def create
   @adventure = Adventure.create(params[:adventure].permit(:title, :author, :guid, :pages_attributes =>[:name, :text])) 
-  redirect_to "/adventures/#{@adventure.id}"
+  redirect_to "/adventures/#{@adventure.id}/pages/new"
   end
 
   def show

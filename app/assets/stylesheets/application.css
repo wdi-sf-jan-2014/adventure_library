@@ -5,3 +5,7 @@ textarea {
 width: 50%;
 height: 200px;
 }
+
+input[type="submit"] {
+width: 300px;
+}
