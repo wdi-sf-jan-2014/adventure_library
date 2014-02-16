@@ -12,7 +12,7 @@ class LibraryWorker
     end
 
     adventure_link = Typhoeus.get(params[:url]+"/adventures.json")
-    result = JSON.parse(link.body)
+    result = JSON.parse(adventure_link.body)
     i = 0
     while i < result["adventures"].size
       new_adventure = Adventure.find_or_initialize_by(title: result["adventures"][i]["title"])
@@ -21,8 +21,12 @@ class LibraryWorker
                                       created_at: result["adventures"][i]["created_at"],
                                       updated_at: result["adventures"][i]["updated_at"],
                                       guid: result["adventures"][i]["guid"])
-      i +=1
-    end
-  end
 
-end
+      for page in result["adventures"][i]["pages"] do
+          new_page = new_adventure.pages..find_or_initialize_by(name: result["adventures"][i]["pages"][i]["name"])
+          new_adventure.pages.update_attributes(:text result["adventures"][i]["pages"][i]["text"] )
+          i = i+1
+        end
+      end
+
+    end
