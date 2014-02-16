@@ -4,11 +4,11 @@ class LibrariesController < ApplicationController
   end
 
   def index
-  @libraries = Library.all
+    @libraries = Library.all
 
     respond_to do |f|
       f.html
-      f.json { render json: Library.libraries_to_json(@libraries) }  }
+      f.json { render json: { libraries: @libraries.as_json( include: [ adventures: { include: [:pages] } ] ) }  }
     end
   end
 
