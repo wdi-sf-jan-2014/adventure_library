@@ -8,12 +8,12 @@ adventure/index.html.erb
   <h1><%= adv.title %></h1>
   <p><%= adv.author %></p>
   <%= adv.library_id %>
-  <%= button_to "see this adventure", adventure_path(adv) %><br>
-  <%= button_to "add new pages", new_adventure_page_path(adv) %><br>
-  <%= button_to "delete", {:controller => :adventures, :action => 'destroy', :id => adv.id }, :method => :delete %>
+  <%= link_to "see this adventure", adventure_path(adv) %><br>
+  <%= link_to "add new pages", new_adventure_page_path(adv) %><br>
+  <%= link_to "delete", {:controller => :adventures, :action => 'destroy', :id => adv.id }, :method => :delete %>
 <% end %>
 ---<br>
-<%= button_to "add new adventures", new_adventure_path %>
+<%= link_to "add new adventures", new_adventure_path %>
 
 </div>
 
