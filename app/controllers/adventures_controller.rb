@@ -1,6 +1,14 @@
 class AdventuresController < ApplicationController
   def index
     @adventures = Adventure.all
+    @local_adventure = Adventure.where(library_id: nil)
+    @foreign_adventure = Adventure.where.not(library_id: nil)
+    respond_to do |f|
+      f.html 
+       f.json {render :json => {:adventures =>@local_adventure.as_json(
+        include: {pages: {except: [:id, :created_at, :updated_at]} } ,
+          except: [:id, :created_at, :updated_at] )}}
+     end
   end
 
   def new
@@ -16,7 +24,7 @@ class AdventuresController < ApplicationController
 
   def show
     @adventure = Adventure.find(params[:id])
-    
+
   end
 
   def edit
