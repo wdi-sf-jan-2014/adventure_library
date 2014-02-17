@@ -1,13 +1,17 @@
 <h1>adventure library</h1>
-<a href="adventures/new">add a new adventure</a><br><br>
+<a href="adventures/new">write a new adventure</a><br><br>
 
+search for a remote library:
+<%= form_for @remote_adventures do |f| %>
+  <%= f.text_field :name, placeholder: "name of library" %><br>
+  <%= f.text_field :url, placeholder: "URL" %><br><br>
+    <%= f.submit %><br><br>   
+<%end%>
 
-<h1>local adventures</h1>
-<% @adventure.each do |a| %>
-<% num = a.title.length %>
-<%= "*" * (num+2) %><br>
-<a href="adventures/<%= a.id %>"><%= a.title %></a><br>
-by <%= a.author %><br>
+<h4>local adventures</h4>
+<% @adventures.each do |a| %>
+  <% num = a.title.length %>
+  <%= "*" * (num+2) %><br>
+  <a href="adventures/<%= a.id %>"><%= a.title %></a><br>
+  by <%= a.author %><br>
 <% end %>
-
-
