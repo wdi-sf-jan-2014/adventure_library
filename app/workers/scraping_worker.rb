@@ -28,7 +28,16 @@ class ScrapingWorker
       Library.all << new_lib
     end
 
+    #find the library's libraries
+    response = Typhoeus.get("#{library.url}" + "/libraries.json")
+    result = JSON.parse(response.body)
 
+    result['libraries'].each do |lib| 
+      # only create libraries that don't already exist in my library.
+      unless Library.all.include?(lib)
+        new_lib = Library.create(url: lib.url)
+        Library.all << new_lib
+      end
   end
 
 end
