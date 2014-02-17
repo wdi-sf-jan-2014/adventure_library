@@ -9,6 +9,9 @@ class Library < ActiveRecord::Base
     if response.response_code > 199 and response.response_code < 400
       result = JSON.parse(response.body)
       adv_scrape = result["adventures"]
+      # if adv_scrape == nil
+      #   adv_scrape = []
+      # end
     else 
       adv_scrape = []
     end
@@ -20,6 +23,9 @@ class Library < ActiveRecord::Base
     if response.response_code > 199 and response.response_code < 400
       result = JSON.parse(response.body)
       lib_scrape = result["libraries"]
+      # if lib_scrape == nil
+      #   lib_scrape = []
+      # end
     else
       lib_scrape = []
     end
