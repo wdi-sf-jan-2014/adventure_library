@@ -1,0 +1,12 @@
+<h4>Currrent list of Adventures</h4>
+
+<%@all_libraries.each do |f| %>
+
+<%=link_to f.url, f.url %><br>
+
+<%end%>
+
+<br>
+
+
+<%=link_to  "Add a new library", new_library_path %>
