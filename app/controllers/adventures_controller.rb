@@ -5,20 +5,20 @@ class AdventuresController < ApplicationController
     @local_adventures = Adventure.where(library_id: nil)
     respond_to do |f|
       f.html
-      f.json { render :json => {:adventures => @local_adventures.as_json(except: [:id, :library_id], include: {:pages => {except: :id}})} }
+      f.json { render :json => {:adventures => @local_adventures.as_json(except: [:id, :library_id, :created_at, :updated_at], include: {:pages => {except: :id}})} }
     end
   end
 
-  def new
-    @adventure = Adventure.new
-    # @page = @adventure.pages.create
-  end
+  # def new
+  #   @adventure = Adventure.new
+  #   # @page = @adventure.pages.create
+  # end
 
-  def create
-    adventure = params.require(:adventure).permit(:title, :author, :page_attributes => [:name, :text])
-    adv = Adventure.create(adventure)
-    adv.update_attribute(guid: SecureRandom.urlsafe_base64(10).to_s)
-  end
+  # def create
+  #   adventure = params.require(:adventure).permit(:title, :author, :page_attributes => [:name, :text])
+  #   adv = Adventure.create(adventure)
+  #   adv.update_attribute(guid: SecureRandom.urlsafe_base64(10).to_s)
+  # end
 
   def show
     @adventure = Adventure.find(params[:id])
