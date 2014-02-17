@@ -17,16 +17,18 @@ class LibrariesController < ApplicationController
   def create
     url = params.require(:library)[:url]
 
-    # if user entered url ending with a slash, remove it
-    url.chop! if url.end_with?('/')
+    # get / add the requested library (get if exists, add if not)
+    @library = add_new_library(url)
 
-    # check if that library exists, if not, create it
-    @library = Library.find_by(url: url)
-    @library = Library.create(url: url) if @library.nil?
-
-    redirect_to library_path(@library)
+    if @library.nil?
+      flash[:error] = "Invalid URL or no results"
+      redirect_to '/'
+    else
+      redirect_to library_path(@library)
+    end
   end
 
+  # show lastest libraries and adventures of given library 
   def show
     @library = Library.find(params[:id])
     @library_list = @library.scrape_libraries

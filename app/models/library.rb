@@ -12,8 +12,8 @@ class Library < ActiveRecord::Base
   has_many :adventures, dependent: :destroy
 
   # get the json list of libraries from this library
-  def scrape_libraries
-    response = Typhoeus.get(self.url + '/libraries.json')
+  def scrape_libraries(url=self.url)
+    response = Typhoeus.get(url + '/libraries.json')
     
     # if get a good reponse back, parse the JSON, else return empty
     libraries_result_hash = {}
@@ -25,8 +25,8 @@ class Library < ActiveRecord::Base
   end
 
   # get the json list of adventures from this library
-  def scrape_adventures
-    response = Typhoeus.get(self.url + "/adventures.json")
+  def scrape_adventures(url=self.url)
+    response = Typhoeus.get(url + "/adventures.json")
 
     # if get a good reponse back, parse the JSON, else return empty
     adventures_result_hash = {}
