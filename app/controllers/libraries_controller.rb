@@ -16,16 +16,20 @@ class LibrariesController < ApplicationController
     url = new_library["url"]
     response = Typhoeus.get("#{url}/libraries.json")
     result = JSON.parse(response.body)
-    result["libraries"].each do |f|
-      l_url= f["url"]
-      if Library.where(url: l_url).exists?
-      else
-        Library.create(url: l_url)
-        adv_response = Typhoeus.get("#{l_url}/adventures.json")
-        adv_result = JSON.parse(adv_response)
-        binding.pry
+      result["libraries"].each do |f|
+        l_url= f["url"]
+          if Library.where(url: l_url).exists?
+          else
+            Library.create(url: l_url)
+            adv_response = Typhoeus.get("#{l_url}/adventures.json")
+            adv_result = JSON.parse(adv_response.body)
+             
+              adv_result["adventures"].each do |y|
+                 Adventure.create(y)
+              end
+
+          end
       end
-    end
     redirect_to libraries_path
   end
 
