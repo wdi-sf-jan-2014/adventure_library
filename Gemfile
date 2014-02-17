@@ -49,6 +49,8 @@ gem 'unicorn'
 gem 'sidekiq'
 
 gem 'typhoeus'
+
+gem 'nokogiri'
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
 
