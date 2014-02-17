@@ -49,6 +49,9 @@ gem 'unicorn'
 
 gem 'sidekiq'
 
+gem 'rails_12factor', group: :production
+ruby "2.0.0"
+
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
 
