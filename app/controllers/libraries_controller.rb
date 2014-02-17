@@ -20,7 +20,10 @@ class LibrariesController < ApplicationController
       lib_hash = JSON.parse(response.body)
       libraries = lib_hash["libraries"]
       libraries << home_lib
-      LibraryWorker.perform_async(libraries)
+      libraries.each do |l|
+        library = Library.find_or_create_by(url: l["url"])
+        LibraryWorker.perform_async(library.id)
+      end
     end
     redirect_to adventures_path
   end

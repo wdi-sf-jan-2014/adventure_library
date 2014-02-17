@@ -2,35 +2,29 @@ class UpdatesWorker
   include Sidekiq::Worker
   include Sidetiq::Schedulable
 
-  recurrence { hourly.minute_of_hour(0, 30) }
+  recurrence { hourly.minute_of_hour(18, 30) }
 
   def perform
     libraries = Library.all
-    for_worker = []
     libraries.each do |library|
       response = Typhoeus.get("#{library.url[0..-2]}"+"/adventures.json")
-      if response.code == 0
-        next
-      else
+      unless response.code == 0
         adventures = JSON.parse(response.body) 
         adventures["adventures"].each do |a|
-          if Adventure.find_by(guid: a["guid"]) && (Adventure.find_by(guid: a["guid"]))["created_at"] < a["updated_at"]
-            adv = Adventure.find_by(guid: a["guid"])
+          adv = Adventure.find_or_create_by(guid: a["guid"])
+          if !a["updated_at"].nil? && adv.created_at < a["updated_at"]
             adv.update_attributes(:title => a["title"],:author => a["author"])
-          elsif !Adventure.find_by(guid: a["guid"])
-            new_a = library.adventures.build(:title => a["title"], :author => a["author"], :guid => a["guid"])
-            if new_a.save
+            unless a["pages"].empty?
               a["pages"].each do |p|
-                page = adventure.pages.build(:name => p["name"], :text => p["text"])
+                page = adv.pages.build(:name => p["name"], :text => p["text"])
                 page.save
               end
             end
           end
         end
-        for_worker << { "url" => library.url[0..-2]}
       end
-    end
-    LibraryWorker.perform_async(for_worker)
+      LibraryWorker.perform_async(library.id)
+    end 
   end
 
 end
