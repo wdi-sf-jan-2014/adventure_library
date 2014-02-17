@@ -31,7 +31,8 @@ class LibraryWorker
           
           if !(result["libraries"]).empty?
             result['libraries'].each do |library|
-              if !@libraries.include?(library['url']) && (library['url']!= ' http://sleepy-garden-8077.herokuapp.com')
+              my_libraries_with_same_url = Library.where(url: library['url'])
+              if   my_libraries_with_same_url.empty? && (library['url'] != 'http://sleepy-garden-8077.herokuapp.com')
                  @libraries << Library.create(url:  library['url'])
 
               end
