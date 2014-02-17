@@ -6,7 +6,7 @@ class PagesController < ApplicationController
   end
 
   def index
-    
+    @pages = Pages.all
   end
   
 end

@@ -2,6 +2,6 @@
 
 <% @adventure.pages.each do |page| %>
   <div>
-    <%= page.text %>
+    <%= link_to page.text, adventure_pages_path(page) %>
   </div>
   <% end %>

@@ -14,7 +14,7 @@
 # 	:text => "Wow that adventure was amazing!")
 
 adv = Adventure.create!(:title => "Tour of San Francisco",
- :author => "Steve O")
+ :author => "Steve O", :guid => SecureRandom.urlsafe_base64(10).to_s)
 
 adv.pages.create!(:name => "Start",
  :text => "It is a beautiful day in the beautiful city of San Francisco!  You decide to go out and enjoy the day.  
