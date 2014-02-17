@@ -15,7 +15,7 @@ class LibrariesController < ApplicationController
     @libraries = Library.all
     respond_to do |f|
       f.html
-      f.json { render :json => @libraries.as_json(only: :url)}
+      f.json { render json: {libraries: @libraries.as_json(only: :url)} }
     end
   end
 
