@@ -23,7 +23,7 @@ class LibrariesWorker
       clean_url = url_cleanup(lib["url"])
       unless Library.find_by(url: clean_url)
         library = Library.create(url: clean_url)
-        perform(library.id) #recursion allowing one pass to scrape all attached libraries -> My attempt missed this: See Line 36
+        LibrariesWorker.perform_async(library.id) #recursion allowing one pass to scrape all attached libraries -> My attempt missed this: See Line 36
       end
     end
   end
