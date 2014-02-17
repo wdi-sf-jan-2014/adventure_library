@@ -1,6 +1,6 @@
 class AdventuresController < ApplicationController
   def index
-    @adventure = Adventure.all
+    @foreign_adventure = Adventure.where("library_id IS NOT NULL")
     @local_adventure = Adventure.where(:library_id => nil)
     respond_to do |f|
       f.html
@@ -23,6 +23,7 @@ class AdventuresController < ApplicationController
   def show
     id = params[:id]
     @adventure = Adventure.find(id)
+
   end
 
   def edit

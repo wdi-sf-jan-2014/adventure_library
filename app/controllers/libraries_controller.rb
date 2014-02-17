@@ -11,7 +11,7 @@ class LibrariesController < ApplicationController
     @library = Library.new
   end
 
-   def create
+  def create
     if Library.where(url: params[:library]["url"]) == []
       create_library = params.require(:library).permit(:url)
       @library = Library.create(create_library)
@@ -22,4 +22,8 @@ class LibrariesController < ApplicationController
       redirect_to libraries_path
     end
    end
+
+   def show
+    @library = Library.find(params[:id])
+  end
 end

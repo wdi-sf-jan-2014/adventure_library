@@ -1,1 +1,11 @@
 <a href='/adventures/new'>Create a New Adventure</a>
+
+<h3> My Adventures </h3>
+<% @local_adventure.each do |adv| %>
+  <%= link_to adv.title, adventure_path(adv.id) %> <br>
+  <% end %>
+
+<h3>My Friends' Adventures</h3>
+<% @foreign_adventure.each do |adv| %>
+  <%= link_to adv.title, adventure_path(adv.id)%><br>
+<%end%>
