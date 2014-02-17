@@ -7,10 +7,20 @@ AdventureLibrary::Application.routes.draw do
   resources :adventures do
     resources :pages
   end
+
+  post '/adventures/:adventure_id/pages', to: 'pages#create', as: :pages
   
 end
-
 #              Prefix Verb   URI Pattern                                        Controller#Action
+#                root GET    /                                                  adventures#index
+#           libraries GET    /libraries(.:format)                               libraries#index
+#                     POST   /libraries(.:format)                               libraries#create
+#         new_library GET    /libraries/new(.:format)                           libraries#new
+#        edit_library GET    /libraries/:id/edit(.:format)                      libraries#edit
+#             library GET    /libraries/:id(.:format)                           libraries#show
+#                     PATCH  /libraries/:id(.:format)                           libraries#update
+#                     PUT    /libraries/:id(.:format)                           libraries#update
+#                     DELETE /libraries/:id(.:format)                           libraries#destroy
 #     adventure_pages GET    /adventures/:adventure_id/pages(.:format)          pages#index
 #                     POST   /adventures/:adventure_id/pages(.:format)          pages#create
 #  new_adventure_page GET    /adventures/:adventure_id/pages/new(.:format)      pages#new

@@ -1,0 +1,16 @@
+<h1> Weave a New Tapestry </h1>
+
+<%= form_for @adventure do |f| %>
+  <%= f.text_field :title, placeholder: "Title" %></br>
+  <%= f.text_field :author, placeholder: "Author" %></br>
+  <%= f.hidden_field :guid, :value => SecureRandom.urlsafe_base64(10) %>
+  <h5>Start Page</h5>
+  <%= f.fields_for :pages, @adventure.pages.build do |p| %>
+    <%= p.hidden_field :name, value: "start" %></br>
+    <%= p.text_area :text, placeholder: "Begin weaving" %>
+  <% end %>
+</br>
+  <%= f.submit %>
+<% end %>
+
+
