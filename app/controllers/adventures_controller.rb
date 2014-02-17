@@ -18,9 +18,10 @@ class AdventuresController < ApplicationController
   def index
     @library = Library.new
     @adventures = Adventure.all
+    # AdventuresWorker.perform_async(@adventures)
     respond_to do |f|
       f.html
-      f.json { render json: @adventures.as_json(include: :pages ), status: 200}
+      f.json { render json: @adventures.as_json(include: :pages), status: 200}
     end
   end
 
