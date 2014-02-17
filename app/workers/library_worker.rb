@@ -23,8 +23,7 @@ class LibraryWorker
             end
           end
         end
-        end
-      end
+        
     end
   end
 end
