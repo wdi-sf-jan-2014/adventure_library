@@ -3,16 +3,16 @@
 <head>
   <title>AdventureLibrary</title>
   <%= include_gon %>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <script type="text/javascript" src="https://www.google.com/jsapi"></script>
   <%= javascript_include_tag "google", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
-
+<link href='http://fonts.googleapis.com/css?family=Sue+Ellen+Francisco|Annie+Use+Your+Telescope|Ruthie|Amatic+SC|Loved+by+the+King' rel='stylesheet' type='text/css'>
 </head>
 <body>
-
-<%= yield %>
-
+    <%= yield %>
 </body>
 </html>

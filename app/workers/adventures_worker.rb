@@ -13,7 +13,7 @@ class AdventuresWorker
     adv_result['adventures'].each do |adv| 
       # only create adventures that don't already exist in your library
       if Adventure.where(title: adv["title"]) == []
-        new_adv = Adventure.create(title: adv['title'], author: adv['author'], created_at: adv['created_at'], updated_at: adv['updated_at'], guid: adv['guid'])
+        new_adv = Adventure.create(title: adv['title'], author: adv['author'], created_at: adv['created_at'], updated_at: adv['updated_at'], guid: adv['guid'], library_id: library_id)
         adv['pages'].each do |page|
            new_adv.pages.create(name: page['name'], text: page['text'])
         end

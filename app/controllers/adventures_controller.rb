@@ -4,6 +4,8 @@ class AdventuresController < ApplicationController
   def index
     @adventures = []
     @local_adventures = []
+    @library = Library.new
+
 
     #making an array of all adventures
     Adventure.all.each do |adv|

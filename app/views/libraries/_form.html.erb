@@ -1,6 +1,4 @@
-Create a new Library
-
 <%= form_for @library do |l| %>
-  <%= l.text_field :url, placeholder: "http://example-url.herokuapp.com/" %>
-  <%= l.submit %>
+  <%= l.text_field :url, placeholder: "http://example.com/" %>
+  <%= l.submit "Add a Library for Scraping"%>
 <% end %>

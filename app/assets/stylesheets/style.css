@@ -1,0 +1,40 @@
+body {
+}
+
+
+header  {
+  background: url('http://www.wallsave.com/wallpapers/2560x1440/forest-path/472455/forest-path-landscapes-x-jpg-472455.jpg');
+  background-size: cover;
+  background-position: bottom;
+  height: 300px;
+  text-align: center;
+}
+
+.adventure-title{
+  font-family: 'Amatic SC', cursive;
+  color: white;
+  font-size: 6em;
+  padding-top: 70px;
+}
+
+ul {
+
+}
+li  {
+  display: inline-block;
+  padding: 0px 10px 0px 10px;
+
+}
+
+.or {
+  font-family: 'Amatic SC', cursive;
+  color: white;
+  font-size: 3em;
+
+}
+
+.adventures-body {
+  padding-top: 50px;
+  padding-bottom: 50px;
+
+}

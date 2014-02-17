@@ -1,11 +1,25 @@
-<div class="page-title"> Choose an Adventure: </div>
+<header>
+  <div class="adventure-title"> Text Adventures </div>
+  <ul>
+    <li><%= button_to "Add New Adventure", new_adventure_path, :method => :get %></li>
+    <li class="or"> or </li>
+    <li><%= render "libraries/form" %></li>
+  </ul>
+</header>
 
-<% @adventures.each do |adventure| %>
-  
-  <div class="each-item">
-    <%= link_to adventure.title, adventure_path(adventure) %>
-  </div>
+<div class="container adventures-body">
+  <% @adventures.each do |adventure| %>
+    
+    <div class="each-item">
+      <%= link_to adventure.title, adventure_path(adventure) %> by
+      <%= adventure.author %> from 
+      <% if adventure.library_id == nil %>
+        local adventure
+      <% else %>
+         external adventure
+      <% end %>
 
-<% end %>
+    </div>
 
-<%= button_to "Add New Adventure", new_adventure_path, :method => :get %>
+  <% end %>
+</div>
