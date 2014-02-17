@@ -8,6 +8,15 @@ AdventureLibrary::Application.routes.draw do
 
   # add the route to provide list of libraries
   get '/libraries', to: 'libraries#index'
+
+  # add a route create a new library (to scrape)
+  get '/libraries/new', to: 'libraries#new'
+
+  # add a route to save newly created library
+  post '/libraries', to: 'libraries#create'
+
+  # add a route to show a specific library
+  get '/libraries/:id', to: 'libraries#show', as: 'library'
   
 #              Prefix Verb   URI Pattern                                        Controller#Action
 #     adventure_pages GET    /adventures/:adventure_id/pages(.:format)          pages#index

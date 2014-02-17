@@ -19,9 +19,15 @@ class Adventure < ActiveRecord::Base
   before_create do |adventure| 
     adventure.guid = SecureRandom.urlsafe_base64(10) if adventure.guid.nil?
   end
-
   before_save do |adventure| 
     adventure.guid = SecureRandom.urlsafe_base64(10) if adventure.guid.nil?
+  end
+
+  #
+  def scrape_adventures(library_url)
+    response = Typhoeus.get(library_url+"/adventures.json")
+    adventures_result_hash = JSON.parse(response.body)["adventures"]
+    puts("adv1 title: #{adventures_result_hash[0][:title]}")
   end
 
 end
