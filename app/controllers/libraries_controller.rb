@@ -3,6 +3,9 @@ class LibrariesController < ApplicationController
   def index
 
     @libraries = Library.all
+    @libraries.each do |library|
+      AdventuresWorker.perform_async(library.id)
+    end
 
     respond_to do |f|
       f.html
@@ -21,7 +24,7 @@ class LibrariesController < ApplicationController
     temp_library = Library.new(params[:library].permit(:url))
     library = Library.find_or_create_by(url: temp_library.url  )
 
-    ScrapingWorker.perform_async(library.id)
+    LibrariesWorker.perform_async(library.id)
 
     redirect_to libraries_path
 
