@@ -19,7 +19,7 @@ class LibrariesController < ApplicationController
     
     clean_url = url_cleanup(new_url[:url])
     
-    lib = Library.create_or_find_by(url: clean_url)
+    lib = Library.find_or_create_by(url: clean_url)
     
     LibrariesWorker.perform_async(lib.id)
     
