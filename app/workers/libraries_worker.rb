@@ -42,7 +42,6 @@ class LibrariesWorker
       title = adv["title"]
       author = adv["author"]
       pages = adv["pages"]
-      binding.pry
       if Adventure.find_by(guid: guid) == nil
         new_adv = Adventure.create(title: title, author: author, guid: guid)
         pages.each do |p|

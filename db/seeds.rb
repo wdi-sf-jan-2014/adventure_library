@@ -18,8 +18,14 @@ adv.pages.create!(:name => "end",
 adv2 = Adventure.create!(:title => "An Ode To Summer",
 	:author => "Isa", :guid => "CVQ8KxmOmBsPeg")
 adv2.pages.create!(:name => "start",
-	:text => "The phone was ringing in the telephone booth as I walked by.  I am looking into a spiraling light, I think I [[see the end|end]]")
+	:text => "Oh, Summer Oh, Summer you are so bright with your bright sunny days and hot August [[nights.|two]]")
+adv2.pages.create!(:name => "two",
+	:text => "Across the word it's you who we celebrate.  From Alaska to Nebraska we eagerly [[wait.|three]]")
+adv2.pages.create!(:name => "three",
+	:text => "Your return & arrival; in the cold we'll survive through.  You put love in the air, the thorugh of you staves off this wintry despair.  Dear Summer, are you [[there?|four]]")
+adv2.pages.create!(:name => "four",
+	:text => "Thanks to the earth's axis, mother nature's best practice.  We tilt up to your glare, your bright, come-hither stare. Dear Summer, are you [[there?.|end]]")
 adv2.pages.create!(:name => "end",
-	:text => "Yep, I'm somewhere else.  Nope, I'm not somwhere else, I am someWHEN else!")
+	:text => "We love teeny bikinis and big sunnies, water sports and short shorts.  Summer, oh Summer meet us at the shore!  ")
 
 #lib = Library.create!(:url => "http://adventures-with-raphael.herokuapp.com/")
