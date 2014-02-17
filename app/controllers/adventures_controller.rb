@@ -3,8 +3,13 @@ class AdventuresController < ApplicationController
     @adventures = Adventure.all
     respond_to do |f|
       f.html
-      f.json { render :json => @adventures.as_json(include: :pages) }
+      f.json { render :json => @adventures.as_json( 
+                                    include: { pages: { only: [:name, :text]}},
+                                                    only: [:title, :author, :guid, :updated_at]
+
+              )}
     end
+
   end
 
 
