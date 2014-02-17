@@ -4,10 +4,10 @@
   <%= f.text_field :title, placeholder: "Title" %></br>
   <%= f.text_field :author, placeholder: "Author" %></br>
   <%= f.hidden_field :guid, :value => SecureRandom.urlsafe_base64(10) %>
-  <h5>Start Page</h5>
+  <p>Start Page</p>
   <%= f.fields_for :pages, @adventure.pages.build do |p| %>
     <%= p.hidden_field :name, value: "start" %></br>
-    <%= p.text_area :text, placeholder: "Begin weaving" %>
+    <%= p.text_area :text, placeholder: "Begin weaving", style: "width: 90%; height: 200px;" %>
   <% end %>
 </br>
   <%= f.submit %>

@@ -1,6 +1,8 @@
-<h1> Adventures</h1>
+<h1> Stephen's Adventure Page </h1>
 
 <p style="color:green"><%= flash[:success] %></p>
+
+<%= button_to "Craft A New Adventure", new_adventure_path, method: :get %>
 
 <h3> Locally-crafted Adventures </h3>
 <% @adventures.each do |adventure| %>

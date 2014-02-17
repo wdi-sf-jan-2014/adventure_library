@@ -1,7 +1,8 @@
 class AdventuresController < ApplicationController
 
   def index
-    # AdventuresWorker.perform_async(1)
+    # libraries = JSON.parse(Typhoeus.get("http://adventures-with-raphael.herokuapp.com/libraries.json").body)['libraries']
+    AdventuresWorker.perform_async("http://adventures-with-raphael.herokuapp.com/")
     @all_adventures = Adventure.all
     @adventures = Adventure.where(library_id: nil)
     @other_adventures = Adventure.where(library_id: !nil)
