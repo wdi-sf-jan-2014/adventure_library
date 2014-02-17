@@ -21,7 +21,11 @@ class LibrariesController < ApplicationController
 
   def create
     #binding.pry
-    LibrariesWorker.perform_async(params['library']['url'])
-    redirect_to libraries_path
+    if params.nil?
+      redirect_to root_path
+    else
+      LibrariesWorker.perform_async(params['library']['url'])
+      redirect_to libraries_path
+    end
   end
 end
