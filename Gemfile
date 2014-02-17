@@ -53,6 +53,8 @@ gem 'sidekiq'
 gem 'redis'
 gem 'nokogiri'
 gem 'typhoeus'
+gem 'rails_12factor', group: :production
+
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
 
