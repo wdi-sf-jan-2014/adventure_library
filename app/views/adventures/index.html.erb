@@ -1,11 +1,8 @@
 <a href='/adventures/new'>Create a New Adventure</a>
 
-<h3> My Adventures </h3>
-<% @local_adventure.each do |adv| %>
-  <%= link_to adv.title, adventure_path(adv.id) %> <br>
+<ul>
+  <% @adventures.each do |a| %>
+    <% this_adventure = a.pages.find_by(name: "start") %>
+    <li><%= link_to a.title, adventure_page_path(a, this_adventure) %>, BY: <%= a.author %></li>
   <% end %>
-
-<h3>My Friends' Adventures</h3>
-<% @foreign_adventure.each do |adv| %>
-  <%= link_to adv.title, adventure_path(adv.id)%><br>
-<%end%>
+</ul>

@@ -1,7 +1,7 @@
 class AdventuresController < ApplicationController
   def index
-    @foreign_adventure = Adventure.where("library_id IS NOT NULL")
-    @local_adventure = Adventure.where(:library_id => nil)
+@adventures = Adventure.all
+    @local_adventures = Adventure.where(library_id: nil)
     respond_to do |f|
       f.html
       f.json {render :json => {"adventures" => @local_adventure.as_json(except: :id, include: :pages)}}
