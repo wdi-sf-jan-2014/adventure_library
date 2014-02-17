@@ -41,8 +41,9 @@ class Library < ActiveRecord::Base
 
     adventures_list.each do |adventure|
 
-      # add adventures you do not already have (prevent self scraping)
-      if Adventure.find_by(guid: adventure["guid"]).nil?
+      # add adventures you do not already have (prevent self scraping), and have pages
+      if Adventure.find_by(guid: adventure["guid"]).nil? && !adventure["pages"].nil? && adventure_has_start(adventure["pages"])
+
         # could potentially use from_json here, if you trusted the json you scraped.
         curr_adv = self.adventures.create(:title => adventure["title"],
                                         :author => adventure["author"],
@@ -53,6 +54,13 @@ class Library < ActiveRecord::Base
         end
       end
     end
+  end
+
+private
+
+  def adventure_has_start(pages)
+    pages.each { |page| return true if page.has_value?("start") }
+    return false
   end
 
 
