@@ -17,8 +17,11 @@ class LibraryWorker
         Library.find_by_url("http://polar-taiga-5141.herokuapp.com/").destroy
 
       elsif
-        new_library.url ==  "http://polar-taiga-5141.herokuapp.com/"
-        Library.find_by_url("http://polar-taiga-5141.herokuapp.com/").destroy
+        new_library.url ==  "http://afternoon-eyrie-4954.herokuapp.com/"
+        Library.find_by_url("http://afternoon-eyrie-4954.herokuapp.com/").destroy
+      elsif
+        new_library.url ==  "http://aqueous-meadow-3661.herokuapp.com/"
+        Library.find_by_url("http://aqueous-meadow-3661.herokuapp.com/").destroy
       end
       i +=1
     end
