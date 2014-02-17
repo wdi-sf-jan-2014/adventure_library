@@ -1,0 +1,13 @@
+
+	
+<div class="adventures">
+	<h1>Adventure Titles <% @local_adventures.each do |a| %></h1>
+	<h2><%= link_to a.title, adventure_path(a.id)%></h2> <br>
+	<h3><%= a.author %></h3> <br>
+
+	<% end %>
+</div>
+
+<p>Write a new adventure</p>
+	<%= link_to 'Write it!!', new_adventure_path %>
+

@@ -1,4 +1,5 @@
 module PagesHelper
+
   def linkify_page page
     regex = /\[\[([^|]+)\|(\w+)\]\]/
     page.text.gsub(regex) do |link|

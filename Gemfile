@@ -41,12 +41,13 @@ end
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
-
+gem "typhoeus"
 # Use unicorn as the app server
 gem 'unicorn'
 
 gem 'sidekiq'
 
+gem 'unicorn-rails', :groups => [:development, :test]
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
 

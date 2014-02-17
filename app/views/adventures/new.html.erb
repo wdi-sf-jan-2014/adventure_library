@@ -1,0 +1,22 @@
+<div class="row">
+	<div class="new_adventure">
+		<h1>Have Some Lorem Ipsum Chaos To Add To Our Library</h1> <br> 
+		<h2>Do So, Below</h2>
+	</div>
+	<div>
+	<%= form_for @local_adventure do |f| %> 
+	<%= f.text_field :title, placeholder: "Title" %> <br>
+	<%= f.text_field :author, placeholder: "Author" %> <br>
+	</div>
+	<%= f.fields_for :pages, @local_adventure.pages.build do |p| %> 
+	<p>
+		<%= p.hidden_field :name, :value => 'Start' %> <br> 
+		<%= p.label "First Page Name: 'Start'" %> <br> 
+		<%= p.text_area :text, :placeholder => 'Body' %> 
+	</p>
+	<% end %> 
+		
+
+	<%= f.submit %> 
+	<% end %> 
+</div>
