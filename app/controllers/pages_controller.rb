@@ -6,7 +6,7 @@ class PagesController < ApplicationController
 
   def new 
     @local_adventure = Adventure.find(params[:adventure_id])
-    # @page = @local_adventure.pages.build 
+    @page = @local_adventure.pages.build 
   end 
 
   def create 
@@ -21,9 +21,8 @@ class PagesController < ApplicationController
   end 
 
   def show 
-   
     @local_adventure = Adventure.find(params[:adventure_id])
-    @page = Page.find(params[:id])
+    @page = @local_adventure.pages.find_by(params[name: "start"])
   end 
 
 end 

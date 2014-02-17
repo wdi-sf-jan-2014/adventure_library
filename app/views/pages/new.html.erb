@@ -5,7 +5,7 @@
 	</p>
 <% end %>
 
-<%= form_for [@local_adventure, @local_adventure.pages.build] do |p| %>
+<%= form_for @page, url: adventure_pages_path(@local_adventure.id) do |p| %>
 	<%= p.label :name, "Name"%><br>
 	<%= p.text_field :name, :placeholder => 'Page Name' %> <br> 
 	<%= p.label :text, "Describe what happens next:"%><br>
