@@ -1,0 +1,4 @@
+<%= link_to "Add a Library", new_library_path %> <br>
+<% @libraries.each do |library| %>
+  <%= link_to library.url, library_path(library.id) %> <br>
+  <% end %>

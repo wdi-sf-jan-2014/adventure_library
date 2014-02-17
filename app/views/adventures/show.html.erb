@@ -1,0 +1,11 @@
+<%= @adventure.title %><br>
+
+<%= @adventure.author %>
+<br>
+<br>
+<br>
+
+<%= linkify_page(@adventure.pages.where(:name => "start").first).html_safe %>
+
+
+
