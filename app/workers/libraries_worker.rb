@@ -14,13 +14,7 @@ class LibrariesWorker
     	lib_link = lib_link.concat('/adventures.json')
     end
 
-
-
-
-
-    binding.pry
     response = Tyhphoeus.get("lib_link")
-    binding.pry
     result = JSON.parse(response.body)
     binding.pry
   end
