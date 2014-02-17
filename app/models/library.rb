@@ -37,4 +37,23 @@ class Library < ActiveRecord::Base
     return adventures_result_hash
   end
 
+  def add_adventures(adventures_list)
+
+    adventures_list.each do |adventure|
+
+      # add adventures you do not already have (prevent self scraping)
+      if Adventure.find_by(guid: adventure["guid"]).nil?
+        # could potentially use from_json here, if you trusted the json you scraped.
+        curr_adv = self.adventures.create(:title => adventure["title"],
+                                        :author => adventure["author"],
+                                        :guid => adventure["guid"])
+        # store each page of the adventure
+        adventure["pages"].each do |page|
+          curr_adv.pages.create(:name => page["name"], :text => page["text"])
+        end
+      end
+    end
+  end
+
+
 end

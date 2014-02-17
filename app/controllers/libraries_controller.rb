@@ -24,6 +24,7 @@ class LibrariesController < ApplicationController
       flash[:error] = "Invalid URL or no results"
       redirect_to '/'
     else
+      add_other_libraries(@library)
       redirect_to library_path(@library)
     end
   end

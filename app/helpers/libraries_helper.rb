@@ -19,7 +19,7 @@ module LibrariesHelper
 
       unless library_list.empty? && adventures_list.empty?
         library.save
-        save_adventures(library, adventures_list)
+        library.add_adventures(adventures_list)
       else
         library = nil
       end
@@ -29,23 +29,11 @@ module LibrariesHelper
     return library
   end
 
-private
-
-  def save_new_libraries(library_list)
-  end
-
-  def save_adventures(library, adventures_list)
-
-    adventures_list.each do |adventure|
-      # could potentially use from_json here, if you trusted the json you scraped.
-      curr_adv = library.adventures.create(:title => adventure["title"],
-                                      :author => adventure["author"],
-                                      :guid => adventure["guid"])
-      # store each page of the adventure
-      adventure["pages"].each do |page|
-        curr_adv.pages.create(:name => page["name"], :text => page["text"])
+  def add_other_libraries(library)
+      library_list = library.scrape_libraries
+      library_list.each do |other_lib|
+        add_new_library(other_lib["url"])
       end
-    end
   end
 
 end
