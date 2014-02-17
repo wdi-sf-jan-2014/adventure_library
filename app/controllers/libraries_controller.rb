@@ -45,6 +45,7 @@ class LibrariesController < ApplicationController
     lib = Library.find(lib_id)
     if lib.adventures == nil or lib.adventures == []
       scraped_advs = lib.scrape_adventures
+  
       scraped_advs.each do |adv|
         new_adv = lib.adventures.create(title: adv["title"], author: adv["author"], guid: adv["guid"])      
         adv["pages"].each do |page|
