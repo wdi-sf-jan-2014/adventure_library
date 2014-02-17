@@ -1,1 +1,7 @@
-show adventure 
+<h1><%= @local_adventure.title %></h1>
+
+<h2>Authored by: </h2>
+<h2><%= @local_adventure.author %></h2>
+
+<p><%= linkify_page(@local_adventure.pages.where(:name => "Start").first).html_safe %></p>
+

@@ -1,3 +1,19 @@
 <h1><%= @local_adventure.title %></h1>
+<h2><% @local_adventure.pages.each do |page| %></h2>
+	<p>
+		Completed Pages: <%= page.name %>
+	</p>
+<% end %>
 
-<%= render new_page %>
+<%= form_for [@local_adventure, @local_adventure.pages.build] do |p| %>
+	<%= p.label :name, "Name"%><br>
+	<%= p.text_field :name, :placeholder => 'Page Name' %> <br> 
+	<%= p.label :text, "Describe what happens next:"%><br>
+	<%= p.text_area :text, :placeholder => 'Body' %> <br>
+	
+	<%= p.submit 'New Page'%>
+	<% end %> 
+
+
+
+

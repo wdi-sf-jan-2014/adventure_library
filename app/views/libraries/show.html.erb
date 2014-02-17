@@ -1,0 +1,8 @@
+<h1>Library-Adventure Page</h1>
+
+<% @library.adventures.each do |l| %>
+<h2>Title: <%= adventure.title  %></h2>
+<h2>Author: <%= adventure.author %></h2>
+<% end %>
+
+<% link_to 'Delete Library', @library,  method: :delete %>

@@ -1,1 +1,7 @@
-Library New 
+<h1>librarynew</h1>
+
+<%= form_for @library do |f| %>
+	<%= f.label "Enter Url" %> <br>
+	<%= f.text_field :url, :placeholder => "URL" %> <br>
+	<%= f.submit %> <br>
+	<% end %> 

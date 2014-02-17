@@ -1,3 +1,10 @@
 Library Index 
 
+<h1>Current Libraries <% @libraries.each do |l| %></h1>
+<!-- here i want to place respective adventures -->
+<h2><%= link_to l.url, l.url %></h2>
+<% end %>
+
+
+
 <%= link_to "Test Link", new_library_path %> 
