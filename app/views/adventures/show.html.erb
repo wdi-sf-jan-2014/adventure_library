@@ -3,6 +3,10 @@
 <div>
   <h4>Adventure: "<%= @adventure.title %>"</h4>
   <h4>Contributor: <%= @adventure.author %></h4>
+  <% if @adventure.is_local? %>
+  <%= link_to "Edit", edit_adventure_path %>
+  <% end %>
+
 </div>
 
 <div>

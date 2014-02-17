@@ -20,4 +20,21 @@ class PagesController < ApplicationController
     @page = Page.find(params[:id])
   end
 
+  def edit
+    @page = Page.find(params[:id])
+  end
+
+  def update
+    updated_page = params.require(:page).permit(:name, :text)
+    page = Page.find(params[:id])
+    page.update_attributes(updated_page) if page.adventure.is_local?
+    redirect_to edit_adventure_path(page.adventure.id)
+  end
+
+  def destroy
+    page = Page.find(params[:id])
+    page.delete if page.adventure.is_local?
+    redirect_to edit_adventure_path(page.adventure)
+  end
+
 end

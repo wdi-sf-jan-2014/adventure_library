@@ -1,0 +1,9 @@
+<h3>EDIT PAGE: <%= @page.name %></h3>
+
+<div>
+  <%= form_for [@page.adventure, @page] do |f| %>
+    <%= f.text_field :name, placeholder: :name %><br>
+    <%= f.text_field :text, placeholder: :text %><br>
+    <%= f.submit %>
+  <% end %>
+</div>

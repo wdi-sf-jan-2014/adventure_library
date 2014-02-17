@@ -35,4 +35,17 @@ class AdventuresController < ApplicationController
     @start_page = @adventure.pages.find_by(name: "start")
   end
 
+  def edit
+    @adventure = Adventure.find(params[:id])
+  end
+
+  def update
+    adventure = Adventure.find(params[:id])
+    update_adv = params.require(:adventure).permit(:title, :author, :pages_attributes => [:name, :text])
+    if adventure.is_local?
+      adventure.update_attributes(update_adv)
+    end
+    redirect_to adventure_path(adventure.id)
+  end
+
 end

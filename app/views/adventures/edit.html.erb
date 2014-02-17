@@ -1,0 +1,23 @@
+<h3>EDIT ADVENTURE: <br><%= @adventure.title %> </h3>
+
+<div>
+<%= form_for @adventure do |f| %>
+  <%= f.text_field :title, placeholder: @adventure.title %><br>
+  <%= f.text_field :author, placeholder: @adventure.author %><br>
+  <%= f.submit %>
+<% end %>
+</div>
+<br>
+
+<div>
+  <table>
+    <% @adventure.pages.each do |page| %>
+      <tr>
+        <td>&nbsp <%= page.name %> &nbsp</td>
+        <td> &nbsp<%= link_to "edit", edit_adventure_page_path(@adventure, page) %> &nbsp</td>
+        <td> &nbsp<%= link_to "delete", adventure_page_path(@adventure, page), method: :delete %>&nbsp </td>
+      </tr>
+    <% end %>
+  </table><br>
+  <%= link_to "Add Another Page", new_adventure_page_path(@adventure) %>
+</div>
