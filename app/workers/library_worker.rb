@@ -9,24 +9,11 @@ class LibraryWorker
     while i < @result["libraries"].size
       new_library = Library.find_or_initialize_by(url: @result["libraries"][i]["url"])
       new_library.save
-      if new_library.url ==  "/adventures"
-        Library.find_by_url("/adventures").destroy
-
-      elsif
-        new_library.url ==  "http://polar-taiga-5141.herokuapp.com/"
-        Library.find_by_url("http://polar-taiga-5141.herokuapp.com/").destroy
-
-      elsif
-        new_library.url ==  "http://afternoon-eyrie-4954.herokuapp.com/"
-        Library.find_by_url("http://afternoon-eyrie-4954.herokuapp.com/").destroy
-      elsif
-        new_library.url ==  "http://aqueous-meadow-3661.herokuapp.com/"
-        Library.find_by_url("http://aqueous-meadow-3661.herokuapp.com/").destroy
-      end
       i +=1
     end
 
     @library = Library.all
+    Library.where(url: "http://polar-taiga-5141.herokuapp.com/", url: "/adventures", url: "http://afternoon-eyrie-4954.herokuapp.com/", url: "http://aqueous-meadow-3661.herokuapp.com/").destroy_all
     @library.each do |library|
       adventure_link = Typhoeus.get(library["url"]+"/adventures.json")
       @adventure_result = JSON.parse(adventure_link.body)
