@@ -1,4 +1,5 @@
 AdventureLibrary::Application.routes.draw do
+  root to: 'libraries#index'
   get "pages/new"
   get "pages/show"
   get "pages/create"
