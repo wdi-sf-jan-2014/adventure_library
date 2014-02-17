@@ -18,7 +18,7 @@ class AdventuresController < ApplicationController
 
   def create
     new_adventure = params.require(:adventure).permit(:title, :author, :pages_attributes => [:name, :text])
-    if new_adventure["guid"].exist?
+    if new_adventure["guid"]!= nil
     else
       new_adventure["guid"] = @guid
     end
