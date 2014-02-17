@@ -3,56 +3,52 @@ class AdventuresWorker
 
 
   def perform (url)
-    request = "#{url}/libraries.json"
-    response = JSON.parse(Typhoeus.get(request).body)['libraries']
-
-    response.each do |lib|
-      Library.create(url: lib['url']) unless Library.find_by(url: lib['url'])
-      get_adventures(lib['url'])
-      perform(lib['url'])
+    if url.ends_with? '/'
+      request = "#{url}libraries.json"
+    else
+      request = "#{url}/libraries.json"
     end
-  end
+    response = JSON.parse(Typhoeus.get(request).body)
 
+    # for each library url in libraries hash
+    response['libraries'].each do |lib|
+      next if lib['url'] == '/adventures'
 
-  def get_adventures lib_url
-    
-    # find library in database
-    library = Library.find_by(url: lib_url)
+      # add library to database if not already
+      Library.create!(url: lib['url']) unless Library.find_by(url: lib['url'])
+      #check response code
 
-    # request JSON info: adventures on server
-    request = "#{lib_url}/adventures.json"
-    response = JSON.parse(Typhoeus.get(request).body)['adventures']
-    
-    response.each do |adv|
+      # find library in database
+      library = Library.find_by(url: lib['url'])
+
+      # request JSON info: adventures on server
+      if lib['url'].ends_with? '/'
+        request = "#{library['url']}adventures.json"
+      else
+        request = "#{library['url']}/adventures.json"
+      end
+      response = JSON.parse(Typhoeus.get(request).body)
       
-      # either update adventures to database ...
-      # if Adventure.find_by(guid: adv['guid'])
-      #   adventure = Adventure.find_by(guid: adv['guid'])
-      #   adventure.update_attributes(title: adv['title'], author: adv['author'])
-        
-      #   # add/update pages to database
-      #   adv['pages'].each do |page|
-      #     if Page.find_by(name: page['name'])
-      #       adventure.pages.find_by(name: page['name']).update_attributes(text: page['text'])
-      #     else
-      #       adventure.pages << Page.create!(name: page['name'], text: page['text'])
-      #     end
-      #   end
+      unless response.nil?
+        response['adventures'].each do |adv|
+          unless Adventure.find_by(guid: adv['guid'])
+            new_adv = library.adventures.create!(:title => adv['title'], :author => adv['author'], :guid => adv['guid'])
+            new_adv.save
 
-      # # ... or add adventures to database
-      # else
-        unless Adventure.find_by(guid: adv['guid'])
-        new_adv = library.adventures.build(:title => adv['title'], :author => adv['author'], :guid => adv['guid'])
-        new_adv.save
-
-        # add pages to databasea
-        adv['pages'].each do |page|
-          new_page = new_adv.pages.build(:name => page['name'], :text => page['text'])
-          new_page.save
+            # add pages to databasea
+            adv['pages'].each do |page|
+              new_page = new_adv.pages.create!(:name => page['name'], :text => page['text'])
+              new_page.save
+            end
+          end
         end
       end
+
+      AdventuresWorker.perform_async(lib['url'])
+
     end
 
   end
+
 
 end

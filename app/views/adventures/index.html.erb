@@ -4,17 +4,11 @@
 
 <%= button_to "Craft A New Adventure", new_adventure_path, method: :get %>
 
-<h3> Locally-crafted Adventures </h3>
-<% @adventures.each do |adventure| %>
+<h3> Adventures </h3>
+<% @all_adventures.each do |adventure| %>
   <%= link_to adventure.title, adventure_path(adventure.id), method: :get %> - 
   by <%= adventure.author%> - 
   <%= link_to "Add Page", new_adventure_page_path(adventure.id) %>
 </br>
 <% end %>
 </br></br></br>
-</h3> Adventures From Other Sites </h3>
-<%= @other_adventures.each do |adv| %>
-  <%= link_to adv.title, adventure_path(adv.id), method: :get %> - 
-  by <%= adv.author %> - 
-  <%= link_to adv.library.url, adv.library.url %>
-<% end %>
