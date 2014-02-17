@@ -2,7 +2,7 @@ class UpdatesWorker
   include Sidekiq::Worker
   include Sidetiq::Schedulable
 
-  recurrence { hourly.minute_of_hour(7, 14, 28, 35, 42, 49, 56) }
+  recurrence { hourly.minute_of_hour(0, 30) }
 
   def perform
     libraries = Library.all
