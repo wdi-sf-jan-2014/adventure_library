@@ -12,7 +12,7 @@
 <% unless @collected_adventures.empty? %>
   <ul>
     <% @collected_adventures.each do |c_adv| %>
-      <li><%=link_to(c_adv.title, adventure_page_path(c_adv, "1")) %></li>
+      <li><%=link_to(c_adv.title, adventure_page_path(c_adv, c_adv.pages.find_by(name: "start"))) %></li>
     <% end %>
   </ul>
 <% end %>

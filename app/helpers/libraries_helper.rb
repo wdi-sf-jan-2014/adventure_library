@@ -37,11 +37,14 @@ private
   def save_adventures(library, adventures_list)
 
     adventures_list.each do |adventure|
-
       # could potentially use from_json here, if you trusted the json you scraped.
       curr_adv = library.adventures.create(:title => adventure["title"],
-                                        :author => adventure["author"],
-                                        :guid => adventure["guid"])
+                                      :author => adventure["author"],
+                                      :guid => adventure["guid"])
+      # store each page of the adventure
+      adventure["pages"].each do |page|
+        curr_adv.pages.create(:name => page["name"], :text => page["text"])
+      end
     end
   end
 
