@@ -1,7 +1,7 @@
 <h1>Notable Adventures</h1>
 
 <div>
-    <% @adventure.each do |adv| %>
-        <%= adv.title %><br>
+    <% @adventure.each do |adventure| %>
+        <%= link_to "#{adventure.title}", adventure_pages_path(adventure) %>
     <% end %>
 </div>

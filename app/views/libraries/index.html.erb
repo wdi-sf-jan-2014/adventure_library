@@ -1,21 +1,20 @@
 <h1>Welcome to Matthew's Trove of Wonderous Tales!</h1>
 <h2>Classic Stories to Delight Young and Old, Large and Small, Dim and Curious</h2>
 
-<h3>Local Stories to Choose From:</h3>
-<% @adventure.each do |t| %>
-    <ul>
-        <li><%= t.title %></li>
-    </ul>
+<h3>Input a New Story by Posting its URL</h3>
+<%= form_for @library do |lib| %>
+    <%= lib.text_field :url, placeholder: "Input URL" %>
+    <%= lib.submit %>
+<% end %>
+
+<h3>Local Adventures:</h3>
+<% @adventure.each do |adventure| %>
+  <%= link_to "#{adventure.title}", adventure_pages_path(adventure) %>
 <% end %>
 
 <h3>Stories From Other Repositories</h3>
 <% @libraries.each do |links| %>
     <ul>
-        <li><%= link_to links.url %></li>
+        <li><%= link_to "#{links.url}", links.url %></li>
     </ul><br>
-<% end %>
-
-<%= form_for @library do |lib| %>
-    <%= lib.text_field :url, placeholder: "Input URL" %>
-    <%= lib.submit %>
 <% end %>

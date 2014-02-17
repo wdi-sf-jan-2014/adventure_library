@@ -9,10 +9,6 @@ class LibrariesController < ApplicationController
         end
     end
 
-    def new
-        @library = Library.new
-    end
-
     def create
         @library = Library.new
         new_library = params.require(:library).permit(:url)

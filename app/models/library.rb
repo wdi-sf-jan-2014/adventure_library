@@ -1,3 +1,3 @@
 class Library < ActiveRecord::Base
-    has_many :adventures, :dependant => :destroy
+    has_many :adventures
 end
