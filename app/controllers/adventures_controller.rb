@@ -19,7 +19,7 @@ class AdventuresController < ApplicationController
       new_adventure = Adventure.create(new_adventure)
       new_adventure.save
       @adventure = new_adventure
-      redirect_to new_adventure_page_path(@adventure.id)
+      redirect_to adventure_path(@adventure.id)
     end
 
    def new
