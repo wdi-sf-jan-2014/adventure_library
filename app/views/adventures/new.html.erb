@@ -1,6 +1,10 @@
 <%=form_for @adventure do |a| %>
-  <%= a.text_field :title, placeholder: 'Title', size: 20  %>
-  <%= a.text_field :author, placeholder: 'Author', size: 20 %>
-    
+  <h4>Adventure Title: </h4><%= a.text_field :title, placeholder: 'Title', size: 20  %><br>
+  <h4>Adventure Author: </h4><%= a.text_field :author, placeholder: 'Author', size: 20 %><br>
+    <%= a.fields_for :page, @adventure.pages.build do |p| %>
+      <h4>Page name: </h4><%= p.text_field :name, placeholder: "Page Name" %><br>
+      <h4>Page text: </h4><%= p.text_area :text, placeholder: "First Page", size: "100x10"%><br>
+     <% end %>  
   <%= a.submit %>
 <% end %>
+

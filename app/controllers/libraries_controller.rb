@@ -20,15 +20,8 @@ class LibrariesController < ApplicationController
   end
 
   def create
-    if Library.find_by(url: params['url']).nil?
-      LibrariesWorker.perform_async(url)
-    else
-      library = Library.find_by(url: params['url'])
-      redirect_to library_path(library.id)
-    end
-    respond_to do |f|
-      f.html { redirect_to root_path }
-      f.json { render :json => @library }
-    end
+    #binding.pry
+    LibrariesWorker.perform_async(params['library']['url'])
+    redirect_to libraries_path
   end
 end
