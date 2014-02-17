@@ -19,9 +19,11 @@ class LibrariesController < ApplicationController
   	new_lib_link = params.require(:library).permit(:url)
     library = Library.create(new_lib_link)
     binding.pry
-    LibrariesWorker.perform_async(library.id)
 
-    redirect_to library_path(library.id)
+    LibrariesWorker.perform_async(library.id) unless library.id == nil
+
+
+    redirect_to root_path
 
   end
 end
