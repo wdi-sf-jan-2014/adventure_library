@@ -2,7 +2,7 @@
 <% unless @libraries.empty? %>
   <ul>
     <% @libraries.each do |library| %>
-      <li><%= link_to(library.url) %></li>
+      <li><%= link_to(library.url, library.url) %> - <%= link_to("query", library_path(library)) %></li>
     <% end %>
   </ul>
 <% end %>

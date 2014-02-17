@@ -43,11 +43,18 @@ group :test, :development do
   # adds show model, and some object navigation (and some other stuff)
   gem 'pry-rails'
 
+  # suppresses assets messages in console
+  gem 'quiet_assets'
+
+  gem 'better_errors'
+
+  # adds console access in browser, at point of error
+  gem 'binding_of_caller'
+
   gem 'dotenv-rails'
 
   # adds better formatting / printing of objects/variables
   gem 'awesome_print'
-
 end
 
 # Use ActiveModel has_secure_password
