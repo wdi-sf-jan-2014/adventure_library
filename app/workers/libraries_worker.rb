@@ -24,7 +24,6 @@ class LibrariesWorker
 
 
   #to get that library's local adventures
-    library = Library.find(library_id)
     l_link = library.url
     if (l_link.ends_with? '/')
     	adv_link = l_link + 'adventures.json'
