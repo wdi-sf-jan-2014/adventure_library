@@ -23,7 +23,7 @@ class AdventuresController < ApplicationController
     # AdventuresWorker.perform_async(@adventures)
     respond_to do |f|
       f.html
-      f.json { render json: @adventures.as_json(include: :pages), status: 200}
+      f.json { render json: @adventures.as_json(include: { pages: { only: [:name, :text] }} ), status: 200} 
     end
   end
 
