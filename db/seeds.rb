@@ -22,4 +22,4 @@ adv2.pages.create!(:name => "start",
 adv2.pages.create!(:name => "end",
 	:text => "Yep, I'm somewhere else.  Nope, I'm not somwhere else, I am someWHEN else!")
 
-lib = Library.create!(:url => "http://adventures-with-raphael.herokuapp.com/")
+#lib = Library.create!(:url => "http://adventures-with-raphael.herokuapp.com/")
