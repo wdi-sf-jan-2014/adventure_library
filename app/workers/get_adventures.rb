@@ -1,4 +1,4 @@
-
+require 'net/http'
 class GetAdventures
 
   include Sidekiq::Worker

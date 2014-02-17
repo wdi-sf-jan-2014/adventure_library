@@ -1,4 +1,4 @@
-
+require 'net/http'
 class GetLibraries
 
   include Sidekiq::Worker
