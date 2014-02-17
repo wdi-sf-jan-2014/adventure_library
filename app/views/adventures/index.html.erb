@@ -1,0 +1,13 @@
+<h3>Adventures</h3>
+
+<% @adventures.each do |adventure| %>
+  <div class="row">
+     <div class="span3 offset1">
+      <ul>
+      <li><a href="<%=adventure_path(adventure)%>"><%=adventure.title%></a></li>
+
+     </ul>
+
+</div>
+  </div>
+<% end %>

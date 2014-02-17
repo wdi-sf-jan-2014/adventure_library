@@ -1,0 +1,33 @@
+<h3>Create a New Adventure</h3>
+
+<div class="row">
+  <div class="span15 offset3">
+    <%= form_for(@adventure) do |f| %>
+      <% unless @adventure.errors.count == 0   %>
+        <div class="alert alert-error">
+          The form contains <%= pluralize(@adventure.errors.count, "error") %>.
+        </div>
+        <ul>
+        <% @adventure.errors.full_messages.each do |msg| %>
+          <li>* <%= msg %></li>
+        <% end %>
+        </ul>
+      <% end %>
+
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+
+      <%= f.label :author %>
+      <%= f.text_area :author %>
+
+      <%= f.hidden_field :guid, :value => SecureRandom.urlsafe_base64 %>      
+      <!-- partial for pages -->
+
+    <%=  f.fields_for :pages, @adventure.pages.build do |b| %>
+      <%= b.text_field :name, placeholder: "write the name of your page here" %><br>
+      <%= b.text_area :text, placeholder: "write you adventure here" %><br><br>
+    <%end%>
+
+      <%= f.submit "Create Adventure", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
