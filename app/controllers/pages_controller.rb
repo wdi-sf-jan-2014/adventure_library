@@ -4,6 +4,9 @@ class PagesController < ApplicationController
   def index
     adventure = Adventure.find(params[:adventure_id])
     @pages = adventure.pages.all
+
+    #to grab random pictures
+    gon.picture = adventure.name
   end
 
   def show

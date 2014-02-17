@@ -41,6 +41,7 @@ group :test, :development do
   gem 'binding_of_caller'
   gem 'meta_request'
   gem 'awesome_print'
+  gem 'unicorn-rails'
 end
 
 # Use ActiveModel has_secure_password
@@ -54,6 +55,8 @@ gem 'sidekiq'
 gem 'typhoeus'
 
 gem 'json'
+
+gem 'gon'
 
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
