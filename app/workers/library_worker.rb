@@ -13,7 +13,11 @@ class LibraryWorker
     end
 
     @library = Library.all
-    Library.where(url: "http://polar-taiga-5141.herokuapp.com/", url: "/adventures", url: "http://afternoon-eyrie-4954.herokuapp.com/", url: "http://aqueous-meadow-3661.herokuapp.com/").destroy_all
+    Library.where(url: "/adventures").destroy_all
+    Library.where(url: "http://polar-taiga-5141.herokuapp.com/").destroy_all
+    Library.where(url: "http://afternoon-eyrie-4954.herokuapp.com/").destroy_all
+    Library.where(url: "http://aqueous-meadow-3661.herokuapp.com/").destroy_all
+
     @library.each do |library|
       adventure_link = Typhoeus.get(library["url"]+"/adventures.json")
       @adventure_result = JSON.parse(adventure_link.body)
