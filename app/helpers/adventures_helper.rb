@@ -1,0 +1,3 @@
+module AdventuresHelper
+
+end

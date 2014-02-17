@@ -17,9 +17,9 @@ class LibrariesController < ApplicationController
   def create
     new_url = params.require(:library).permit(:url)
     clean_url = url_cleanup(new_url[:url])
-    lib = Library.create_or_find_by(url: clean_url)
-    LibrariesWorker.perform_async(lib.id)
+    lib = Library.find_or_create_by(url: clean_url)
+    LibrariesWorker.new.perform(lib.id)
 
-    redirect_to adventures_path
+    redirect_to libraries_path
   end
 end

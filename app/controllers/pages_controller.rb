@@ -6,12 +6,12 @@ class PagesController < ApplicationController
   end
 
   def index
-    @pages = Pages.all
+    #@pages = Pages.all
   end
 
-  def edit
-    @adventure = Adventure.find(params[:adventure_id])
-    @page = @adventure.pages.find([[link|page]])
-  end
+  # def edit
+  #   @adventure = Adventure.find(params[:adventure_id])
+  #   @page = @adventure.pages.find([[link|page]])
+  # end
   
 end

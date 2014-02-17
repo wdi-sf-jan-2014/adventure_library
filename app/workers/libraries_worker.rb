@@ -8,8 +8,7 @@ class LibrariesWorker
     scrape(library.url)
 
     @foreign_adventures.each do |x|
-      new_adventure = {title: x["title"], author: x["author"], guid: x["guid"]}
-
+      
       unless Adventure.find_by(guid: x["guid"])
         this_adventure = library.adventures.create(title: x["title"], author: x["author"], guid: x["guid"])
 

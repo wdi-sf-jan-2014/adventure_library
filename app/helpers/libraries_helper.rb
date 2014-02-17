@@ -1,8 +1,8 @@
 module LibrariesHelper
 
-  def scrape(json)
+  def scrape(url)
     resp1 = Typhoeus.get("#{url}/libraries.json")
-    @foreign_adventures = JSON.parse(resp_1.body)["libraries"]
+    @foreign_libraries = JSON.parse(resp_1.body)["libraries"]
 
     resp2 = Typhoeus.get("#{url}/adventures.json")
     @foreign_adventures = JSON.parse(resp1.body)["adventures"]
