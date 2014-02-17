@@ -11,7 +11,7 @@ class LibrariesWorker
       new_adventure = {title: x["title"], author: x["author"], guid: x["guid"]}
 
       unless Adventure.find_by(guid: x["guid"])
-        this_adventure = library.adventures.create(new_adventure)
+        this_adventure = library.adventures.create(title: x["title"], author: x["author"], guid: x["guid"])
 
         x["pages"].each do |y|
           this_adventure.pages.create(name: y["name"], text: y["text"])

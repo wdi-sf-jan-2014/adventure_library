@@ -7,7 +7,7 @@ class LibrariesController < ApplicationController
   end
 
   def index
-    @library = Library.all
+    @libraries = Library.all
     respond_to do |f|
       f.html
       f.json { render :json => { libraries: @libraries.as_json } }
@@ -15,15 +15,11 @@ class LibrariesController < ApplicationController
   end
 
   def create
-    lib = Library.create(url: params[:library][:url])
-    new_adv = Typhoeus.get(params[:library][:url])
-    resp = JSON.parse(new_adv.body)["adventures"]
-    resp.each do |x|
-      adv = lib.adventures.create(title: x["title"], author: x["author"], guid: x["guid"])
-      x["pages"].each do |y|
-        adv.pages.create(name: y["name"], text: y["text"])
-      end
-    end
-    redirect_to libraries_path
+    new_url = params.require(:library).permit(:url)
+    clean_url = url_cleanup(new_url[:url])
+    lib = Library.create_or_find_by(url: clean_url)
+    LibrariesWorker.perform_async(lib.id)
+
+    redirect_to adventures_path
   end
 end
