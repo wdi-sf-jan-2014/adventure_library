@@ -17,6 +17,9 @@ class LibrariesController < ApplicationController
   def create
     url = params.require(:library)[:url]
 
+    # if user entered url ending with a slash, remove it
+    url.chop! if url.end_with?('/')
+
     # check if that library exists, if not, create it
     @library = Library.find_by(url: url)
     @library = Library.create(url: url) if @library.nil?
@@ -25,7 +28,8 @@ class LibrariesController < ApplicationController
   end
 
   def show
-    
+    @library = Library.find(params[:id])
+
   end
 
 end
