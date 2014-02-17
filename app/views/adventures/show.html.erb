@@ -1,5 +1,7 @@
-<%= @adventure.title %><br>
+<%= link_to "Adventures", adventures_path %><br><br>
+Title: <%= @adventure.title %><br>
 By: <%= @adventure.author %><br><br>
 
 <%= simple_format(linkify_page(@page)) %><br>
-<%= link_to "Add a page", new_adventure_page_path(@adventure) %>
+<%= link_to "Edit Adventure", edit_adventure_path(@adventure) %><br>
+<%= link_to "Delete Adventure", @adventure, mehtod: :delete %><br>

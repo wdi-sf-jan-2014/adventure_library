@@ -1,7 +1,3 @@
-<%= link_to "Adventures", adventures_path %>
-<h2>New Page</h2>
-Title: <%= @adventure.title %>
-
 <%= form_for [@adventure, @page] do |f| %>
   <%= f.label "Page Name:" %>
   <%= f.text_field :name %><br>

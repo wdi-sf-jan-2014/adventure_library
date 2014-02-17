@@ -1,15 +1,18 @@
+<%= link_to "Adventures", adventures_path %>
 <h2>New Adventure</h2>
-
 <%= form_for @adventure do |f| %>
   <%= f.label "Title:" %>
   <%= f.text_field :title %><br>
   <%= f.label "Author:" %>
-  <%= f.text_field :author %><br><br>
+  <%= f.text_field :author %>
+  <%= f.hidden_field :guid, value: @guid %><br><br>
+
+  <h3>Add Page</h3>
   <%= f.fields_for :pages, @adventure.pages.build do |p| %>
-    <%= p.label "Page Name:" %>
-    <%= p.text_field :name %><br>
+    <%= p.label "Page name:"%>
+    <%= p.text_field :name, placeholder: "start" %><br>
     <%= p.label "Text:" %>
-    <%= p.text_area :text %>
-  <% end %>
+    <%= p.text_area :text %><br>
+  <% end %><br>
   <%= f.submit %>
 <% end %>

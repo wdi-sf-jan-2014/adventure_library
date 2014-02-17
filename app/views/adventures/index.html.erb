@@ -1,6 +1,14 @@
-<a href="adventures/new">New Adventure</a>
+<%= link_to "New Adventure", new_adventure_path %> <%= link_to "Libraries", libraries_path %>
 <h2>List of adventures:</h2>
-<% @adventures.each do |adventure| %>
+
+<h4>Local Adventures</h4>
+<% @local_adventures.each do |adventure| %>
   <%= link_to adventure.title, adventure_path(adventure.id) %>
-  By: <%= adventure.author %>
+  Author: <%= adventure.author %><br>
+<% end %>
+<br><br>
+
+<h4>Adventures From Others</h4>
+<% @foreign_adventures.each do |adventure| %>
+  <%= link_to adventure.title, adventure_path(adventure.id) %><br>
 <% end %>
