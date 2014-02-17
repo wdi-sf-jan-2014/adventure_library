@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe '/adventures' do
-  before(:each) do 
+  before(:each) do
     @local_adventure = Adventure.create!(:title => "test",
                                         :author => "Test author")
     @local_adventure.pages.create!(:name => "start", :text => "cool story bro")
@@ -13,12 +13,11 @@ describe '/adventures' do
 
   end
 	describe 'GET with JSON' do
-    before(:each) do 
+    before(:each) do
       get '/adventures.json'
       @result = JSON.parse(response.body)
     end
     it 'returns a list of all the adventures made locally' do
-      
       @result["adventures"].should_not == nil
       @result["adventures"].length.should == 1
       adv = @result["adventures"].first
@@ -29,7 +28,7 @@ describe '/adventures' do
       adv["author"].should == @local_adventure.author
     end
 
-    it 'gets back the pages of a returned adventure' do 
+    it 'gets back the pages of a returned adventure' do
       pages = @result["adventures"].first["pages"]
       pages.should_not == nil
       pages.length.should == @local_adventure.pages.length
@@ -39,7 +38,7 @@ describe '/adventures' do
       p["text"].should == p_in_db.text
     end
 
-    it 'does not return adventures made on another server' do 
+    it 'does not return adventures made on another server' do
       @result["adventures"].detect{|a| a["title"] == @foreign_adventure.title
         }.should == nil
     end
@@ -50,7 +49,7 @@ describe '/adventures' do
   #     get '/adventures'
   #   end
   #   it 'returns all adventures'
-  #   it 'returns adventures made on another server'    
+  #   it 'returns adventures made on another server'
   # end
 
   # describe 'POST' do

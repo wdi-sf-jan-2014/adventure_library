@@ -1,0 +1,8 @@
+<h1>Pick an adventure!</h1>
+
+<ul>
+  <% @adventures.each do |a| %>
+    <% this_adventure = a.pages.find_by(name: "start") %>
+    <li><%= link_to a.title, adventure_page_path(a, this_adventure) %>, by <%= a.author %></li>
+  <% end %>
+</ul>
