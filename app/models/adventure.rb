@@ -15,6 +15,8 @@ class Adventure < ActiveRecord::Base
   belongs_to :library
   has_many :pages
 
+  validates :guid, uniqueness: true
+
   #before_create: randomize string & attach it to instance
 
   def self.gen_random_str

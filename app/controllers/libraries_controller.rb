@@ -17,5 +17,7 @@ class LibrariesController < ApplicationController
 
   def create
   	new_lib_link = params.require(:library).permit(:url)
+    @library = Library.create(url: new_lib_link)
+    
   end
 end

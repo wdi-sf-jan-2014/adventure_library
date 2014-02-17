@@ -12,5 +12,5 @@ class Library < ActiveRecord::Base
 
   has_many :adventures
 
-  validates :url, presence: true
+  validates :url, uniqueness: true
 end
