@@ -50,6 +50,7 @@ describe '/adventures' do
   #     get '/adventures'
   #   end
   #   it 'returns all adventures'
+
   #   it 'returns adventures made on another server'    
   # end
 

@@ -44,8 +44,15 @@ end
 
 # Use unicorn as the app server
 gem 'unicorn'
+gem 'unicorn-rails', :groups => [:development, :test]
 
 gem 'sidekiq'
+
+gem "typhoeus"
+
+gem 'rails_12factor', :group => :production
+
+ruby '2.0.0'
 
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
