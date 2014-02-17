@@ -55,6 +55,7 @@ gem 'active_model_serializers'
 
 gem 'typhoeus'
 
+gem 'JSON'
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
 

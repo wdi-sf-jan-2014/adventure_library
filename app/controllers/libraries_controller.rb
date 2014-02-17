@@ -1,5 +1,5 @@
 class LibrariesController < ApplicationController
-  require 'JSON'
+
   def index
     @library = Library.all
     @new_library = Library.new
