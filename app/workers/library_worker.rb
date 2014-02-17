@@ -1,5 +1,4 @@
 class LibraryWorker
-  require 'JSON'
   include Sidekiq::Worker
 
   def perform
