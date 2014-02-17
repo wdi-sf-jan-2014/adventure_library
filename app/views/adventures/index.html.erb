@@ -1,0 +1,25 @@
+<h1>adventure library</h1>
+<a href="adventures/new">write an adventure</a><br><br>
+
+search for remote adventures:
+<%= form_for @search_adventures do |f| %>
+  <%= f.text_field :url, placeholder: "http://example.herokuapp.com/" %><br><br>
+    <%= f.submit %><br><br>   
+<%end%>
+
+<h4>local adventures</h4>
+<% @local_adventures.each do |a| %>
+  <% num = a.title.length %>
+  <%= "*" * (num+2) %><br>
+  <a href="adventures/<%= a.id %>"><%= a.title %></a><br>
+  by <%= a.author %><br>
+<% end %>
+
+<h4>all adventures</h4>
+
+<% @all_adventures.each do |a| %>
+  <% num = a.title.length %>
+  <%= "*" * (num+2) %><br>
+  <a href="adventures/<%= a.id %>"><%= a.title %></a><br>
+  by <%= a.author %><br>
+<% end %>

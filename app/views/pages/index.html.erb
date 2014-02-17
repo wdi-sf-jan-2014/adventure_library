@@ -1,0 +1,6 @@
+<h1><%=@adventure.title%></h1>
+
+<% @adventure.pages.each do |page| %>
+    page name: <%= page.name %><br>
+    text: <a href="/adventures/<%=@adventure.id%>/pages/<%=page.id%>"><%= page.text %></a><br><br>
+<% end %>
