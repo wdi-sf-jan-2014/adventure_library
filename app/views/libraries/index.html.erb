@@ -1,9 +1,9 @@
 <h1>Libraries</h1>
 <% @library.each do |library| %>
-  <%=library.url %>
+  <%=library.url %><br>
 <% end %>
 <h1>Add a new library</h1>
-<%= form_for @library do |f| %>
+<%= form_for @new_library do |f| %>
   <%= f.label :url %>
   <%= f.text_field :url, placeholder: "Enter url" %>
   <%= f.submit "Add the library" %>
@@ -11,8 +11,8 @@
 <h2>All The Adventures</h2>
 <% @adventure.each do |adventure| %>
   <li>
-    <%=adventure.title %>
+    <%= link_to adventure.title, adventure_path(adventure) %>
     From:
-    <%=adventure.author %>
+    <%= link_to adventure.author%>
   </li>
 <% end %>

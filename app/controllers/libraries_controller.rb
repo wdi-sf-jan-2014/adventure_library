@@ -1,4 +1,5 @@
 class LibrariesController < ApplicationController
+  require 'JSON'
   def index
     @library = Library.all
     @new_library = Library.new
@@ -17,7 +18,7 @@ class LibrariesController < ApplicationController
     new_param = params.require(:library).permit(:url)
     @library = Library.new(new_param)
     if @library.save
-      LibraryWorker.perform_async(@library.id)
+      LibraryWorker.perform_async
       redirect_to libraries_path
     else
       render :new
