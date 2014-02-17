@@ -2,3 +2,17 @@
 <% @library.each do |library| %>
   <%=library.url %>
 <% end %>
+<h1>Add a new library</h1>
+<%= form_for @library do |f| %>
+  <%= f.label :url %>
+  <%= f.text_field :url, placeholder: "Enter url" %>
+  <%= f.submit "Add the library" %>
+<% end %>
+<h2>All The Adventures</h2>
+<% @adventure.each do |adventure| %>
+  <li>
+    <%=adventure.title %>
+    From:
+    <%=adventure.author %>
+  </li>
+<% end %>

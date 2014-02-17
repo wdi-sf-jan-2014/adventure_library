@@ -2,6 +2,7 @@ class LibrariesController < ApplicationController
   def index
     @library = Library.all
     @new_library = Library.new
+    @adventure = Adventure.all
     respond_to do |format|
       format.html
       format.json { render json: @library }
