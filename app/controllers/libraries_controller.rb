@@ -18,17 +18,10 @@ class LibrariesController < ApplicationController
 
   def create
 
-    library = Library.new(params[:library].permit(:url))
-    searched_lib = Library.where(:url => library.url).first
+    temp_library = Library.new(params[:library].permit(:url))
+    library = Library.find_or_create_by(url: temp_library.url  )
 
-    #check if the library already exists
-    if Library.all.include?(searched_lib)
-      @library = library
-    else
-      @library = Library.create(params[:library].permit(:url))
-    end
-
-    ScrapingWorker.perform_async(@library.id)
+    ScrapingWorker.perform_async(library.id)
 
     redirect_to libraries_path
 

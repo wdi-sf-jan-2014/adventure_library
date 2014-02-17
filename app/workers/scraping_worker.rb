@@ -6,7 +6,7 @@ class ScrapingWorker
     #find the library
     library = Library.find(library_id)
 
-    response = Typhoeus.get("#{library.name}" + "/adventures.json")
+    response = Typhoeus.get("#{library.url}" + "/adventures.json")
     result = JSON.parse(response.body)
 
     #grab the library's adventures and pages and add it to your own
@@ -18,7 +18,7 @@ class ScrapingWorker
           new_page = Page.create(name: page['name'], text: page['text'])
           new_adv.pages << new_page
         end
-        @library.adventures << new_adv
+        library.adventures << new_adv
       end
     end
 
@@ -28,7 +28,6 @@ class ScrapingWorker
       Library.all << new_lib
     end
 
-  binding.pry
 
   end
 
