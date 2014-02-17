@@ -3,6 +3,7 @@ class LibraryWorker
   include Sidekiq::Worker
 
   def perform
+
     library_link = Typhoeus.get(Library.first.url+"libraries.json")
     @result = JSON.parse(library_link.body)
     i = 0
@@ -23,11 +24,14 @@ class LibraryWorker
       while i < @adventure_result["adventures"].size
         @new_adventure = Adventure.find_or_initialize_by(title: @adventure_result["adventures"][i]["title"])
         @new_adventure.save
+
         @new_adventure.update_attributes(author: @adventure_result["adventures"][i]["author"],
                                          created_at: @adventure_result["adventures"][i]["created_at"],
                                          updated_at: @adventure_result["adventures"][i]["updated_at"],
                                          guid: @adventure_result["adventures"][i]["guid"],
                                          library_id: library.id)
+
+
 
         @adventure_result["adventures"][i]["pages"].each do |add_page|
           @new_adventure = Adventure.last
