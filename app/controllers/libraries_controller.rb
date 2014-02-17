@@ -30,6 +30,7 @@ class LibrariesController < ApplicationController
   def show
     @library = Library.find(params[:id])
     @library_list = @library.scrape_libraries
+    @adventure_list = @library.scrape_adventures
   end
 
 end
