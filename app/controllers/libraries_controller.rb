@@ -1,8 +1,8 @@
 class LibrariesController < ApplicationController
   def index
     @libraries = Library.all
-    @libraries.each do |library|
-      AdventuresWorker.perform_async(library.id)
+    # @libraries.each do |library|
+    #   AdventuresWorker.perform_async(library.id)
 
       ### from AdventuresWorker
     #   if library.url.start_with?("http://")
@@ -27,7 +27,7 @@ class LibrariesController < ApplicationController
     #   end
     # end
     ###
-    end
+    # end
     respond_to do |f|
       f.html
       f.json { render :json => {"libraries" => @libraries} }
