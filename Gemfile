@@ -48,6 +48,8 @@ end
 
 gem 'sidekiq'
 
+gem 'sidetiq'
+
 gem 'json'
 
 gem 'typhoeus'
