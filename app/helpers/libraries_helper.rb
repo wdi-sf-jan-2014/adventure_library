@@ -2,10 +2,10 @@ module LibrariesHelper
 
   def scrape(url)
     resp1 = Typhoeus.get("#{url}/libraries.json")
-    @foreign_libraries = JSON.parse(resp_1.body)["libraries"]
+    @foreign_libraries = JSON.parse(resp1.body)["libraries"]
 
     resp2 = Typhoeus.get("#{url}/adventures.json")
-    @foreign_adventures = JSON.parse(resp1.body)["adventures"]
+    @foreign_adventures = JSON.parse(resp2.body)["adventures"]
   end
 
   def url_cleanup(cleanup_url) #Thank you Kai Hofius!  I need to work through the logic on line 21

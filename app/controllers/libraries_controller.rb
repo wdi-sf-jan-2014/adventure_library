@@ -21,8 +21,9 @@ class LibrariesController < ApplicationController
     
     lib = Library.find_or_create_by(url: clean_url)
     
-    LibrariesWorker.perform_async(lib.id)
+    LibrariesWorker.new.perform(lib.id)
     
-    redirect_to adventures_path
+    redirect_to libraries_path
   end
 end
+    

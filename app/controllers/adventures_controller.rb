@@ -5,7 +5,7 @@ class AdventuresController < ApplicationController
     @local_adventures = Adventure.where(library_id: nil)
     respond_to do |f|
       f.html
-      f.json { render :json => {:adventures => @local_adventures.as_json(except: [:id, :library_id, :created_at, :updated_at], include: {:pages => {except: :id}})} }
+      f.json { render :json => {:adventures => @local_adventures.as_json(except: [:id, :library_id, :created_at], include: {:pages => {except: :id}})} }
     end
   end
 
