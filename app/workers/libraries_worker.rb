@@ -24,12 +24,11 @@ class LibrariesWorker
 
 
   #to get that library's local adventures
-    l_link = library.url
-    if (l_link.ends_with? '/')
-    	adv_link = l_link + 'adventures.json'
+    if (lib_link.ends_with? '/')
+    	adv_link = lib_link + 'adventures.json'
     end
-    if (l_link.ends_with? 's')
-    	adv_link = l_link + '/adventures.json'
+    if (lib_link.ends_with? 's')
+    	adv_link = lib_link + '/adventures.json'
     end
 
   #save new adventures
