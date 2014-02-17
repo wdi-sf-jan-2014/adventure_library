@@ -52,6 +52,8 @@ gem 'unicorn'
 
 gem 'sidekiq'
 
+gem 'unicorn'
+
 gem 'rails_12factor'
 
 ruby '2.0.0'
