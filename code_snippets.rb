@@ -16,3 +16,9 @@ From library index
     <%= lib.text_field :url, placeholder: "Foreign Adventure URL" %><br>
     <%= lib.submit %>
 <% end %>
+
+
+<%= form_tag (controller: "libraries", action: "create", method: "post") do |lib| %>
+    <%= lib.text_field :url, placeholder: "Foreign Adventure URL" %>
+    <%= lib.submit %>
+<% end %>

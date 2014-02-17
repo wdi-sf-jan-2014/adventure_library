@@ -9,9 +9,13 @@
 <% end %>
 
 <h3>Stories From Other Repositories</h3>
-<% @library.each do |links| %>
+<% @libraries.each do |links| %>
     <ul>
         <li><%= links.url %></li>
     </ul><br>
 <% end %>
 
+<%= form_for @library do |lib| %>
+    <%= lib.text_field :url, placeholder: "Input URL" %>
+    <%= lib.submit %>
+<% end %>

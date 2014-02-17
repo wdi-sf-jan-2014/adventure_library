@@ -1,4 +1,4 @@
-class LibrariesWorker
+class LibraryWorker
     include Sidekiq::Worker
 
     def perform(library_id)
@@ -9,7 +9,7 @@ class LibrariesWorker
         libraries_as_json["libraries"].each do |lib|
             library = Library.find_or_create_by(url: lib["url"])
             if(library)
-                LibrariesWorker.perform_async(library.id)
+                LibraryWorker.perform_async(library.id)
             end
         end
     end
