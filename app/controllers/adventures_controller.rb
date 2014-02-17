@@ -6,8 +6,8 @@ class AdventuresController < ApplicationController
     respond_to do |f|
       f.html 
        f.json {render :json => {:adventures =>@local_adventure.as_json(
-        include: {pages: {except: [:id, :created_at, :updated_at]} } ,
-          except: [:id, :created_at, :updated_at] )}}
+        include: {pages: {except: [:id]} } ,
+          except: [:id] )}}
      end
   end
 

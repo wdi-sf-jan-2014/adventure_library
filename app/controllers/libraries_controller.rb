@@ -13,10 +13,21 @@ class LibrariesController < ApplicationController
 
   def create
     new_library = params.require(:library).permit(:url)
-    Library.create(new_library)
+    url = new_library["url"]
+    response = Typhoeus.get("#{url}/libraries.json")
+    result = JSON.parse(response.body)
+    result["libraries"].each do |f|
+      l_url= f["url"]
+      if Library.where(url: l_url).exists?
+      else
+        Library.create(url: l_url)
+        adv_response = Typhoeus.get("#{l_url}/adventures.json")
+        adv_result = JSON.parse(adv_response)
+        binding.pry
+      end
+    end
     redirect_to libraries_path
   end
-
 
 
 end

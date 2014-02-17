@@ -1,4 +1,13 @@
 <h1>Libraries#index</h1>
 <p>Find me in app/views/libraries/index.html.erb</p>
 
+<h2>Current tomes of adventures...</h2>
+<% @libraries.each do |f| %>
+<%=link_to f.url, f.url %><br>
+<%end%>
+<br>
+<br>
+
+
+
 <%=link_to "Add a new library", new_library_path %>
