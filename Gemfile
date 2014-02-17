@@ -56,6 +56,7 @@ gem 'active_model_serializers'
 gem 'typhoeus'
 
 gem 'json'
+gem 'rails_12factor'
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
 
