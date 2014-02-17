@@ -21,7 +21,7 @@ class PagesController < ApplicationController
       redirect_to adventure_page_path(adv.id, page.id)
     else
         flash[:warning] = "Sorry, your page had errors in it. Try again."
-        render :new
+        redirect_to new_adventure_page_path(adv.id)
     end
 
   end
@@ -46,7 +46,7 @@ class PagesController < ApplicationController
       redirect_to adventure_page_path(@adv.id, @page.id)
     else
       flash[:warning] = flash[:warning] = "Sorry, your adventure wasn't formatted properly. Try again."
-      render :edit
+      redirect_to edit_adventure_page_path(@adv.id, @page.id)
     end
 
   end
@@ -56,8 +56,7 @@ class PagesController < ApplicationController
     page = adv.pages.find(params[:id])
     
     page.name == "start" ? flash[:warning] = "Sorry, you can't delete the first page" : page.delete
-    binding.pry
-    redirect_to adventure_page_path(adv.id, adv.start.id)
+    redirect_to adventure_pages_path(adv.id)
 
   end
 

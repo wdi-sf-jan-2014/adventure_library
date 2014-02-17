@@ -6,7 +6,7 @@ class LibrariesController < ApplicationController
     respond_to do |f|
       f.html
 
-      f.json { render :json => @libs, :status => 200 }
+      f.json { render :json => {:libraries => @libs}, :status => 200 }
     end
 
   end
@@ -17,17 +17,18 @@ class LibrariesController < ApplicationController
   end
 
   def create
-    library = Library.new(get_lib_params)
+    lib = Library.new(get_lib_params)
 
-    if library.save
-      LinksWorker.perform_async(library.id)
+    if lib.save
+      puts "Lib id: #{lib.id}"
+      LinksWorker.perform_async(lib.id)
       redirect_to libraries_path
     else
-      flash[:warning] = library.errors.empty? ? 
+      flash[:warning] = lib.errors.empty? ? 
         "Sorry, your URL didn't work. Try again." : 
-        library.errors.full_messages.to_sentence
+        lib.errors.full_messages.to_sentence
 
-      render :new
+      redirect_to new_library_path
     end
 
   end

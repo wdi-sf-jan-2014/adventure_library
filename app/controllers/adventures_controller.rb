@@ -5,15 +5,13 @@ class AdventuresController < ApplicationController
 
     respond_to do |f|
       f.html 
-      f.json { render :json => @adventures.to_json(:include => :pages), 
-                      :status => 200 }
+      f.json { render :json => { :adventures => @adventures.as_json(:include => :pages) }, :status => 200 }
     end
 
   end
 
   def new
     @adventure = Adventure.new
-
   end
 
   def create
@@ -45,12 +43,12 @@ class AdventuresController < ApplicationController
   def update
     adventure = Adventure.find(params[:id])
 
-    if adventure.update_attributes(get_adv_params)
+    #if adventure.update_attributes(get_adv_params)
       redirect_to adventures_path
-    else
-      flash[:warning] = flash[:warning] = "Sorry, your adventure wasn't formatted properly. Try again."
-      render :edit
-    end
+    # else
+    #   flash[:warning] = flash[:warning] = "Sorry, your adventure wasn't formatted properly. Try again."
+    #   redirect_to edit_adventure_path(adventure.id)
+    # end
 
   end
 
@@ -58,6 +56,7 @@ class AdventuresController < ApplicationController
     adventure = Adventure.find(params[:id])
     adventure.delete
 
+    redirect_to adventures_path
   end
 
   private

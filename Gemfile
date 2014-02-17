@@ -52,7 +52,7 @@ gem 'unicorn'
 gem 'sidekiq'
 gem 'redis'
 gem 'nokogiri'
-
+gem 'typhoeus'
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
 

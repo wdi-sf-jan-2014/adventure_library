@@ -3,7 +3,7 @@ has_many :pages
 belongs_to :library
 
 accepts_nested_attributes_for :pages
-validates :guid, uniqueness: { message: "This adventure is already recorded." }
+validates :guid, uniqueness: { message: "This adventure is already recorded." }, :on => :create
 
 def start
   Page.find_by(adventure_id: id, name: "start")
