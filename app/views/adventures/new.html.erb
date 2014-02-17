@@ -6,11 +6,10 @@
   <%= f.text_field :author, placeholder: "Author" %><br>
   <%= f.hidden_field :guid, value: @guid %>
 <h2> Create your first page! </h2>
-    <%= fields_for :pages, @adventure.pages.build do |p| %>
-      <%= p.label :name %>
-      <%= p.text_field :name, placeholder: "Name" %><br>
+    <%= f.fields_for :pages, @adventure.pages.build do |p| %>
+      <%= p.hidden_field :name, value: "start" %><br>
       <%= p.label "Page Text" %>
       <%= p.text_area :text, placeholder: "Write story here" %><br>
     <% end %>
-  <%= f.submit %>
+    <%= f.submit %>
 <% end %>

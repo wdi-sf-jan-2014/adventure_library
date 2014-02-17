@@ -16,7 +16,7 @@ class AdventuresController < ApplicationController
 
   def create
     new_adventure = Adventure.create(adventure_params)
-    redirect_to adventure_path(new_adventure)
+    redirect_to new_adventure_page_path(new_adventure)
   end
 
   def update
@@ -42,4 +42,5 @@ class AdventuresController < ApplicationController
   def adventure_params
     params.require(:adventure).permit(:title, :author, :guid, :pages_attributes=>[:name, :text])
   end
+
 end

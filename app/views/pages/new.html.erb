@@ -1,5 +1,8 @@
 <h1> Page for: <%= @parent.title %> </h1>
-
+<h3> Past Pages </h3>
+<% @parent.pages.each do |page| %>
+	<%= page.name %><br>
+<% end %>
 <%= form_for @page, :url => {:action => "create"} do |f| %>
 
   <%= f.label :name %>
