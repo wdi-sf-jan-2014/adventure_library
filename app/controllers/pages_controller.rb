@@ -48,5 +48,21 @@ class PagesController < ApplicationController
 
   end
 
-  
-end
+  def edit
+    adventure_id = params[:adventure_id]
+    id = params[:id]
+    @adventure = Adventure.find(adventure_id)
+    @page = Page.find(id)
+  end
+
+ def update
+    adventure_id = params[:adventure_id]
+    id = params[:id]
+    redirect_to adventure_page_path(adventure_id, id)
+  end
+
+  def destroy
+    
+  end
+
+ end

@@ -29,9 +29,9 @@ class AdventuresController < ApplicationController
 
 
   def destroy
-    @adventure = Adventure.find(params[:id])
-    @adventures.delete(@adventure)
-    redirect_to adventures_path
+   adventure = Adventure.find(params[:id])
+   adventure.destroy
+   redirect_to adventures_path
   end
 
   def update
