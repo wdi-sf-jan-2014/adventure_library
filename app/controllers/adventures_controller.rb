@@ -1,9 +1,11 @@
 class AdventuresController < ApplicationController
   
   def index
-  @adventures = Adventure.all
-  @remote_adventures = Library.new
-  my_library = Library.all
+  local = Library.find_by(name: "Yutaka's library")
+  @local_adventures = local.adventures
+  @all_adventures = Adventure.all
+  @search_adventures = Library.new
+  my_library = Library.find_by(name: "Yutaka's library")
     respond_to do |f|
     f.html
     f.json { render :json => my_library.to_json(only: [:url, :name], include: [ adventures:
@@ -23,7 +25,7 @@ class AdventuresController < ApplicationController
       :author, :guid, :pages_attributes =>[:name, :text])) 
       redirect_to "/adventures/#{adventure.id}/pages/new"
     else 
-      y_library = Library.first  
+      y_library = Library.first
       adventure = y_library.adventures.create(params[:adventure].permit(:title, 
       :author, :guid, :pages_attributes =>[:name, :text])) 
       redirect_to "/adventures/#{adventure.id}/pages/new"

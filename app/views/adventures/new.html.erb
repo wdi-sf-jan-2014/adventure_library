@@ -1,5 +1,9 @@
 <h2> Add a new adventure: </h2><br>
 
+<!-- these buttons were to add or subtract page forms.
+they worked supperficially - the id number of the pages were
+also cloned, which prevented them from saving unique inputs -->
+
 <!-- <button id="plus_button">+1 page</button>
 <button id="minus_button">-1 page</button><br><br> -->
 
@@ -17,20 +21,14 @@
 
 <a href="/adventures">see all adventures</a>
 
-<style>
-#more_page{
-  display:none;
-}
-</style>
-
 <script type="text/javascript">
 
-$("#plus_button").click(function(){
-  $("#more_page_from").clone().appendTo( "#more_page_to" );
-});
+// $("#plus_button").click(function(){
+//   $("#more_page_from").clone().appendTo( "#more_page_to" );
+// });
 
-$("#minus_button").click(function(){
-  $("#more_page_to").empty();
-});
+// $("#minus_button").click(function(){
+//   $("#more_page_to").empty();
+// });
 
-</script>
+// </script>

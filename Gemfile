@@ -54,6 +54,8 @@ gem 'sidekiq'
 
 gem 'annotate'
 
+gem 'typhoeus'
+
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
 
