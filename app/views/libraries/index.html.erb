@@ -1,0 +1,21 @@
+<div class="header">
+  <h1>Libraries</h1>
+  <%= link_to "Add library", new_library_path, class: "btn btn-success btn-xs" %>
+</div>
+<div>
+   
+  <% @libs.each do |lib| %>
+    <h4><%= link_to lib.url, lib.url %></h4>
+    
+    <ul>
+    <% lib.adventures.each do |adv| %>
+      <% unless adv.start.nil? %>
+      <li>
+        <%= link_to adv.title, adventure_page_path(adv.id, adv.start.id) %>
+      </li>
+      <% end %>
+    <% end %>
+    </ul>
+  <% end %>
+  
+</div>

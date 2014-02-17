@@ -1,0 +1,12 @@
+<div class="header">
+  <h1>Edit title</h1>
+</div>
+
+<div>
+<%= form_for @adventure do |f| %>
+
+  <%= f.text_field :title, placeholder: "Title", class: "form-control", autofocus: true %>
+  <%= f.submit class: "btn btn-success btn-lg" %>
+
+<% end %>
+</div>

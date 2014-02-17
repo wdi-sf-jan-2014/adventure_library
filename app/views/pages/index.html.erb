@@ -1,0 +1,31 @@
+  <div class="header">
+    <%= link_to "<< Adventures", adventures_path %>
+    <h1><%= @adv.title %></h1>
+    <ul>
+      <li><%= link_to "Edit title", edit_adventure_path(@adv.id), 
+              class: "btn btn-success btn-xs" %></li>
+      <li><%= link_to "Add page", new_adventure_page_path(@adv.id), class: "btn btn-primary btn-xs btn-manage" %></li>
+    </ul>
+  </div>
+
+<div>
+  <h3>Pages</h3>
+
+  <ul>
+    <li>
+      <h4><%= link_to @start.name, adventure_page_path(@adv.id, @start.id) %></h4>
+          <%= link_to "Edit", edit_adventure_page_path(@adv.id, @start.id),  class: "btn btn-success btn-xs" %>
+      </h4>
+    </li>
+    <% @adv.pages.each do |page| %>
+      <% unless page.id == @start.id %>
+        <li>
+          <h4><%= link_to page.name, adventure_page_path(@adv.id, page.id) %></h4>
+            <%= link_to "Edit", edit_adventure_page_path(@adv.id, page.id),  class: "btn btn-success btn-xs" %>
+            <%= link_to "Delete", { action: "destroy", id: [@adv.id, page.id] }, method: :delete, data: { confirm: "Are you sure?"}, class: "btn btn-danger btn-xs" %>
+        </li>
+        <% end %>
+    <% end %>
+  </ul>
+
+</div>

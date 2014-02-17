@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
-
+ruby "2.0.0"
 # Use postgresql as the database for Active Record
 gem 'pg'
 
@@ -37,6 +37,10 @@ group :test, :development do
   gem 'pry'
   gem 'pry-byebug'
   gem 'dotenv-rails'
+  gem 'guard-rspec'
+  gem 'guard-livereload'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 # Use ActiveModel has_secure_password
@@ -46,6 +50,10 @@ end
 gem 'unicorn'
 
 gem 'sidekiq'
+gem 'redis'
+gem 'nokogiri'
+gem 'typhoeus'
+gem 'rails_12factor', group: :production
 
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development

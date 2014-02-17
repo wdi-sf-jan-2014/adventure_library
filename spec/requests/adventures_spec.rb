@@ -3,12 +3,16 @@ require 'spec_helper'
 describe '/adventures' do
   before(:each) do 
     @local_adventure = Adventure.create!(:title => "test",
-                                        :author => "Test author")
+                                        :author => "Test author",
+                                        :guid => SecureRandom.urlsafe_base64(10)
+                                        )
     @local_adventure.pages.create!(:name => "start", :text => "cool story bro")
 
     @foreign_adventure = Adventure.create!(:title => "Ceci n'est pas un test.",
                                     :author => "Foreign author",
-                                    :library_id => 4)
+                                    :library_id => 4, 
+                                    :guid => SecureRandom.urlsafe_base64(10)
+                                    )
     @foreign_adventure.pages.create(:name => "start", :text => "Chouette histoire, mec.")
 
   end
