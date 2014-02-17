@@ -2,6 +2,10 @@
 
 <% @pages.each do |page| %>
 
-  <h2><a href="/adventures/<%= page.adventure.id %>/pages/<%= page.id %>"><li><%= page.name %></li></a></h2>
+  <h2><a href="/adventures/<%= page.adventure.id %>/pages/<%= page.id %>"><li><%= page.name %>
+  <button><a href="/adventures/<%= page.adventure.id %>/pages/<%= page.id %>/edit/">Edit this page</a></button>
+  </li></a></h2>
 
 <% end %>
+
+<a href="pages/new">New Page</a>

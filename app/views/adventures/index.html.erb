@@ -1,7 +1,24 @@
 <h1>Adventures</h1>
+ <button><a href="/adventures/new">Add New Adventure</a></button>
 
-<% @adventures.each do |adventure| %>
+<% @adventures.each do |adventure| %> 
 
-  <h2><a href="/adventures/<%= adventure.id %>"><li><%= adventure.author %>: <%= adventure.title %></li></a></h2>
+  <li><a href="/adventures/<%= adventure.id %>"><%= adventure.author %>: <%= adventure.title %></a>
+    <!-- if library is local -->
+  <% if adventure.library == nil %>
+    <button><a href="/adventures/<%= adventure.id %>/pages">Edit this Adventure</a></button>  </li>
 
+  <!-- else: display which library this adventure is from -->
+  <% else %>
+    from <%= adventure.library.url %>
+  <% end %>
+<% end %>
+
+<h2>Add Your Library:</h2>
+
+<%= form_for @library do |l| %>
+    <%= l.label "Library URL" %>
+    <%= l.text_field :url %>
+
+    <%= l.submit %>
 <% end %>

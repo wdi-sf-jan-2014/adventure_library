@@ -1,0 +1,7 @@
+<%= form_for @page, url: adventure_page_path do |p| %>
+
+    <%= p.text_field :name, placeholder: "enter page name" %> <br>
+    <%= p.text_area :text, placeholder: "enter text" %> <br>
+
+    <%= p.submit %>
+<% end %>
