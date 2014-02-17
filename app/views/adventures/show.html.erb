@@ -1,0 +1,12 @@
+<h1>Title: <%=@adventure.title%></h1>
+<h2>By: <%=@adventure.author%></h2>
+
+<% page = @adventure.pages.find_by(name: "start") %>
+
+<h3><%= page.name.capitalize%></h3>
+
+<p><%= simple_format(linkify_page(page)) %></p>
+
+<%= button_to "Home", root_path, class: "btn btn-primary", method: :get %>
+
+

@@ -1,0 +1,8 @@
+<h2><%= @page.name.capitalize %></h2>
+
+<p><%= simple_format(linkify_page(@page))%></p>
+
+
+<%= button_to "Beginning of Story", adventure_path(@adventure.id), class: "btn btn-primary", method: :get %>
+<br>
+<%= button_to "Home", root_path, class: "btn btn-primary", method: :get %>

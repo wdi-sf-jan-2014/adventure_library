@@ -1,0 +1,5 @@
+result={"libraries":[{"url":"http://adventure-kaibrary.herokuapp.com/"},{"url":"http://adventures-with-raphael.herokuapp.com/"},{"url":"http://guarded-ocean-2883.herokuapp.com/"},{"url":"http://guarded-ocean-2883.herokuapp.com/"},{"url":"http://stormy-sands-1901.herokuapp.com/"},{"url":"/adventures"},{"url":"http://eric-adventure-library.herokuapp.com/"},{"url":"http://afternoon-eyrie-4954.herokuapp.com/"},{"url":"http://polar-taiga-5141.herokuapp.com/"},{"url":"http://sleepy-garden-8077.herokuapp.com/"},{"url":"http://aqueous-meadow-3661.herokuapp.com/"},{"url":"http://dry-chamber-4814.herokuapp.com/"},{"url":"http://pure-savannah-8231.herokuapp.com/"},{"url":"http://adventure-library.herokuapp.com/"},{"url":"http://fierce-bastion-5959.herokuapp.com/"},{"url":"http://obscure-ridge-7753.herokuapp.com/"},{"url":"http://boiling-peak-8178.herokuapp.com/"},{"url":"http://fathomless-shelf-8341.herokuapp.com/"}]}
+result['libraries'] = JSON.parse(response.body)
+  result.each do |library|
+   puts library
+ end
