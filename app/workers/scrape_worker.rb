@@ -40,7 +40,8 @@ class ScrapeWorker
 
       libraries.each do |lib|
         library_url = lib['url']
-        if not library_url.start_with? '/adventures'
+        if (not library_url.start_with? '/adventures') &&
+            (not library_url.include? 'hidden-stream-9940.herokuapp.com')
           library = Library.new
           library.url = library_url
           fetch_adventures(library)

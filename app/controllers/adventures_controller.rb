@@ -4,7 +4,11 @@ class AdventuresController < ApplicationController
     @adventures = Adventure.all
     respond_to do |f|
       f.html
-      f.json { render :json => @adventures.as_json(include: :pages) }
+      f.json {
+        # build a JSON root of the adventures array
+        adv_root = Hash['adventures', @adventures.as_json(include: :pages)]
+        render :json => adv_root
+      }
     end
   end
 
