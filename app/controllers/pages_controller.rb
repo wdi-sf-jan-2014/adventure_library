@@ -1,10 +1,11 @@
 class PagesController < ApplicationController
 
-  def show
 
-  end
 
-  def new
+  def new 
+    5.times do
+      Page.new
+    end
     adventure_id= params[:adventure_id]
     redirect_to adventure_path(adventure_id)
     end
@@ -14,7 +15,7 @@ class PagesController < ApplicationController
   def create
     adventure_id =params[:adventure_id]
     @adventure = Adventure.find(adventure_id)
-    page = params[:page].require(:name, :text)
+    page = params[:page].require(:name, :text,:guid)
     page = Page.create(page)
     @page = linkify_page(page)
     redirect_to adventure_page
@@ -24,8 +25,7 @@ class PagesController < ApplicationController
     end
   end
 
-  def edit
-  end
+  
 
   def index
     adventure_id =params[:adventure_id]
@@ -48,6 +48,5 @@ class PagesController < ApplicationController
 
   end
 
-  def update
-  end
+  
 end

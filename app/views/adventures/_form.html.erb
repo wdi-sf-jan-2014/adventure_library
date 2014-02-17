@@ -1,15 +1,20 @@
+<div class="adventure_form">
 <%= form_for @adventure do |f| %>
+
 <p>
   <%= f.label :title %><br/>
   <%= f.text_field :title,  placeholder: "title of adventure" %><br/>
 
   <%= f.label :author %><br/>
   <%= f.text_field :author, placeholder: "author" %>
- <!--  <% @adventure["guid"]#= SecureRandom.urlsafe_base64(10) %> -->
+  <%= f.hidden_field :guid, :value => SecureRandom.urlsafe_base64(10)%>
+  <br/>
+
 </p>
- <%= f.fields_for :pages do |builder| %>
+ <%= f.fields_for :pages, @adventure.pages.build do |builder| %>
  <%= render "page_fields", :f => builder %>
  <% end %>
- <p><%= f.submit "Create adventure",class: "btn btn-lg btn-primary" %></p>
+ <p><%= f.submit "Create adventure",class: "btn btn-lg btn-danger" %></p>
  <% end %>
+</div>
 

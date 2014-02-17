@@ -1,0 +1,20 @@
+
+
+<h2>Edit the adventure </br><em><%= @adventure.title %></em></h2>
+ <div class="container"><br/></div>
+<div>
+<%= form_for @adventure do |f| %>
+
+<p>
+  <%= f.label :title %><br/>
+  <%= f.text_field :title,  placeholder: "title of adventure" %><br/>
+
+  <%= f.label :author %><br/>
+  <%= f.text_field :author, placeholder: "author" %>
+ <%= f.submit " Edit adventure",class: "btn btn-default btn-xs" %>
+ <% end %>
+  <br/>
+  <em>To edit a page, go to the page you want to edit</em><br/>
+
+  <p><%= link_to "Go to the first page", adventure_page_path(@adventure.id,@first_page) %></p>
+</div>

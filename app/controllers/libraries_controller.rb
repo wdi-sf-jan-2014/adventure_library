@@ -12,11 +12,15 @@ class LibrariesController < ApplicationController
     @libraries = Library.all
     @adventures = Adventure.all
     new_library = params.require(:library).permit(:url)
-    library = Library.create(new_library)
+    library = Library.create!(new_library)
     LibraryWorker.perform_async(library.id)
      @libraries = @libraries.uniq!
      @adventures = @adventures.uniq!
     redirect_to '/libraries'
+  end
+
+  def new
+    @library = Library.new
   end
 
 

@@ -1,3 +1,4 @@
+<div class="pages_form">
 <h2>Add pages to your adventure</h2>
 <p>
   <small>You need a minimum of two pages: <br/>
@@ -12,29 +13,17 @@
   ===============================
   <p><h4>First page</h4>
   <%= f.label :name %>
-  <%= f.text_field :name, placeholder: "start"%>
-  <%= f.label :text %>
+  <%= f.text_field :name, placeholder: "start"%><br/>
+  <%= f.label :text %><br/>
   <%= f.text_area :text, :rows => 5, :cols => 50,placeholder: "text" %><br/>
 </p>
 ====================================
-
-  <p><h4>Second Page(optional)</h4>
+ <p><h4>Last page</h4>
   <%= f.label :name %>
-  <%= f.text_field :name, placeholder: "name of the page"%>
-  <%= f.label :text %>
-  <%= f.text_area :text, :rows => 5, :cols => 50,placeholder: "text" %><br/>
-</p>
-Add more pages<br/>
-=======================================================
-  <p><h4>Last page</h4>
-  <%= f.label :name %>
-  <%= f.text_field :name, placeholder: "end"%>
-  <%= f.label :text %>
+  <%= f.text_field :name, placeholder: "end"%><br/>
+  <%= f.label :text %><br/>
   <%= f.text_area :text, :rows => 5, :cols => 50,placeholder: "text" %><br/>
 </p>
 
 
-
-
-
-
+  

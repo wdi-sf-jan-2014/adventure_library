@@ -15,9 +15,8 @@ class AdventuresController < ApplicationController
 
 
     def create
-      new_adventure= params.require(:adventure).permit(:title, :author)
+      new_adventure= params.require(:adventure).permit(:title, :author,:guid,:pages_attributes =>[:name, :text])
       new_adventure = Adventure.create(new_adventure)
-      new_adventure.guid = SecureRandom.urlsafe_base64(10)
       new_adventure.save
       @adventure = new_adventure
       redirect_to new_adventure_page_path(@adventure.id)
@@ -25,6 +24,26 @@ class AdventuresController < ApplicationController
 
    def new
     @adventure = Adventure.new
+    2.times { @adventure.pages.build }
    end
+
+
+  def destroy
+    @adventure = Adventure.find(params[:id])
+    @adventures.delete(@adventure)
+    redirect_to adventures_path
+  end
+
+  def update
+    @adventure = Adventure.find(params[:id])
+    @adventure.update_attributes(params.require(:adventure).permit(:title, :author, pages_attributes: [ :name, :text ]))
+    redirect_to adventure_path
+  end
+
+  def edit
+    @adventure = Adventure.find(params[:id])
+    @first_page = @adventure.pages.find_by(name: "start")
+    
+  end
 
 end
