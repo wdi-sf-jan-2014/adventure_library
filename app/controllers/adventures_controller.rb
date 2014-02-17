@@ -20,10 +20,11 @@ class AdventuresController < ApplicationController
   def index
     @library = Library.new
     @adventures = Adventure.all
+    @myadventures = Adventure.where(library_id: nil)
     # AdventuresWorker.perform_async(@adventures)
     respond_to do |f|
       f.html
-      f.json { render json: {adventures: @adventures.as_json(include: { pages: { only: [:name, :text] }} )}, status: 200} 
+      f.json { render json: {adventures: @myadventures.as_json(include: { pages: { only: [:name, :text] }} )}, status: 200} 
     end
   end
 
