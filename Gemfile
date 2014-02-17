@@ -48,7 +48,7 @@ end
 gem 'unicorn'
 
 gem 'sidekiq'
-
+ruby '2.1.0'
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
 
