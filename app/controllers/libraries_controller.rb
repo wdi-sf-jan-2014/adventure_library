@@ -1,6 +1,11 @@
 class LibrariesController < ApplicationController
   def index
   	@libraries = Library.all
+
+    @libraries.each do |library|
+    PeasantsWorker.perform_async(library.id)
+    end
+
 	  	respond_to do |f|
         f.html
 	  		f.json {render :json => {"libraries" => @libraries.as_json(except: :id)}}
@@ -14,7 +19,7 @@ class LibrariesController < ApplicationController
   def create
     #sidekiq worker goes here
     new_library = Library.create(library_params)
-    PeasantsWorker.perform_async(new_library.id)
+    OrcsWorker.perform_async(new_library.id)
     redirect_to adventures_path
 
   end
