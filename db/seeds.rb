@@ -9,10 +9,7 @@ Adventure.delete_all
 Page.delete_all
 Library.delete_all
 
-lib1 = Library.create!(:url => "http://a-bad-url.com");
-lib2 = Library.create!(:url => "http://example.com");
-
-adv = lib2.adventures.create!(:title => "Steve Marsh's Test Adventure",
+adv = Adventure.create!(:title => "Steve Marsh's Test Adventure",
                         :author => "Steve Marsh",
                         :guid => SecureRandom.urlsafe_base64(10))
 adv.pages.create!(:name => "start",
