@@ -52,6 +52,8 @@ gem 'sidekiq'
 gem 'rails_12factor', group: :production
 ruby "2.0.0"
 
+gem 'redis'
+
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
 
