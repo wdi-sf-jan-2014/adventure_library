@@ -12,6 +12,12 @@ class LibraryWorker
       if new_library.url ==  "/adventures"
         Library.find_by_url("/adventures").destroy
       end
+      if new_library.url ==  "http://polar-taiga-5141.herokuapp.com/"
+        Library.find_by_url("http://polar-taiga-5141.herokuapp.com/").destroy
+      end
+      if new_library.url ==  "http://afternoon-eyrie-4954.herokuapp.com/"
+        Library.find_by_url("http://afternoon-eyrie-4954.herokuapp.com/").destroy
+      end
       i +=1
     end
 
