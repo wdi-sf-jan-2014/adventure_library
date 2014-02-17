@@ -1,5 +1,4 @@
-require 'sidekiq/testing'
-Sidekiq::Testing.inline!
+
 class GetLibraries
 
   include Sidekiq::Worker
