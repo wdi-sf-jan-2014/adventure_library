@@ -1,6 +1,11 @@
 class LibrariesWorker
   include Sidekiq::Worker
 
+# ABSTRACT OUT LIBRARY SAVING TO CONTROLLER,
+# SIDEKIQ ONLY FOR ADVENTURE SCRAPE
+# ---
+# Go through each library
+
   def perform(library_id)
     library = Library.find(library_id)
     lib_link = library.url

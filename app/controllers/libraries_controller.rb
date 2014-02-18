@@ -17,7 +17,7 @@ class LibrariesController < ApplicationController
 
   def create
   	new_lib_link = params.require(:library).permit(:url)
-    library = Library.create(new_lib_link)
+    library = Library.find_or_create_by(new_lib_link)
 
     LibrariesWorker.perform_async(library.id) unless library.id == nil
 
