@@ -1,0 +1,13 @@
+pages/index.html.erb (maybe I don't need this page)
+
+<%= @adventure.title %>
+<div>
+<% @pages.each do |pg| %>
+  <%= pg.name %>
+  <%= pg.text %>
+  <%= pg.id %>
+<% end %>
+</div>
+<br>
+
+<%= link_to "adventures", adventures_path %>

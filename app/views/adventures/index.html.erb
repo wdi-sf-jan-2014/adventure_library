@@ -1,0 +1,19 @@
+
+
+adventure/index.html.erb
+
+<div class="container">
+
+<% @adventures.each do |adv| %>
+  <h1><%= adv.title %></h1>
+  <p><%= adv.author %></p>
+  <%= adv.library_id %>
+  <%= link_to "see this adventure", adventure_path(adv) %><br>
+  <%= link_to "add new pages", new_adventure_page_path(adv) %><br>
+  <%= link_to "delete", {:controller => :adventures, :action => 'destroy', :id => adv.id }, :method => :delete %>
+<% end %>
+---<br>
+<%= link_to "add new adventures", new_adventure_path %>
+
+</div>
+

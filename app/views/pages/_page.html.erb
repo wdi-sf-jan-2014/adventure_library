@@ -1,0 +1,18 @@
+<%= @page.name %> 
+<br>
+
+
+
+
+<div>
+
+<%= @adventure.title %>
+
+[[some text here| name_of_page]]
+<%= form_for [@adventure, @adventure.pages.new] do |f| %>
+  <%= f.text_field :name, placeholder: "page name" %>
+  <%= f.text_area :text, placeholder: "[[some text here| name_of_page]]" %>
+  <%= f.submit %>
+
+  <%#= link_to "add new pages", new_adventure_page_path(@adventure) %>
+<% end %>
