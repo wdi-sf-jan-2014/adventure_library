@@ -1,0 +1,19 @@
+<h1>Adventures#index</h1>
+<p>Here are the local tales from my village</p>
+<% @local_adventure.each do |f| %>
+<%=link_to f.title, adventure_path(f.id) %> - 
+<%= f.author %><br>
+<%end%>
+
+<br>
+<p>And here are the tales I've heard from far away lands...</p>
+<% @foreign_adventure.each do |f| %>
+<%=link_to f.title, adventure_path(f.id) %> - 
+<%= f.author %><br>
+<%end%>
+<br>
+<br>
+<p> Or, make a new adventure! </p>
+<%=link_to "GO!", new_adventure_path %>
+<br>
+<%=link_to "or check out the archive", libraries_path%>

@@ -37,6 +37,7 @@ group :test, :development do
   gem 'pry'
   gem 'pry-byebug'
   gem 'dotenv-rails'
+  gem 'unicorn-rails'
 end
 
 # Use ActiveModel has_secure_password
@@ -47,6 +48,9 @@ gem 'unicorn'
 
 gem 'sidekiq'
 
+gem 'typhoeus'
+
+gem 'nokogiri'
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
 

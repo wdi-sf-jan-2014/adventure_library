@@ -1,0 +1,17 @@
+<h1>Adventures#new</h1>
+<p>Find me in app/views/adventures/new.html.erb</p>
+
+<%=form_for @adventure do |f| %>
+<%=f.label :title, "Title" %><br>
+<%=f.text_field :title, placeholder: "Adventure Time" %><br>
+<%=f.label :author, "Author" %><br>
+<%=f.text_field :author, placeholder: "Author" %><br>
+
+<%=f.fields_for :pages, @adventure.pages.build do |p| %>
+  <%=p.hidden_field :name, value: "start" %>
+  <%=p.label :text, "The first page" %><br>
+  <%=p.text_area :text, placeholder: "Describe your first page..." %>
+  <%end%>
+  <br>
+  <%=f.submit "Submit!"%>
+<%end%>
