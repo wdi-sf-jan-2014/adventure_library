@@ -1,0 +1,11 @@
+<h2>You adventure begins!</h2>
+
+<%= form_for @adventure do |a| %>
+    <%= a.label "Title" %>
+    <%= a.text_field :title %>
+
+    <%= a.label "Author" %>
+    <%= a.text_field :author %>
+
+    <%= a.submit %>
+<% end %>

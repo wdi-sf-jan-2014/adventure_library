@@ -1,0 +1,11 @@
+<h2>Add Pages to Your Adventure</h2>
+
+<%= form_for @page, url: adventure_pages_path do |p| %>
+    <%= p.label "Page name" %>
+    <%= p.text_field :name %>
+
+    <%= p.label "text" %>
+    <%= p.text_field :text %>
+
+    <%= p.submit %>
+<% end %>
