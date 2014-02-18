@@ -1,0 +1,8 @@
+<h1>Contents of <%= @adventure.title %></h1>
+
+<div>
+    <% @adventure.pages.each do |page| %>
+        <%= page.text %><br>
+        <%#= simple_format(linkify_page(@page)) %>
+    <% end %>
+</div>
