@@ -1,0 +1,12 @@
+<h1><%= @adventure.title %></h1>
+
+<h3>Add Page</h3>
+<%= form_for [@adventure, @page] do |p| %>
+  <%= p.label :name %>
+  <%= p.text_field :name %></br>
+  <%= p.label :text %></br>
+  <%= p.text_area :text %></br>
+  <%= p.submit "Add Page" %>
+<%end%>
+<p>figure out validators</p>
+<%= link_to "Back to Adventure", adventure_path(@adventure.id) %>

@@ -47,8 +47,12 @@ gem 'unicorn'
 
 gem 'sidekiq'
 
-# Use Capistrano for deployment
-# gem 'capistrano', group: :development
+gem 'nokogiri'
 
-# Use debugger
-# gem 'debugger', group: [:development, :test]
+gem 'typhoeus'
+
+group :production do 
+  gem 'rails_12factor'
+end
+
+# ruby '2.1.0'
