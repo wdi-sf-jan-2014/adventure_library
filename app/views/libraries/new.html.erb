@@ -1,0 +1,12 @@
+<h1>Libraries#new</h1>
+<p>Find me in app/views/libraries/new.html.erb</p>
+
+<div>
+<%= form_for @library do |lib| %>
+
+  <%= lib.label :url %><br />
+  <%= lib.url_field :url, placeholder: "Link to Adventure!" %><br />
+  <%= lib.submit class: "btn btn-default"%>
+
+<% end %>
+</div>

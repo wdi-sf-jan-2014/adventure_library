@@ -1,0 +1,24 @@
+<h1>Adventures#index</h1>
+<p>Find me in app/views/adventures/index.html.erb</p>
+
+<div>
+<table class="table">
+<% @adventures.each do |a| %>
+  <tr>
+    <td>
+      <%= link_to a.title, adventure_path(:id => a.id) %>
+    </td>
+    <td>
+      by: <%= a.author %>
+    </td>
+    <td>
+      <%= a.guid %>
+    </td>
+    <td>
+      <%= a.pages.length %>&nbsp;pages
+    </td>
+  </tr>
+<% end %>
+</table>
+
+</div>

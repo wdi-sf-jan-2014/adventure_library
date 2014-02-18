@@ -1,0 +1,23 @@
+<h1>Adventures#show</h1>
+<p>Find me in app/views/adventures/show.html.erb</p>
+
+<%= @adventure.pages.length %><br />
+
+
+<h3><%= @adventure.title %></h3>
+
+<h5>By: <%= @adventure.author %> </h5>
+
+<div>
+  
+<% if @adventure.pages.length > 0 %>
+      <div>
+      	<a href="<%= adventure_page_path(:adventure_id => @adventure.id, :id => @start_page.id) %>">start your adventure.</a>
+
+      </div>
+<% else %>
+	<h5> CREATE PAGES: &nbsp;
+   <%= link_to "Add to this adventure!", new_adventure_page_path(@adventure.id)%></h5>
+<% end %>
+
+</div>
