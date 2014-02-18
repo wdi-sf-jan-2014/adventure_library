@@ -22,7 +22,7 @@ class LibrariesWorker
       clean_url = url_cleanup(lib["url"])
       unless Library.find_by(url: clean_url)
         library = Library.create(url: clean_url)
-        perform(library.id)
+        LibrariesWorker.perform_async(library.id)
       end
     end
   end
