@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby '2.1.0'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
 
@@ -46,6 +48,14 @@ end
 gem 'unicorn'
 
 gem 'sidekiq'
+
+#json for API usage
+gem 'json'
+
+#typhoeus for running HTTP requests in parallel while encapsulating handling logic
+gem 'typhoeus'
+
+gem 'capybara'
 
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
