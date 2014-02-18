@@ -1,0 +1,11 @@
+<h1>Welcome to My Library Collection</h1>
+
+<%= form_for :library, url: "/libraries" do |f| %>
+  <%= f.text_field :name, placeholder: "Name of library" %>
+  <%= f.text_field :url, placeholder: "Paste URL here " %>
+  <%= f.submit "Add" %>
+  <p>Add to my collection!</p>
+<% end %>
+
+
+<p>Want to see the collection? click <%= link_to "here", "/libraries" %></p>

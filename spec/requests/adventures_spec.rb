@@ -14,6 +14,8 @@ describe '/adventures' do
   end
 	describe 'GET with JSON' do
     before(:each) do 
+      mock_model('Library')
+      allow(Library).to receive(:find_by_url).and_return(@library)
       get '/adventures.json'
       @result = JSON.parse(response.body)
     end
@@ -38,6 +40,17 @@ describe '/adventures' do
       p["name"].should == p_in_db.name
       p["text"].should == p_in_db.text
     end
+
+    it 'ERIC:gets back the pages of a returned adventure' do 
+      pages = @result["adventures"].first["pages"]
+      pages.should_not == nil
+      pages.length.should == @local_adventure.pages.length
+      p = pages.first
+      p_in_db = @local_adventure.pages.first
+      p["name"].should == p_in_db.name
+      p["text"].should == p_in_db.text
+    end
+
 
     it 'does not return adventures made on another server' do 
       @result["adventures"].detect{|a| a["title"] == @foreign_adventure.title
