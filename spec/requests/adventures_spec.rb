@@ -17,8 +17,8 @@ describe '/adventures' do
       get '/adventures.json'
       @result = JSON.parse(response.body)
     end
+    # GET /adventures, to: 'adventures#index', as: :adventures
     it 'returns a list of all the adventures made locally' do
-      
       @result["adventures"].should_not == nil
       @result["adventures"].length.should == 1
       adv = @result["adventures"].first

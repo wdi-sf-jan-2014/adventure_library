@@ -1,0 +1,4 @@
+<%= @adventure.title %></br>
+By: <%= @adventure.author %>
+</br></br>
+<%= simple_format(linkify_page(@adventure.pages.find_by(name: "start"))) %>

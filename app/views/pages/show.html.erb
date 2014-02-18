@@ -1,0 +1,11 @@
+<%= @adventure.title %></br>
+By: <%= @adventure.author %>
+</br></br>
+
+<%= simple_format(linkify_page(@page)) %>
+
+<%= button_to "Edit Page", edit_adventure_page_path(@adventure.id,@page.id), method: :get %>
+
+<% if @page.name == "end" %>
+  <%= button_to "~Retell Story~", adventure_path(@adventure.id), method: :get %>
+<% end %>

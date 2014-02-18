@@ -1,0 +1,7 @@
+<h1> Add New Page to this Adventure! </h1>
+
+<%= form_for @page do |f| %>
+  <%= f.text_field :name, placeholder: "Page Name" %></br>
+  <%= f.text_area :text, placeholder: "Page Text" %></br>
+  <%= f.submit %>
+<% end %>

@@ -1,0 +1,9 @@
+<%= @adventure.title %></br>
+By: <%= @adventure.author %>
+</br></br>
+
+<%= form_for @page, as: :page, url: "/adventures/#{@adventure.id}/pages/#{@page.id}", method: :patch do |f| %>
+  <%= f.text_field :name, value: @page.name %>
+  <%= f.text_area :text, value: @page.text, style: "width: 100%; height: 200px;" %>
+  <%= f.submit %>
+<% end %>
