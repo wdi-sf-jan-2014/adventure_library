@@ -2,19 +2,24 @@
  
 <%= form_for @adventure do |f| %>
   
-  <%= f.text_field :author, placeholder: "Author" %><br>
-  
-  <%= f.text_field :title, placeholder: "Title" %><br>
+  <%= f.field_label :author %> <br>
+  <%= f.text_field :author %>
+  <br>
+  <%= f.field_label :title %> <br>
+  <%= f.text_field :title %>
+  <br>
   
   <%= fields_for @adventure.page do |x| %>
-
-  <%= x.text_field :name, placeholder: "Name" %><br>
-
-  <%= x.field_label :text %><br>
-  <%= x.text_area :text %>
-
-  <% end %>
-
-  <%= f.submit %>
+    
+    <%= x.field_label :name %> <br>
+    <%= x.text_field :name %>
+    <br>
+    <%= x.field_label :text %> <br>
+    <%= x.text_area :text %>
   
-  <% end %>
+  <% end %> 
+  
+  <br>
+  <%= f.submit %>
+
+<% end %>
