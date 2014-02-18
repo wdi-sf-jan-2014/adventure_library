@@ -1,0 +1,14 @@
+<%= form_for @adventure do |a| %>
+  
+  <%= a.text_field :title, placeholder: 'title' %></br>
+  <%= a.text_field :author, placeholder: 'author' %></br>
+  <h2>Write the story</h2>
+  <p> PLEASE READ BEFORE CREATING YOUR STORY!<p>
+  <p>In order to create a story your first page name MUST have the value of "start".  You last page MUST have the value of "end". In between you can write whatever you wish in the page text.  To link the story you must link a word or a phrase to the next page.  For instance you might write in your first text box: Welcome to the story! [[enter the room| one]], or [[leave the game|end]]. What is between the brackets on the left side of the pipe is the string that will be "linkified" and direct the user to the next page.  On the right side of the pipe is the name of the page that the string will be linked too. So if the user were to enter the room in the example above it would take them to the page that you call page one in the subsquent text form.</p>
+  <p>OK enough from me.  Happy story making!</p>  
+   <%= a.fields_for :pages do |p| %><br>
+      <%= p.text_field :name, placeholder: 'name of page' %> <br>
+      <%= p.text_area :text, placeholder: 'page text' %></br>
+    <% end %></br>
+  <%= a.submit 'Create' %>
+<% end %>

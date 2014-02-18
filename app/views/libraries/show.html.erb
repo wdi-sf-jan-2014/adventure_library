@@ -1,0 +1,6 @@
+<ul>
+<% @libraries_adventures.each do |a| %>
+    <li><%= link_to a.title, adventure_pages_path(a.id) %></li>
+    <li><%= a.author %></li><br>
+<% end %>
+</ul>

@@ -1,0 +1,10 @@
+<%= @page.adventure.title %></br>
+  
+<br><%= simple_format(linkify_page(@page)) do |p| %>
+  <%= p.name %>
+  <%= p.text %>
+<% end %></br>
+
+<br><%= link_to 'Restart', adventure_pages_path %></br>
+
+<br><%= link_to "Back to Adventure's Index", adventures_path %>

@@ -1,0 +1,19 @@
+<h1>Adventures Index</h1>
+
+<% @adventures.each do |a| %>
+  <%= link_to "#{a.title}", adventure_pages_path(a.id) %></br>
+
+    Created by: <%= a.author %><br> 
+  <br><% end %>
+
+  <br><%= link_to "Create a new local adventure", new_adventure_path %>
+
+  <h3>All libraries this server knows about:</h3>
+    <%= render template: "libraries/show" %>
+  
+  <h3>Add a library of adventures:</h3>
+    <%= render template: "libraries/new" %>
+
+  <br><%= link_to "See all libraries known to this server in JSON", 'libraries.json' %>
+
+
