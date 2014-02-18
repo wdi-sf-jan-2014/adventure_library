@@ -5,12 +5,15 @@ class PagesController < ApplicationController
     adventure = Adventure.find(params[:adventure_id])
     @pages = adventure.pages.all
 
+    binding.pry
     #to grab random pictures
     gon.picture = adventure.name
   end
 
   def show
     @page = Page.find(params[:id])
+    #to grab random pictures
+    gon.picture = @page.name
 
   end
 

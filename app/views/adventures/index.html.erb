@@ -12,11 +12,13 @@
     
     <div class="each-item">
       <%= link_to adventure.title, adventure_path(adventure) %> by
-      <%= adventure.author %> from 
+      <%= adventure.author %>  
       <% if adventure.library_id == nil %>
-        local adventure
+        a local adventure
       <% else %>
-         external adventure
+        <% library = Library.find(adventure.library_id) %>
+        from <%= link_to library.url, library.url %>
+
       <% end %>
 
     </div>

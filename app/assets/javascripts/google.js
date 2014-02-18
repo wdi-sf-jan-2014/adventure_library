@@ -46,7 +46,7 @@
       // When a search completes, our ImageSearch object is automatically
       // populated with the results.
       imageSearch.setSearchCompleteCallback(this, searchComplete, [imageSearch]);
-  // Find me a picture...
-  imageSearch.execute(gon.picture);
-}
+      // Find me a picture...
+      imageSearch.execute(gon.picture);
+    }
 google.setOnLoadCallback(OnLoad);

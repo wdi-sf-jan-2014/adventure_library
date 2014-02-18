@@ -32,6 +32,7 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+
 group :test, :development do
   gem 'rspec-rails'
   gem 'pry'
@@ -57,6 +58,10 @@ gem 'typhoeus'
 gem 'json'
 
 gem 'gon'
+
+group :production, :staging do
+  gem 'rails_12factor'
+end
 
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
