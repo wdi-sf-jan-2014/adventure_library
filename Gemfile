@@ -6,6 +6,9 @@ gem 'rails', '4.0.2'
 # Use postgresql as the database for Active Record
 gem 'pg'
 
+# Use typhoeus for http request 
+gem 'typhoeus'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
@@ -36,7 +39,22 @@ group :test, :development do
   gem 'rspec-rails'
   gem 'pry'
   gem 'pry-byebug'
+
+  # adds show model, and some object navigation (and some other stuff)
+  gem 'pry-rails'
+
+  # suppresses assets messages in console
+  gem 'quiet_assets'
+
+  gem 'better_errors'
+
+  # adds console access in browser, at point of error
+  gem 'binding_of_caller'
+
   gem 'dotenv-rails'
+
+  # adds better formatting / printing of objects/variables
+  gem 'awesome_print'
 end
 
 # Use ActiveModel has_secure_password
@@ -46,6 +64,10 @@ end
 gem 'unicorn'
 
 gem 'sidekiq'
+
+gem 'rails_12factor', group: :production
+
+ruby "2.0.0"
 
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development

@@ -1,0 +1,10 @@
+<h3>Enter a library to search...</h3>
+<div class="col-sm-6">
+  <%= form_for(@library) do |f| %>
+    <div class="form-group">
+      <%= f.label(:url, "Library URL: ") %>
+      <%= f.url_field(:url, class: "form-control") %>
+    </div>
+    <%= f.submit("Search", class: "btn btn-large btn-primary") %>
+  <% end %>
+</div>

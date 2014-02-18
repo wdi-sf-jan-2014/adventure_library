@@ -1,0 +1,8 @@
+<h1>Known Libraries</h1>
+<% unless @libraries.empty? %>
+  <ul>
+    <% @libraries.each do |library| %>
+      <li><%= link_to(library.url, library.url) %> - <%= link_to("query", library_path(library)) %></li>
+    <% end %>
+  </ul>
+<% end %>
