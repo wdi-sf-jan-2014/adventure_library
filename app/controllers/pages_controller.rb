@@ -1,6 +1,5 @@
 class PagesController < ApplicationController
-  def new
-  end
+
 
   def show
     @adventure = Adventure.find(params[:adventure_id])
@@ -8,6 +7,4 @@ class PagesController < ApplicationController
 
   end
 
-  def create
-  end
 end
