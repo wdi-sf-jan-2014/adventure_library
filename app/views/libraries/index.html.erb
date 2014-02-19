@@ -1,0 +1,12 @@
+<h1>Libraries</h1>
+
+<div class="list-group">
+
+<% @libraries.each do |x| %>
+  <a href=<%= x.url %> class="list-group-item"><%= x.url %></a>
+  
+  <% end %>
+
+  <a href="/libraries/new" class="list-group-item">NEW</a>
+
+</div>

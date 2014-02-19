@@ -1,0 +1,7 @@
+<h1>Library Search</h1>
+
+<%= form_for @library do |f| %>
+  <%= f.label :url %><br>
+  <%= f.text_field :url, placeholder: "Enter URL" %><br>
+  <%= f.submit %>
+  <% end %>

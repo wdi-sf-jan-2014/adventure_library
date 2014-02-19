@@ -1,0 +1,6 @@
+<!-- adventure start page -->
+<h1><%= @adventure.title %></h1>
+<br><br>
+<h3><%= @adventure.author %></h3>
+
+<%= link_to "START!", adventure_page_path(@adventure.id, @start) %>

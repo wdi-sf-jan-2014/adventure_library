@@ -6,6 +6,14 @@ gem 'rails', '4.0.2'
 # Use postgresql as the database for Active Record
 gem 'pg'
 
+gem "json", "~> 1.8.1"
+
+gem "typhoeus", "~> 0.6.7"
+
+gem "redis", "~> 3.0.7"
+
+gem 'nokogiri'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
@@ -47,8 +55,12 @@ gem 'unicorn'
 
 gem 'sidekiq'
 
+gem 'rails_12factor', group: :production
+
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+ruby '2.0.0'
