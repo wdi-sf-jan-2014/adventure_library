@@ -5,7 +5,7 @@
 *  manually.
 */
 
-    google.load('search', '1');
+    google.load('search', '1', {"nocss" : true});
     
     function searchComplete(searcher) {
       // Check that we got results
@@ -39,7 +39,7 @@
     
       // Restrict to extra large images only
       imageSearch.setRestriction(google.search.ImageSearch.RESTRICT_IMAGESIZE,
-                                 google.search.ImageSearch.IMAGESIZE_MEDIUM);
+                                 google.search.ImageSearch.IMAGESIZE_LARGE);
     
       // Here we set a callback so that anytime a search is executed, it will call
       // the searchComplete function and pass it our ImageSearch searcher.
@@ -48,5 +48,12 @@
       imageSearch.setSearchCompleteCallback(this, searchComplete, [imageSearch]);
       // Find me a picture...
       imageSearch.execute(gon.picture);
+      console.log(gon.picture);
     }
-google.setOnLoadCallback(OnLoad);
+
+  google.setOnLoadCallback(OnLoad);
+  // window.onload= OnLoad;
+ // document.addEventListener("page:load", OnLoad);
+
+
+
