@@ -1,0 +1,9 @@
+<h4>Currrent list of Adventures</h4>
+
+<%@all_adventures.each do |f| %>
+
+<%=link_to f.title, adventure_path(f.id) %><br>
+
+<%end%>
+
+<br>
