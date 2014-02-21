@@ -45,17 +45,22 @@ describe '/adventures' do
     end
   end
 
-  # describe 'GET with HTML' do
-  #   before do
-  #     get '/adventures'
-  #   end
-  #   it 'returns all adventures'
-  #   it 'returns adventures made on another server'    
-  # end
+  describe 'GET with HTML' do
+    before do
+      get '/adventures'
+    end
+    it 'returns all adventures' do
+      response.should be_success
+    end
+    it 'returns adventures made on another server' do
+      response.body.should include(@foreign_adventure["author"])
+    end 
+  end
 
-  # describe 'POST' do
-  #   it 'adds a locally made adventure'
-  # end
+  describe 'POST' do
+    it 'adds a locally made adventure' do
+      
+  end
 end
 
 describe '/libraries' do

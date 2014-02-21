@@ -1,0 +1,6 @@
+<%= link_to "Add library", new_library_path %> <%= link_to "See Adventures", adventures_path %>
+
+<h2>List of Libraries</h2>
+<% @libraries.each do |library| %>
+  <%= link_to library.url, library.url %><br>
+<% end %>

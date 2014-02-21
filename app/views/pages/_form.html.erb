@@ -1,0 +1,7 @@
+<%= form_for [@adventure, @page] do |f| %>
+  <%= f.label "Page Name:" %>
+  <%= f.text_field :name %><br>
+  <%= f.label "Text:" %>
+  <%= f.text_area :text %><br>
+  <%= f.submit %>
+<% end %>

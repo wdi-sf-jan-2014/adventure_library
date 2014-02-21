@@ -1,0 +1,19 @@
+<%= link_to "Adventures", adventures_path %>
+<h2>Edit Adventure</h2>
+<%= form_for @adventure do |f| %>
+  <%= f.label "Title" %>
+  <%= f.text_field :title %><br>
+  <%= f.label "Author" %>
+  <%= f.text_field :author %><br>
+  <%= f.submit %>
+
+
+  <h3>Pages</h3>
+  <% @adventure.pages.each do |p| %>
+    Name: <%= p.name %><br>
+    Text: <%= p.text %>
+    <%= link_to "Edit page", edit_adventure_page_path(@adventure.id, p.id) %><br>
+  <% end %>
+  <br>
+  <%= link_to "Add Page", new_adventure_page_path(@adventure.id) %>
+<% end %>

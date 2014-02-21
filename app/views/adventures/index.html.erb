@@ -1,0 +1,14 @@
+<%= link_to "New Adventure", new_adventure_path %> <%= link_to "Libraries", libraries_path %>
+<h2>List of adventures:</h2>
+
+<h4>Charlene's Adventures</h4>
+<% @local_adventures.each do |adventure| %>
+  <%= link_to adventure.title, adventure_path(adventure.id) %>
+  Author: <%= adventure.author %><br>
+<% end %>
+<br><br>
+
+<h4>Adventures From Others</h4>
+<% @foreign_adventures.each do |adventure| %>
+  <%= link_to adventure.title, adventure_path(adventure.id) %><br>
+<% end %>
