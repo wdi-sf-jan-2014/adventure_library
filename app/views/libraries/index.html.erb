@@ -1,0 +1,14 @@
+<h1> Ashley's Library</h1>
+
+
+<h2><%= link_to "Ashley's Adventures", adventures_path %></h2>
+
+<% @libraries.each do |l| %>
+
+<div>
+  <%= l.url %>
+
+</div>
+
+<% end %>
+

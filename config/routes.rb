@@ -1,4 +1,7 @@
 AdventureLibrary::Application.routes.draw do
+  root to: 'libraries#index'
+  get '/libraries' , to: "libraries#index"
+  # post '/libraries'
   resources :adventures do
     resources :pages
   end

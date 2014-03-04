@@ -6,9 +6,10 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-adv = Adventure.create!(:title => "#{name}'s Test Adventure",
-	:author => name)
+library = Library.create!(url: "/adventures")
+adv = Adventure.create!(:title => "Kill Me",
+	:author => "Ashley", :guid => "#{SecureRandom.urlsafe_base64(10)}")
 adv.pages.create!(:name => "start",
-	:text => "This is a great text adventure which is beginning right now!  I can't wait to [[see the end|end]]")
+	:text => "This is torture!  I can't wait to [[see the end|end]]")
 adv.pages.create!(:name => "end",
-	:text => "Wow that adventure was amazing!")
+	:text => "Wow I'm so glad this is over!")
