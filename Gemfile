@@ -9,6 +9,8 @@ gem 'pg'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
+gem 'typhoeus'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
@@ -46,6 +48,11 @@ end
 gem 'unicorn'
 
 gem 'sidekiq'
+
+gem 'active_model_serializers'
+
+gem 'unicorn-rails', :groups => [:development, :test]
+
 
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development

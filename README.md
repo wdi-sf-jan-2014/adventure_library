@@ -1,4 +1,4 @@
-# Adventure Library
+# Adventure Library Mini-Project
 
 ## WDI mini-project for 2/13/2014
 
@@ -12,7 +12,7 @@ Each of you will build a website which allows a user to view text adventures, cl
 * Relationships (has_many and belongs_to)
 * Using JSON APIs
 * Responding with JSON
-* Background workers
+* Background worke
 * Controllers and Views
 
 ## The HTML user interface

@@ -1,0 +1,10 @@
+<h1><em><%= @adventure.title %></em></h1>
+
+
+   <%= sanitize linkify_page(@page) %>
+   <% if @page.name == "end" %>
+     <br/>
+     <div class = "container"><strong><em>The end</em></strong></div.
+   <% end %>
+
+   <p><%= link_to "Edit page",edit_adventure_page_path(@adventure.id,@page.id ),class: 'btn btn-default btn-xs'%></p>
