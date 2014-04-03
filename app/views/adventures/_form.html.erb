@@ -11,6 +11,7 @@
   <br/>
 
 </p>
+ 
   <%= f.fields_for :pages, @adventure.pages.build do |builder| %>
   <%= render "page_fields", :f => builder %>
  <% end %>

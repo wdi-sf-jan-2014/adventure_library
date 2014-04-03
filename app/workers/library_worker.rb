@@ -22,7 +22,6 @@ class LibraryWorker
       
           end
 
-
           #get other libraries from this site
           response = Typhoeus.get(url +"/libraries.json")
           result =  JSON.parse(response.body)
@@ -34,6 +33,7 @@ class LibraryWorker
               my_libraries_with_same_url = Library.where(url: library['url'])
               if   my_libraries_with_same_url.empty? && (library['url'] != 'http://sleepy-garden-8077.herokuapp.com')
                  @libraries << Library.create(url:  library['url'])
+
 
               end
             end
