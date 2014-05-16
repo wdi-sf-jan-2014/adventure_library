@@ -1,0 +1,6 @@
+<h1>Choose An Adventure</h1>
+
+<% @adventures.each do |adventure| %>
+	<em><%= link_to adventure.title, adventure_page_url(adventure, adventure.pages.where(name: "start")[0]) %></em><br>
+	by <%= adventure.author %>
+<% end%>
