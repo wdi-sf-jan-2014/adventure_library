@@ -1,2 +1,9 @@
-<h1>Pages#new</h1>
-<p>Find me in app/views/pages/new.html.erb</p>
+<%= form_for @page,  do |f| %>
+	<% if @page.id == 1 %>
+		<%= f.text_field :name, :html => { value: "start"} %>
+	<% else %>
+		<%= f.text_field :name %>
+		<% end %>
+	<%= f.text_area :text %>
+	<%= f.submit 'create page' %>
+<% end %>

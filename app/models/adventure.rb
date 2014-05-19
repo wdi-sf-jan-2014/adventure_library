@@ -2,6 +2,8 @@ class Adventure < ActiveRecord::Base
   belongs_to :library
   has_many :pages
 
+  accepts_nested_attributes_for :pages
+
   before_save :add_guid
 
   validates :guid, uniqueness: true

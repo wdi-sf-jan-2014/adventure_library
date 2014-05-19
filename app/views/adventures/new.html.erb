@@ -1,2 +1,11 @@
-<h1>Adventures#new</h1>
-<p>Find me in app/views/adventures/new.html.erb</p>
+<h1>Create A New Adventure</h1>
+
+<%= form_for @adventure do |f| %>
+	<%= f.text_field :title, placeholder: :title %>
+	<%= f.text_field :author, placeholder: :author %>
+	<%= fields_for :page do |ff| %>
+		<%= ff.text_field :name, :input_html => { :value => 'start' } %>
+		<%= ff.text_area :text %>
+	<% end %>
+	<%= f.submit 'create page' %>
+<% end %>

@@ -7,6 +7,8 @@ class PagesController < ApplicationController
   end
 
   def new
+    @adventure = Adventure.find(params[:adventure_id])
+    @page = Page.new
   end
 
   def create

@@ -38,4 +38,8 @@ private
     @adventure = Adventure.find(params[:id])
   end
 
+  def adventure_params
+    params.require(:adventure).permit(:title, :author)
+  end
+
 end
