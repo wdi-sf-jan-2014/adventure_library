@@ -28,6 +28,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
 gem 'typhoeus'
+gem 'sidekiq'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -39,7 +40,7 @@ group :test, :development do
   gem 'pry'
   gem 'pry-rails'
   gem 'dotenv-rails'
-  gem 'better_errors'
+  #gem 'better_errors'
 end
 
 # Use ActiveModel has_secure_password
