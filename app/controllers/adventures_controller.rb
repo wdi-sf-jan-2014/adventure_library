@@ -1,8 +1,12 @@
 class AdventuresController < ApplicationController
   before_action :lookup, only: [:show]
+
   def index
     @adventures = Adventure.all
-    binding.pry
+    respond_to do |format|
+      format.html
+      format.json { render :json => { adventures: @adventures.where(library_id: nil).as_json(except: [:id, :library_id], include: {:pages => { only: [:name, :text]} })}, status: :ok }
+    end
   end
 
   def show
