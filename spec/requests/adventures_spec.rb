@@ -2,15 +2,17 @@ require 'spec_helper'
 
 describe '/adventures' do
   before(:each) do 
-    @local_adventure = Adventure.create!(:title => "test",
-                                        :author => "Test author")
+    @local_adventure = Adventure.create!(
+                                        :title => "test",
+                                        :author => "Test author"
+                                        )
     @local_adventure.pages.create!(:name => "start", :text => "cool story bro")
 
-    @foreign_adventure = Adventure.create!(:title => "Ceci n'est pas un test.",
+    @foreign_adventure = Adventure.create!(
+                                    :title => "Ceci n'est pas un test.",
                                     :author => "Foreign author",
                                     :library_id => 4)
     @foreign_adventure.pages.create(:name => "start", :text => "Chouette histoire, mec.")
-
   end
 	describe 'GET with JSON' do
     before(:each) do 
